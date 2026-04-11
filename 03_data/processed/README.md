@@ -21,7 +21,7 @@ Final analysis-ready panels for DiD/SCM estimation. This folder currently contai
 
 ### Electricity Panel (Event-Study Ready)
 - **File:** `panel_kwh_monthly.csv` (to be created)
-- **Description:** Province-month electricity consumption (secondary outcome)
+- **Description:** Province-month electricity consumption (baseline outcome, harder to collect than CO₂)
 - **Columns:**
   - `province`
   - `date` (YYYY-MM-DD, first of month)

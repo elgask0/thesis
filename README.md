@@ -14,15 +14,15 @@ Master's thesis in Chinese Economy at Zhejiang University.
 
 **Current State:** This repo is still an early scaffold. It contains the project structure, working notes, source archives, and the research plan, but no real analysis code or committed datasets yet.
 
-**AI onboarding:** [CLAUDE.md](CLAUDE.md) and [AGENTS.md](AGENTS.md) are currently bootstrap files meant to be replaced after a full repo audit.
+**AI onboarding:** [CLAUDE.md](CLAUDE.md) and [AGENTS.md](AGENTS.md) define the current repo rules and work sequence.
 
 ---
 
 ## Quick Overview
 
-**Research Question:** What is the causal effect of China's EDWC program on provincial CO₂ emissions, electricity consumption, and AI compute?
+**Research Question:** What is the causal effect of China's EDWC program on provincial CO₂ emissions and electricity consumption, and how should those results later be translated into AI-relevant compute metrics?
 
-**Methods:** Sun-Abraham event-study + Synthetic Control (Gansu, optional)
+**Methods:** Sun-Abraham event-study, province-by-province electricity scraping starting with Gansu, and optional Synthetic Control for Gansu
 
 **Key Contribution:** Translating energy effects into AI-native Carbon-per-Compute (CPC) metrics
 
@@ -45,12 +45,14 @@ Master's thesis in Chinese Economy at Zhejiang University.
 ### RQ1 — Causal Effects
 What is the effect of EDWC go-live on provincial CO₂ and electricity?
 - **Method:** Event-study (Sun-Abraham) + Synthetic Control (Gansu, optional)
-- **Outcomes:** Daily CO₂ (primary), monthly kWh (secondary)
+- **Outcomes:** Daily CO₂ and monthly kWh are both baseline outcomes
+- **Sequencing:** CO₂ is easier to assemble first; electricity is harder but required and starts with Gansu
 
 ### RQ2 — Compute Translation
 What is the implied Carbon-per-Compute (CPC) before and after EDWC?
 - **Method:** CPC = CI × PUE × (1000/GF/W)
 - **Output:** tCO₂ per EF·h by province-month
+- **Sequencing:** This is a later phase after the baseline DiD and the CO₂/electricity backbone are in place
 
 ### RQ3 — Economic Outcomes (exploratory extension)
 How do energy/compute changes relate to provincial economics?
@@ -69,12 +71,12 @@ How do energy/compute changes relate to provincial economics?
 
 ### In Progress 🔄
 - [ ] Build CO₂ panel (daily → monthly)
-- [ ] Map Gansu electricity bulletin structure
+- [ ] Build the first verified Gansu electricity extraction workflow
 - [ ] Turn source notes into actual collected data
 - [ ] Refine the implementation roadmap as real work begins
 
 ### To Do ⏳
-- [ ] Build the electricity panel
+- [ ] Expand the electricity scraper province by province after Gansu
 - [ ] Estimate the baseline models
 - [ ] Operationalize CPC after the core panel exists
 - [ ] Write thesis chapters
@@ -100,7 +102,6 @@ edwc-thesis/
 ├── 01_notes/              # Main research notes, source archives, and method notes
 ├── 02_literature/         # Papers and sources
 ├── 03_data/               # Empty scaffold for raw, interim, and processed datasets
-├── 04_drafts/             # Working drafts
 ├── 05_misc/               # Slides, miscellaneous
 ├── notebooks/             # Placeholder for future analysis notebooks
 └── src/                   # Placeholder for future code

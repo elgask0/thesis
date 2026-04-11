@@ -15,7 +15,7 @@ created: 2026-02-19
 
 ## Overview
 
-This document is orientative, not binding. Right now the real priority is to build the basic empirical backbone: CO₂ first, then a first-pass electricity workflow starting from Gansu.
+This document is orientative, not binding. Right now the real priority is to build the empirical backbone for both baseline outcomes: CO₂ and electricity. CO₂ is easier to assemble first, but electricity is equally important and must begin immediately with a Gansu-first province-by-province workflow.
 
 ---
 
@@ -23,6 +23,8 @@ This document is orientative, not binding. Right now the real priority is to bui
 
 ### Step 1.1: Build CO₂ Panel ✊ Start Here
 **Time Estimate:** 2-4 hours | **Priority:** HIGH
+
+This is the easier of the two baseline outcome builds, not the more important one.
 
 **Tasks:**
 - [ ] Download Carbon Monitor China daily data
@@ -43,7 +45,7 @@ This document is orientative, not binding. Right now the real priority is to bui
 **Time Estimate:** 1-2 days | **Priority:** HIGH
 
 **Tasks:**
-- [ ] Start with Gansu only
+- [ ] Start with Gansu first
   - Base search URL: `https://gxt.gansu.gov.cn/guestweb4/s?siteCode=6200000082&checkHandle=1&pageSize=10&left_right_index=0&searchWord=全省电力生产运行情况`
   - Query phrase: `全省电力生产运行情况`
 - [ ] Inspect the Gansu bulletin structure
@@ -59,7 +61,7 @@ This document is orientative, not binding. Right now the real priority is to bui
 - [ ] Only create `03_data/processed/panel_kwh_monthly.csv` after extraction is proven workable
 - [ ] QA check: confirm what can actually be extracted before claiming coverage
 
-**Output:** Verified Gansu source log + extraction template
+**Output:** Verified Gansu source log + extraction template + first province-ready path toward the baseline electricity panel
 
 **Current Source Status:**
 | Province | Current status |
@@ -153,14 +155,15 @@ This document is orientative, not binding. Right now the real priority is to bui
 ---
 
 ### Step 2.2: Event-Study (Sun-Abraham) — kWh
-**Time Estimate:** 2-4 hours | **Priority:** MEDIUM
+**Time Estimate:** 2-4 hours | **Priority:** HIGH
 
 **Tasks:**
 - [ ] Run same event-study on `kwh_total` outcome
-- [ ] Only if coverage ≥80% for treated provinces
+- [ ] Use the verified kWh sample that meets the documented coverage rule
+- [ ] Keep expanding province coverage even if the first estimation sample is incomplete
 - [ ] Plot dynamic effects
 
-**Output:** kWh event-study results (conditional on coverage)
+**Output:** First kWh event-study results on the verified sample, plus a documented coverage gap list
 
 ---
 

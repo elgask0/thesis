@@ -110,7 +110,7 @@ It should evolve as the empirical work and positioning become clearer.
 - Interpretation in terms of ΔMWh and ΔCO₂.
 
 4.2. Event-study design (Sun–Abraham)  
-- Panel structure (province–month, CO₂ as primary outcome; MWh where available).  
+- Panel structure (province–month, with CO₂ and MWh as baseline outcomes; CO₂ likely assembled first because electricity requires province-by-province scraping).  
 - Staggered adoption and group–time ATTs.  
 - Model specification: province FE, time FE, weather and other controls.  
 - Definition of event-time leads and lags, binning strategy.

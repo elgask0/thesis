@@ -1,66 +1,105 @@
-# Claude Bootstrap
+# Claude Guide
 
-This file is intentionally temporary.
+This repo is the canonical workspace for an early-stage master's thesis on China's Eastern Data, Western Compute (EDWC) program.
 
-It is **not** the final onboarding document for this repo.
+Right now the defensible baseline is narrower than some draft materials make it sound:
 
-Your first job is to read the repository yourself, build your own understanding, identify inconsistencies or hidden assumptions, ask Mario the questions that matter, and then rewrite this file and `AGENTS.md` from your own repo audit.
+- Core thesis backbone: EDWC go-live timing plus matched provincial CO2 and electricity outcomes.
+- CO2 is easier to assemble first; electricity is equally important baseline work and must be built province by province starting with Gansu.
+- CPC / `GF/W` / PUE / CI translation is a key later module, but it is not the first implementation task.
 
-## First Task
+There is still no real analysis code and no committed datasets in this repo.
 
-Before proposing code, workflow, or structure:
+## Current Reality
 
-1. Read the repo carefully.
-2. Treat all Markdown docs as candidate context, not unquestioned truth.
-3. Produce a short memo for Mario with:
-   - inconsistencies or contradictions you found
-   - assumptions that need confirmation
-   - scope risks or places where the project is too ambitious
-   - what should be treated as core versus extension
-   - the best immediate next actions
-4. Ask Mario only the clarifying questions that are genuinely important.
-5. After that, rewrite `CLAUDE.md` and `AGENTS.md` so they reflect your own understanding of the repo.
+- The repo contains useful notes, but not all notes are equally current.
+- Some documents are aspirational research designs rather than binding execution plans.
+- The slide deck in `05_misc/slides/` contains older treatment timings and premature coverage claims; treat it as historical context, not current truth.
+- Source discovery is not the same thing as data feasibility.
 
-## Read Everything
+## Read Order
 
-This repo is still small enough that you should inspect **all important Markdown docs**, especially:
+When orienting to the project, read in this order:
 
-- `README.md`
-- `NEXT_STEPS.md`
-- `01_notes/`
-- `02_literature/`
-- `03_data/*/README.md`
-- `04_drafts/`
+1. `README.md`
+2. `NEXT_STEPS.md`
+3. `01_notes/edwc_treatment_dates.md`
+4. `01_notes/electricity_data_pipeline.md`
+5. `01_notes/global_plan.md`
+6. `01_notes/thesis_structure.md`
+7. The relevant `03_data/*/README.md` files and `02_literature/sources_notes.md`
 
-## Current Working Reality
+## Truth Hierarchy
 
-Do not lose sight of these facts while auditing:
+When documents disagree, use this priority:
 
-- The repo is still an early scaffold.
-- There is no real analysis code yet.
-- There are no committed datasets yet.
-- This repo folder is now the canonical workspace.
-- The external Obsidian vault is no longer the main working location.
+1. Verified repo state and source evidence
+2. `01_notes/edwc_treatment_dates.md` for treatment timing
+3. `01_notes/electricity_data_pipeline.md` for electricity feasibility
+4. `README.md` and `NEXT_STEPS.md` for current work order
+5. `01_notes/global_plan.md` for broader design ideas
+6. `05_misc/slides/` as historical material
 
-## Behavioral Rules
+## Canonical Notes
 
-- Audit first, build later.
-- Do not invent scripts, datasets, or completed coverage.
-- Do not assume electricity data are already feasible just because source leads exist.
-- Do not assume CPC / `GF/W` implementation should be the first coding task.
-- Do not revive the dropped curtailment-welfare design as causal evidence unless new intraday data appear.
-- Do not treat time-of-use tariff notes as proof of hourly demand reshaping without hourly load data.
+The repo now keeps the main conceptual and drafting notes in `01_notes/`.
 
-## What A Good First Response Looks Like
+Do not recreate mirrored draft copies of the same document in multiple folders.
 
-The first useful output is a memo with:
+## Core vs Extension
 
-1. what the thesis appears to be doing
-2. what seems settled
-3. what seems inconsistent or under-specified
-4. what Mario should clarify
-5. what the repo should do next
+### Core now
 
-## Then Replace This File
+- Lock EDWC treatment dates with source-backed provenance.
+- Build the CO2 backbone from Carbon Monitor.
+- Build the electricity backbone province by province, starting with Gansu.
+- Define minimal schemas and provenance rules for treatment, CO2, and electricity data.
+- Run the baseline RQ1 work once the first usable CO2 and kWh panels exist.
 
-Once you have read the repo and spoken with Mario, replace this bootstrap file with a proper project-level `CLAUDE.md`.
+### Later core
+
+- The baseline DiD on CO2 and kWh
+- CI constructed on real overlap between CO2 and electricity data
+- A simple CPC translation layer built on documented observed inputs after the baseline DiD backbone exists
+
+### Extension
+
+- Bespoke `GF/W` series construction and Monte Carlo bands
+- Synthetic Control for Gansu
+- CAICT-driven heterogeneity beyond basic donor logic
+- Economic outcomes for "program fit"
+- Renewable curtailment / utilization appendices
+- Time-of-use tariff mechanism work
+- Dashboards, procurement guidance, credit-risk products, or other applied products
+
+## Working Rules
+
+- Audit first, build second.
+- Do not invent coverage, pipelines, or empirical results.
+- Do not assume electricity data are feasible because a search URL exists.
+- Do not make `GF/W`, CPC, or dashboards the first coding task.
+- Do not revive the dropped curtailment-welfare design without hourly data.
+- Do not use time-of-use tariff notes as evidence of actual intraday reshaping.
+- Preserve provenance for every empirical source: URL, publication date, title, and raw file or text location.
+- For electricity extraction, build a manual seed set before automating anything.
+- Do not claim province coverage until month-level evidence is logged.
+
+## Methodological Guardrails
+
+- Treat EDWC as a bundled intervention. Baseline claims are reduced-form, not "pure data center" effects.
+- Do not control for CI in the baseline RQ1 specification unless there is explicit methodological justification; it is plausibly post-treatment and in some notes is constructed from the same outcome family.
+- Do not force a CPC module with modeled CI just to preserve the original vision if the electricity backbone is weak.
+- Do not promise a uniform `[-12, +18]` event window without checking the actual post-treatment support for late-treated provinces.
+- Keep Sichuan/Chongqing outside the baseline treated set unless there is a deliberate redesign.
+
+## Good First Actions
+
+If a task is underspecified, prefer one of these:
+
+1. Build or QA the monthly CO2 backbone.
+2. Expand the treatment-date evidence log.
+3. Map Gansu electricity bulletins and prove one extraction template by hand.
+4. Turn the verified Gansu workflow into the first reusable province scraper path.
+5. Tighten schemas, provenance logs, or minimal analysis inputs.
+
+Everything else should usually wait on those steps.

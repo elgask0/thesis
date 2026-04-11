@@ -15,6 +15,8 @@ The key step is that the DiD/event-study delivers reduced-form EDWC-induced chan
 - What fraction of the extra MWh truly comes from data centers.  
 - How CI would have evolved without EDWC (counterfactual mix).
 
+**Sequencing note:** CPC is a key part of the thesis, but it is a later phase. The immediate priority is to build the CO₂ and electricity data backbone and finish the baseline DiD inputs first.
+
 ---
 
 ## 0b. Dropped Idea: Curtailment-Welfare RQ
@@ -31,13 +33,13 @@ The key step is that the DiD/event-study delivers reduced-form EDWC-induced chan
 
 ### RQ1 — Causal (reduced-form EDWC → energy and emissions)
 
-**RQ1.** What is the causal effect of EDWC cluster go-lives on CO₂ emissions and, where data permit, on electricity consumption in destination provinces?
+**RQ1.** What is the causal effect of EDWC cluster go-lives on CO₂ emissions and electricity consumption in destination provinces?
 
 - **Baseline treated provinces:** Ningxia, Guizhou, Gansu, Inner Mongolia.  
 
 - **Outcomes:**  
-  - **Primary:** Daily provincial CO₂ (2019–2025), aggregated to monthly for the main model.  
-  - **Secondary:** Monthly provincial electricity (kWh/MWh) where coverage is sufficient (Gansu, Henan, etc.).
+  - Daily provincial CO₂ (2019–2025), aggregated to monthly for the main model and likely assembled first because it is easier to obtain.  
+  - Monthly provincial electricity (kWh/MWh), built province by province starting with Gansu and treated as required baseline evidence even if the first estimation sample is incomplete.
 
 For each treated province $p$, the design identifies a **reduced-form** effect of the EDWC *package* (data centers + grid reinforcement + associated renewables, etc.):
 
@@ -107,10 +109,9 @@ Relate scenario-based $\Delta \text{EF·h}$ to provincial economic variables as 
      - $\text{PUE}_{p,t}$ consistent with MIIT/NDRC/NEA targets,  
      - $\text{GF/W}_{\text{AI,China}}(t)$ constructed from Green500 + HPL-MxP + MFU + a China haircut (A800/H800).
 
-3. **Applied product**  
+3. **AI-focused interpretation after the baseline DiD**  
    - Monthly CPC series by province–month + $\Delta \text{CPC}$ post-EDWC.  
-   - EDWC scorecards by province: $\Delta \text{CO₂}$, $\Delta \text{GWh}$, $\Delta \text{CPC}$, $\Delta \text{EF·h}$ (scenarios).  
-   - Stress-test modules (e.g., “impact of +X EF·h in Gansu” under different CPC assumptions).
+   - Compute-translation tables that map the estimated energy and emissions effects into later-stage AI-relevant scenarios.
 
 ---
 
@@ -264,7 +265,7 @@ Treatment is defined by **operational go-live dates** from official portals, pri
 
 **Use in the thesis:**
 
-- Secondary outcome for RQ1 wherever 2022–2025 coverage is dense enough.  
+- Baseline outcome for RQ1 alongside CO₂, with the understanding that the first estimation sample may be smaller while scraper coverage expands.  
 - Input for physical consistency checks:
 
   $$
@@ -447,7 +448,7 @@ Y_{p,t}
 + X_{p,t}'\gamma + \varepsilon_{p,t}
 $$
 
-- $Y_{p,t}$: monthly CO₂ (primary) or monthly kWh (secondary).  
+- $Y_{p,t}$: monthly CO₂ or monthly kWh.  
 - $E_p$: month of $T_0$ (see treatment table).  
 - $\ell = t - E_p$: event time (in months; tails are binned).  
 - $\alpha_p$: province fixed effects; $\delta_t$: month fixed effects (national shocks).  
@@ -720,7 +721,7 @@ Figures and tables show medians + bands instead of single-point estimates.
 3. Construct $\text{CI}^{(\text{CM})}_{p,t} = \text{CO₂}/\text{MWh}$; optionally CI-from-mix for checks.  
 4. Build $\text{PUE}_{p,t}$ trajectories using CAICT/RMI/ODCC targets and levels.  
 5. Build $\text{GF/W}_{\text{AI,China}}(t)$ series.  
-6. Estimate Sun–Abraham event-study (CO₂ and, where relevant, kWh).  
+6. Estimate Sun–Abraham event-study on CO₂ and on the verified kWh sample, expanding the electricity sample as scraper coverage improves.  
 7. Estimate SCM for Gansu (and optionally for another province).  
 8. Compute $\text{CPC}_{p,t}$ and $\Delta \text{CPC}$; decompose volume vs mix; build offset indices.  
 9. Translate $\Delta \text{MWh}$/$\Delta \text{CO₂}$ into $\Delta \text{EF·h}$ under multiple scenarios ($\theta$, net, gross).
@@ -732,7 +733,7 @@ Figures and tables show medians + bands instead of single-point estimates.
 ## 9. Main Risks (Reminder)
 
 - **Incomplete kWh coverage**  
-  → Primary outcome = CO₂; kWh as secondary outcome/check.
+  → CO₂ can be assembled earlier, but kWh remains required baseline work; estimate the first kWh sample on verified coverage and keep expanding the scraper.
 
 - **Non-EDWC shocks (Sichuan 2022)**  
   → Dummies, donor exclusion, sensitivity analysis.

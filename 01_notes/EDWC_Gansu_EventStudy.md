@@ -3,14 +3,12 @@
 > **Working Paper (ZJU MSc Thesis) — Draft**
 > Author: _Mario D.M._
 > Last updated: 2026-04-11
->
-> **Note:** This file is synced with [[working_paper]]. Edits should be made in both locations or use one as the working copy.
 
 ---
 
 ## Abstract
 
-China’s **Eastern Data, Western Computing (EDWC)** program redirects data-processing workloads from coastal demand centers to inland provinces rich in land and lower-cost/cleaner power. We provide causal evidence on how EDWC affects **electricity use** and **CO₂ emissions** at the provincial level, with a **spotlight on Gansu**, and we translate these impacts into **AI-compute-relevant metrics** using an auditable **Carbon‑per‑Compute (CPC)** framework. Our identification combines (i) a **staggered-adoption event study** (Sun-Abraham) with the go-live timing of EDWC nodes (Ningxia 2023-02, Guizhou 2023-09, Gansu 2024-06, Inner Mongolia 2024-09) and (ii) a **single-treated synthetic control** (SCM) for Gansu (2019-2025) using untreated provinces in the same CAICT compute tier as donors. We estimate dynamic effects on **daily CO₂ emissions** (primary) and **monthly electricity consumption** (secondary), show robust **parallel pre-trends**, and translate post-treatment effects into **ΔCPC** using exogenous **compute-efficiency (GF/W)** and **PUE** paths. We discuss mechanisms (cooling load, task migration, green power availability), heterogeneity by **CAICT quartile** and **EDWC cohort**, and provide **policy/industry products** (risk dashboard, stress-test inputs, and CPC indices).
+China’s **Eastern Data, Western Computing (EDWC)** program redirects data-processing workloads from coastal demand centers to inland provinces rich in land and lower-cost/cleaner power. We provide causal evidence on how EDWC affects **electricity use** and **CO₂ emissions** at the provincial level, with a **spotlight on Gansu**, and later translate these impacts into **AI-compute-relevant metrics** using an auditable **Carbon‑per‑Compute (CPC)** framework. Our identification combines (i) a **staggered-adoption event study** (Sun-Abraham) with the go-live timing of EDWC nodes (Ningxia 2023-02, Guizhou 2023-09, Gansu 2024-06, Inner Mongolia 2024-09) and (ii) a **single-treated synthetic control** (SCM) for Gansu (2019-2025) using untreated provinces in the same CAICT compute tier as donors. We estimate dynamic effects on **daily CO₂ emissions** and **monthly electricity consumption** as paired baseline outcomes, with CO₂ likely assembled first because electricity requires province-by-province scraping beginning with Gansu. Once the baseline DiD is in place, we translate the results into **ΔCPC** using exogenous **compute-efficiency (GF/W)** and **PUE** paths.
 
 ---
 
@@ -21,17 +19,18 @@ China’s **Eastern Data, Western Computing (EDWC)** program redirects data-proc
 - **Contributions.**
   1) **Causal effects** from a transparent **policy shock** (EDWC go‑live) using **staggered event studies** and **SCM**.  
   2) **AI‑relevant translation**: from ΔCO₂/ΔMWh to **ΔCPC** via **GF/W** and **PUE**, with uncertainty bands.  
-  3) **Applied outputs**: a **provincial CPC dashboard**, **risk flags** for utilities/credit, and **scalable metrics** useful to firms and regulators.
+  3) **Sequenced design**: first build the CO₂ and electricity backbone for the baseline DiD, then do the AI-related translation work.
 
 ---
 
 ## 2. Research Questions (RQ)
 
-- **RQ1 (Causal, primary):** *What is the dynamic effect of EDWC **go‑live** on provincial **daily CO₂ emissions** and **monthly electricity consumption**?*  
+- **RQ1 (Causal baseline):** *What is the dynamic effect of EDWC **go‑live** on provincial **daily CO₂ emissions** and **monthly electricity consumption**?*  
   - Level and persistence of the treatment effect, **event‑time profile** (anticipation, immediate, and longer‑run effects).
   - **Heterogeneity**: by **CAICT compute quartile**, EDWC vs non‑EDWC, and green resource endowment.
 - **RQ2 (Translation to AI):** *Given RQ1’s effects, what is the implied **Carbon‑per‑Compute (CPC)** for each province and month, and how does it vary with **compute efficiency (GF/W)**, **PUE**, and **grid carbon intensity (CI)**?*  
   - Produce **ΔCPC** (post–pre) for treated provinces and **levels** of CPC when combined with a defensible efficiency path.
+  - **Sequencing:** implement after the baseline DiD and the CO₂/electricity backbone are complete.
 
 ---
 
@@ -77,7 +76,7 @@ China’s **Eastern Data, Western Computing (EDWC)** program redirects data-proc
 
 ### 5.1 Staggered‑adoption event study (Sun–Abraham) — RQ1
 
-Let $Y_{p,t}$ be either daily CO₂ (primary) or monthly kWh (secondary) for province $p$ at date $t$. Let $E_p$ be the **first EDWC go‑live** month for province $p$ (absorbing treatment). Define **event time** $\ell = t - E_p$. We estimate:
+Let $Y_{p,t}$ be either daily CO₂ or monthly kWh for province $p$ at date $t$. Let $E_p$ be the **first EDWC go‑live** month for province $p$ (absorbing treatment). Define **event time** $\ell = t - E_p$. We estimate:
 
 $$
 Y_{p,t} \;=\; \alpha_p + \tau_t \;+\; \sum_{\ell\in \mathcal{L},\,\ell\neq \ell_0}
@@ -97,7 +96,7 @@ where $\alpha_p$ are **province fixed effects**, $\tau_t$ **time fixed effects**
 
 We build a **synthetic Gansu** from a convex combination of **untreated donor provinces** (same **CAICT quartile Q1**; exclude EDWC destinations and provinces with major power shocks). Pre‑period: 2019–**2024‑05**. Post: **2024‑06** onward.
 
-- **Outcome to match:** **daily CO₂** (primary); secondary SCM on **monthly kWh** (if data coverage suffices).  
+- **Outcome to match:** **daily CO₂** first; monthly kWh as a later parallel outcome once the verified electricity sample is usable.  
 - **Predictors:** lags of the outcome (seasonal means), **weather (CDD)**, **grid mix shares**, **CI**, and **industrial proxy** where available.  
 - **Placebos:** leave‑one‑out and **in‑space** placebo distribution to compute **post/pre RMSPE ratios** and **p‑values**.  
 - **Robustness:** ridge‑augmented SCM, restricted donor pools, alternative start date (**±1 month**).
@@ -171,7 +170,7 @@ If we want **AI compute scale** (EF·h) induced by EDWC, under strong assumption
 ### 9.1 Event study (Sun–Abraham) in Stata
 
 ```stata
-* Panel: province-day (primary) or province-month (secondary)
+* Panel: province-day or province-month, depending on the outcome
 xtset prov_id date
 
 * Create event-time variables around T0 (EDWC go-live) for each province
@@ -233,7 +232,7 @@ CPC = CI * PUE * (1000.0 / GF_W)
 - **Parallel trends:** joint tests on **pre‑treatment leads**; show flat pre‑profiles.  
 - **Placebo provinces:** assign placebo T₀ to never‑treated provinces; expect null.  
 - **Placebo years:** randomly re‑date T₀; expect null.  
-- **Alternative outcomes:** monthly kWh as secondary with consistent signs.  
+- **Alternative outcome path:** monthly kWh once the verified electricity sample is usable.  
 - **Climate shocks:** control for **CDD** and interactions; exclude **Sichuan 2022** window as a robustness.  
 - **Alternative T₀ windows:** shift go‑live ±1–2 months; results stable.  
 - **Aggregation choice:** daily vs monthly; report both where possible.  
@@ -276,7 +275,7 @@ CPC = CI * PUE * (1000.0 / GF_W)
 
 - [ ] Build panel (daily CO₂; monthly kWh, CI, PUE; weather).  
 - [ ] Tag **T₀** for NX (2023-02), GZ (2023-09), GS (2024-06), IM (2024-09).
-- [ ] Estimate **Sun–Abraham** event study (primary: CO₂/day).  
+- [ ] Estimate **Sun–Abraham** event study for CO₂ and then for the verified kWh sample.  
 - [ ] SCM for **Gansu** (2019–2025) — optional.
 - [ ] Construct **GF/W\_{AI,China}(t)**, **PUE\_{p,t}**, **CI\_{p,t}**; compute **CPC** and **ΔCPC**.  
 - [ ] Translate into **products** (dashboard, tables, write‑up).

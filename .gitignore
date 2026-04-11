@@ -19,9 +19,6 @@ ENV/
 03_data/interim/*
 !03_data/interim/.gitkeep
 !03_data/interim/README.md
-03_data/processed/*
-!03_data/processed/.gitkeep
-!03_data/processed/README.md
 
 # PDFs / large files (use Git LFS if needed)
 *.pdf
