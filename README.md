@@ -14,6 +14,8 @@ Master's thesis in Chinese Economy at Zhejiang University.
 
 **Current State:** This repo is still an early scaffold. It contains the project structure, working notes, source archives, and the research plan, but no real analysis code or committed datasets yet.
 
+**AI onboarding:** Any assistant connected to this repo should read [CLAUDE.md](CLAUDE.md) first, then [AGENTS.md](AGENTS.md).
+
 ---
 
 ## Quick Overview
