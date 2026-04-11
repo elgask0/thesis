@@ -40,6 +40,17 @@ Master's thesis literature and reference materials for EDWC research.
   - Figshare: https://figshare.com/articles/dataset/CarbonMonitor-China_a_near-real-time_CO_sub_2_sub_emission_dataset_for_31_provinces_in_China_2019-2025/29444291
 - **Usage:** Primary outcome variable for RQ1
 
+#### Current repo source note — Carbon Monitor China CSV export
+- **Canonical local raw file:** `03_data/raw/carbon_monitor/carbonmonitor-china_datas_2026-04-11.csv`
+- **Download URL:** `https://datas.carbonmonitor.org/API/downloadFullDataset.php?source=carbon_china`
+- **Observed local coverage:** `2019-01-01` to `2025-11-30`, `31` provinces, `5` sectors
+- **Observed raw columns:** `state`, `date`, `sector`, `value`, plus one trailing blank export column
+- **Unit handling in this repo:** treat `value` as daily `MtCO2` and convert to `tonnes` when aggregating to month
+- **Current local output:** `03_data/interim/panel_co2_monthly.csv`
+- **Current local aggregation rule:** sum all daily sector values within province-month to produce province-month total CO₂
+- **Additional method context supplied by user:** Google Doc titled `CarbonMonitor_method_for_website`
+- **Citation posture for drafting:** cite the Scientific Data paper, the China methodology references, the Figshare dataset, and the Carbon Monitor China portal rather than relying only on the internal Google Doc
+
 ---
 
 ### Empirical Methods

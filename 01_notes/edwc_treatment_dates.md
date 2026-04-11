@@ -9,6 +9,9 @@ Working note for official-source treatment timing evidence used to define provin
 - For daily specifications, keep the exact day only when the source is precise; otherwise use month-level timing and test adjacent robustness windows.
 
 > [!note]
+> In the current build phase, these are working anchors rather than locked final treatment dates. Full province-by-province fact-checking happens later, once the baseline CO2 and electricity panels are ready for DiD work.
+
+> [!note]
 > This note supersedes earlier placeholder timings in the repo. Current baseline month coding is Ningxia `2023-02`, Guizhou `2023-09`, Gansu `2024-06`, and Inner Mongolia `2024-09`.
 
 ## Baseline Coding Summary

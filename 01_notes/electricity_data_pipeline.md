@@ -14,6 +14,7 @@ Working note for the electricity bulletin collection and extraction process used
 - Intermediate monthly panels will be created in `../03_data/interim/`
 - The target is province-month coverage for treated provinces with clear provenance
 - Right now only a Gansu starting point is identified; no province has verified coverage yet
+- Availability should be discovered by trying province by province, not by estimating confidence in advance
 
 ## Source Leads
 
@@ -32,6 +33,7 @@ Working note for the electricity bulletin collection and extraction process used
 - Track recurring title patterns separately from numeric extraction logic.
 - Prefer bulletins that explicitly report province-wide electricity consumption totals (`全社会用电量`) or monthly power operation summaries.
 - Do not claim coverage until specific monthly bulletins have been collected and logged.
+- Do not spend time assigning ex ante confidence scores to province coverage; attempt the EDWC provinces one by one and record what is actually available.
 
 ## Related Notes
 

@@ -17,6 +17,11 @@ created: 2026-02-19
 
 This document is orientative, not binding. Right now the real priority is to build the empirical backbone for both baseline outcomes: CO₂ and electricity. CO₂ is easier to assemble first, but electricity is equally important and must begin immediately with a Gansu-first province-by-province workflow.
 
+At this stage, do not block the work on either:
+
+- ex ante confidence about electricity coverage
+- exact treatment-date disputes before the baseline panels exist
+
 ---
 
 ## Phase 1: Data Collection (Weeks 1-3)
@@ -24,7 +29,7 @@ This document is orientative, not binding. Right now the real priority is to bui
 ### Step 1.1: Build CO₂ Panel ✊ Start Here
 **Time Estimate:** 2-4 hours | **Priority:** HIGH
 
-This is the easier of the two baseline outcome builds, not the more important one.
+This is the easier of the two baseline outcome builds, and it is the first implementation task.
 
 **Tasks:**
 - [ ] Download Carbon Monitor China daily data
@@ -34,10 +39,10 @@ This is the easier of the two baseline outcome builds, not the more important on
 - [ ] Aggregate daily → monthly by province
   - Sum daily CO₂ to monthly totals
   - Create `province`, `year_month`, `co2_tonnes` columns
-- [ ] Save to `03_data/processed/panel_co2_monthly.csv`
+- [ ] Save to `03_data/interim/panel_co2_monthly.csv`
 - [ ] QA check: Plot monthly CO₂ for a few provinces to verify
 
-**Output:** `panel_co2_monthly.csv` (31 provinces × ~84 months)
+**Output:** interim `panel_co2_monthly.csv` (31 provinces × ~84 months)
 
 ---
 
@@ -48,6 +53,7 @@ This is the easier of the two baseline outcome builds, not the more important on
 - [ ] Start with Gansu first
   - Base search URL: `https://gxt.gansu.gov.cn/guestweb4/s?siteCode=6200000082&checkHandle=1&pageSize=10&left_right_index=0&searchWord=全省电力生产运行情况`
   - Query phrase: `全省电力生产运行情况`
+- [ ] After Gansu, keep moving province by province through the EDWC set rather than trying to predict coverage in advance
 - [ ] Inspect the Gansu bulletin structure
   - Note format (HTML/PDF)
   - Identify recurring title pattern
@@ -59,7 +65,7 @@ This is the easier of the two baseline outcome builds, not the more important on
 - [ ] Only after Gansu works, identify starting URLs for Ningxia, Inner Mongolia, and Guizhou
 - [ ] Log findings in `01_notes/electricity_data_pipeline.md`
 - [ ] Only create `03_data/processed/panel_kwh_monthly.csv` after extraction is proven workable
-- [ ] QA check: confirm what can actually be extracted before claiming coverage
+- [ ] QA check: confirm what can actually be extracted after trying, not before
 
 **Output:** Verified Gansu source log + extraction template + first province-ready path toward the baseline electricity panel
 
@@ -91,22 +97,20 @@ This is the easier of the two baseline outcome builds, not the more important on
 
 ---
 
-### Step 1.4: Create Treatment Variables
-**Time Estimate:** 1-2 hours | **Priority:** HIGH
+### Step 1.4: Create Provisional Treatment Variables
+**Time Estimate:** 1-2 hours | **Priority:** MEDIUM
 
 **Tasks:**
 - [ ] Create treatment dates file
-  - Ningxia: 2023-02-24 (use 2023-02-01 for month coding)
-  - Guizhou: 2023-09 (use 2023-09-01; keep 2024-06 as robustness)
-  - Inner Mongolia: 2024-09 (use 2024-09-01 for month coding; refine exact daily date later if needed)
-  - Gansu: 2024-06 (use 2024-06-01)
+  - Use rough month-level anchors for early panel construction
+  - Final province-by-province fact-checking happens later, right before the DiD specification is locked
 - [ ] For each province-month, calculate:
   - `is_treated`: 1 if province ∈ {Gansu, Ningxia, IM, Guizhou}
   - `event_month`: ℓ = t - T₀ (relative to commissioning)
   - `cohort`: Province name
 - [ ] Save to `03_data/processed/treatment_dates.csv`
 
-**Output:** `treatment_dates.csv`
+**Output:** provisional `treatment_dates.csv`
 
 ---
 

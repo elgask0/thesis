@@ -17,16 +17,20 @@ Before building code, workflows, or timelines:
 
 Use these as the current project anchors:
 
+- `05_misc/slides/supervisor_meeting_slides.pdf` for the current supervisor-facing narrative and thesis framing
 - `README.md` for the project summary
 - `NEXT_STEPS.md` for current sequencing
-- `01_notes/edwc_treatment_dates.md` for baseline treatment timing
+- `01_notes/edwc_treatment_dates.md` for working treatment anchors
 - `01_notes/electricity_data_pipeline.md` for electricity feasibility and provenance expectations
 - `01_notes/global_plan.md` for the broad research design
 - `01_notes/thesis_structure.md` for the canonical outline
 
-Treat this as historical context:
+During the current build phase:
 
-- `05_misc/slides/supervisor_meeting_slides.pdf`
+- start with the Carbon Monitor CO2 backbone
+- do not stall on ex ante electricity coverage confidence
+- do not stall on exact treatment-date disputes before the baseline data backbone exists
+- fact-check final treatment dates province by province when the panel is ready for DiD work
 
 ## Single-Source Rule
 
@@ -76,9 +80,9 @@ One person can wear multiple hats, but the responsibilities should stay distinct
 
 ### Core baseline
 
-- Treatment timing with source-backed evidence
 - CO2 panel construction
 - Gansu-first electricity scraping and expansion province by province
+- Working treatment anchors now, source-backed fact-checking later before the final DiD
 - Minimal treatment and analysis schemas
 - Baseline RQ1 estimation plan and later implementation
 
@@ -135,7 +139,7 @@ Do not:
 
 - invent completed pipelines
 - overstate data coverage
-- treat historical slides as current ground truth
+- treat slide claims as empirically verified unless the supporting source log exists
 - conflate platform go-live and physical-capacity go-live without saying which is used
 - recreate mirrored draft files that can drift
 - turn ambitious extensions into the default next step

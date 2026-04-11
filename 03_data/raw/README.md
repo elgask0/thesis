@@ -11,7 +11,10 @@ Original, unmodified data sources. This folder is currently just a scaffold; no 
 - **Source:** Carbon Monitor China (https://carbonmonitor.org)
 - **Description:** Daily provincial CO₂ emissions (2019–2025)
 - **Format:** CSV/JSON (original format from source)
-- **Status:** Not yet downloaded into this repo
+- **Status:** Local CSV now stored in `carbon_monitor/carbonmonitor-china_datas_2026-04-11.csv`
+- **Canonical download URL:** `https://datas.carbonmonitor.org/API/downloadFullDataset.php?source=carbon_china`
+- **Observed coverage in the current best local CSV:** `2019-01-01` to `2025-11-30`, `31` provinces, `5` sectors (`Industry`, `Ground Transport`, `Aviation`, `Residential`, `Power`)
+- **Canonical repo workflow:** use the CSV export, not the narrower XLSX export
 - **Notes:** Primary outcome variable for RQ1
 
 ### Electricity Consumption
@@ -59,7 +62,7 @@ All files in this folder can be re-downloaded from original sources:
 
 | Data Type | Source | URL | Notes |
 |-----------|--------|-----|-------|
-| CO₂ | Carbon Monitor China | https://carbonmonitor.org | Daily, 2019–2025 |
+| CO₂ | Carbon Monitor China | https://datas.carbonmonitor.org/API/downloadFullDataset.php?source=carbon_china | Daily export used by the repo |
 | Electricity | Provincial bulletins | Varies by province | See [[electricity_data_pipeline]] |
 | Weather | Meteorological datasets | TBD | To be determined |
 

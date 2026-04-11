@@ -14,6 +14,8 @@ Master's thesis in Chinese Economy at Zhejiang University.
 
 **Current State:** This repo is still an early scaffold. It contains the project structure, working notes, source archives, and the research plan, but no real analysis code or committed datasets yet.
 
+**Current Working Posture:** Use the supervisor slide deck as the narrative anchor for the thesis, but start implementation with the Carbon Monitor CO2 backbone. Exact treatment-date fact-checking and province-level electricity coverage decisions can wait until the baseline data backbone exists.
+
 **AI onboarding:** [CLAUDE.md](CLAUDE.md) and [AGENTS.md](AGENTS.md) define the current repo rules and work sequence.
 
 ---
@@ -32,6 +34,7 @@ Master's thesis in Chinese Economy at Zhejiang University.
 
 | What to Read | Why |
 |--------------|-----|
+| **`05_misc/slides/supervisor_meeting_slides.pdf`** | Current supervisor-facing framing of the thesis |
 | **[[NEXT_STEPS|Next Steps →]]** | Current orientative work order for the repo |
 | **[[global_plan|Global Plan]]** | Full research design, scope, and empirical logic |
 | **[[electricity_data_pipeline|Electricity Data Pipeline]]** | Current state of the provincial electricity collection plan |
@@ -68,9 +71,9 @@ How do energy/compute changes relate to provincial economics?
 - [x] Core research notes and plan drafted
 - [x] Treatment-date archive started
 - [x] Source tracking notes started
+- [x] First monthly CO₂ panel built from the local Carbon Monitor CSV export
 
 ### In Progress 🔄
-- [ ] Build CO₂ panel (daily → monthly)
 - [ ] Build the first verified Gansu electricity extraction workflow
 - [ ] Turn source notes into actual collected data
 - [ ] Refine the implementation roadmap as real work begins
@@ -113,11 +116,9 @@ edwc-thesis/
 
 **Treated Provinces:** Gansu, Ningxia, Inner Mongolia, Guizhou
 
-**T₀ Dates:**
-- Ningxia: 2023-02 (platform go-live)
-- Guizhou: 2023-09 (DC put into use; 2024-06 migration robustness)
-- Inner Mongolia: 2024-09 (Jiuzhou center go-live)
-- Gansu: 2024-06
+**Current local CO₂ file coverage:** the best local Carbon Monitor CSV now spans `2019-01` to `2025-11`, covers `31` provinces, and has been aggregated into `03_data/interim/panel_co2_monthly.csv`.
+
+**T₀ Dates:** Keep these as working anchors only for now. Final province-by-province fact-checking happens later, once the baseline CO₂ and electricity panels are usable.
 
 **Event Window:** [-12, +18] months around T₀
 

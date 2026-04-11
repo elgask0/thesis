@@ -7,9 +7,12 @@ Cleaned and merged datasets, ready for final processing. This folder is still a 
 ## Contents
 
 ### CO₂ Panels
-- **File:** `panel_co2_monthly.csv` (to be created)
-- **Description:** Monthly provincial CO₂ emissions (2019–2025)
+- **File:** `panel_co2_monthly.csv`
+- **Description:** Monthly provincial CO₂ emissions from the current best local Carbon Monitor export
 - **Source:** Aggregated from daily Carbon Monitor data in `../raw/`
+- **Current local build:** `panel_co2_monthly.csv` now exists and was aggregated from `carbonmonitor-china_datas_2026-04-11.csv`
+- **Observed coverage in the current local build:** `2573` rows = `31` provinces × `83` months (`2019-01` to `2025-11`)
+- **Canonical build path:** `python3 src/carbon_monitor/build_monthly_panel.py --input 03_data/raw/carbon_monitor/carbonmonitor-china_datas_2026-04-11.csv --output 03_data/interim/panel_co2_monthly.csv`
 - **Columns:**
   - `province` (string)
   - `year_month` (YYYY-MM)
