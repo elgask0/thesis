@@ -28,11 +28,16 @@ Master's thesis literature and reference materials for EDWC research.
 
 #### Liu et al. (2020) — Carbon Monitor: Real-time global CO₂ emissions
 - **Journal:** Scientific Data
-- **Description:** Daily CO₂ emissions by country, sector, and province
-- **URL:** https://carbonmonitor.org
+- **Paper:** https://www.nature.com/articles/s41597-020-00708-7
+- **Method PDF:** https://carbonmonitor.org.cn/uploads/2006/CarbonMonitor_method.pdf
+- **Data portal:** https://cn.carbonmonitor.org/
 - **China-specific:**
   - Cui et al. — Daily CO₂ for China's provinces (2019–2020)
+    - Preprint: https://essd.copernicus.org/preprints/essd-2021-153/
+    - Zenodo: https://zenodo.org/records/4730168
   - Provincial disaggregation methodology
+- **Consolidated 2019–2025 dataset (31 provinces):**
+  - Figshare: https://figshare.com/articles/dataset/CarbonMonitor-China_a_near-real-time_CO_sub_2_sub_emission_dataset_for_31_provinces_in_China_2019-2025/29444291
 - **Usage:** Primary outcome variable for RQ1
 
 ---
@@ -82,16 +87,42 @@ Master's thesis literature and reference materials for EDWC research.
 
 ### PUE and Green Data Centers
 
-#### State Council (2024-07-24) — China sets green targets for data centers
-- **Policy:** PUE < 1.5 by 2025 for new data centers
-- **Description:** National energy efficiency targets for data center infrastructure
-- **Usage:** PUE trajectory assumptions for CPC construction
+#### CAICT (2024) — China Green Computing Power Development Research Report
+- **Publisher:** 中国信息通信研究院 (CAICT)
+- **Key data:** National DC PUE 1.54 (2022), 1.48 (2023)
+- **PDF:** https://www.caict.ac.cn/kxyj/qwfb/ztbg/202407/P020240711551514828756.pdf
 
-#### MIIT / NDRC / NEA — Action plans for green data centers
-- **Documents:**
-  - Action Plan for Carbon Peaking in Data Center Sector (2021–2025)
-  - Green Data Center Assessment Guidelines
-- **Key content:** PUE targets, renewable energy requirements, efficiency standards
+#### Xinhua (2024-06) — China's Computing Power Industry Shows New Trend of Green Transition
+- **Publisher:** 新华社 (Xinhua News)
+- **Key data:** Confirms PUE 2023 = 1.48, 2022 = 1.54
+- **URL:** https://www.news.cn/20240629/3e439c6edbe241178335732da8d0e87d/c.html
+
+#### MIIT + 6 ministries (2022) — Action Plan for Green and Low-Carbon Development of ICT Industry (2022–2025)
+- **Policy:** New large DCs PUE < 1.3; renovated core rooms PUE < 1.5
+- **PDF:** https://www.mee.gov.cn/xxgk2018/xxgk/xxgk10/202208/W020220831368118636346.pdf
+- **Gov.cn:** https://www.gov.cn/zhengce/2022-08/26/content_5706915.htm
+
+#### NDRC / MIIT / NEA / NDA — Special Action Plan for Green DC Development
+- **Policy:** National avg PUE < 1.5 by 2025; rack rate ≥ 60%; renewables ≥ 10% annual growth
+- **PDF:** https://www.ndrc.gov.cn/xwdt/tzgg/202407/P020240723625616053849.pdf
+- **Interpretation:** https://home.wuhan.gov.cn/zcfg/202408/t20240808_2439562.shtml
+
+#### NDA + NEA (2025) — Computing Power and Electricity Synergy
+- **Key data:** EDWC hub clusters avg PUE ≈ 1.3, best practice 1.04
+- **NDA:** https://www.nda.gov.cn/sjj/swdt/sjdt/0318/20250318212051776584737_pc.html
+- **People's Daily:** https://finance.people.com.cn/n1/2025/0319/c1004-40442025.html
+
+#### ODCC — Data Center Green Design White Paper
+- **Key data:** Design PUE ~1.32 (construction), ~1.28–1.29 (hyperscale), target ≤ 1.25
+- **Download:** https://www.odcc.org.cn/download/p-1673994360961089537.html
+
+#### RMI China (2024) — Decoupling Computing Power Growth and Carbon Emissions
+- **Key data:** Confirms PUE 2023 = 1.48; tightened targets PUE ≤ 1.25 (new DCs), ≤ 1.2 (EDWC hubs)
+- **PDF:** https://rmi.org.cn/wp-content/uploads/2024/11/241119-%E8%A7%A3%E8%80%A6%E7%AE%97%E5%8A%9B%E5%8F%91%E5%B1%95%E4%B8%8E%E7%A2%B3%E6%8E%92%E6%94%BE-%E2%80%93-%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E7%94%A8%E8%83%BD%E5%A2%9E%E9%95%BF%E7%9A%84%E6%8C%91%E6%88%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E8%B7%AF%E5%BE%84.pdf
+
+#### Greenpeace East Asia (2024) — Clean Cloud 2024
+- **Key content:** Cloud/DC operator rankings, renewables use, PUE target recap
+- **PDF:** https://www.greenpeace.org.cn/wp-content/uploads/2024/07/Clean-Cloud-2024.pdf
 
 ---
 

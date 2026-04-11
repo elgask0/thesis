@@ -207,12 +207,17 @@ Treatment is defined by **operational go-live dates** (“投运/上线/试运�
 **Primary source:** Carbon Monitor–China, which provides daily CO₂ emissions by province and sector (2019–2025).
 
 - General methodology:
-  - Z. Liu et al. (2020), *Carbon Monitor: a near-real-time daily dataset of global CO₂ emissions*, Scientific Data.  
-  - Methodological note: *CarbonMonitor_method.pdf*.  
+  - Z. Liu et al. (2020), *Carbon Monitor: a near-real-time daily dataset of global CO₂ emissions*, Scientific Data.
+    - Paper: https://www.nature.com/articles/s41597-020-00708-7
+    - Method PDF: https://carbonmonitor.org.cn/uploads/2006/CarbonMonitor_method.pdf
 - Extension to Chinese provinces:
-  - C. Cui et al., *Daily CO₂ emissions for China’s provinces in 2019–2020*, ESSD (preprint) + Zenodo dataset.  
+  - C. Cui et al., *Daily CO₂ emissions for China’s provinces in 2019–2020*, ESSD (preprint) + Zenodo dataset.
+    - Preprint: https://essd.copernicus.org/preprints/essd-2021-153/
+    - Zenodo 2019–2020: https://zenodo.org/records/4730168
 - Consolidated dataset:
   - *CarbonMonitor–China: a near-real-time CO₂ emission dataset for 31 provinces in China 2019–2025* (Figshare).
+    - Dataset: https://figshare.com/articles/dataset/CarbonMonitor-China_a_near-real-time_CO_sub_2_sub_emission_dataset_for_31_provinces_in_China_2019-2025/29444291
+- Data portal: https://cn.carbonmonitor.org/
 
 **Construction of the monthly series in the thesis:**
 
@@ -318,36 +323,47 @@ Uses of the second construction:
 **National average PUE data:**
 
 - CAICT – *China Green Computing Power Development Research Report (2024)*:
-  - National data center PUE: 1.54 (2022), 1.48 (2023).  
+  - National data center PUE: 1.54 (2022), 1.48 (2023).
+  - PDF: https://www.caict.ac.cn/kxyj/qwfb/ztbg/202407/P020240711551514828756.pdf
 - Xinhua recap (*China’s Computing Power Industry Shows New Trend of Green Transition*):
   - Confirms PUE 2023 = 1.48, 2022 = 1.54.
+  - Article: https://www.news.cn/20240629/3e439c6edbe241178335732da8d0e87d/c.html
 
 **Official PUE policies (MIIT, NDRC, NEA, National Data Administration):**
 
-- *Action Plan for Green and Low-Carbon Development of the Information and Communications Industry (2022–2025)*:
-  - New large and ultra-large DCs: PUE < 1.3.  
-  - Renovated core rooms: PUE < 1.5.  
+- *Action Plan for Green and Low-Carbon Development of the Information and Communications Industry (2022–2025)* (MIIT + 6 ministries):
+  - New large and ultra-large DCs: PUE < 1.3.
+  - Renovated core rooms: PUE < 1.5.
+  - PDF: https://www.mee.gov.cn/xxgk2018/xxgk/xxgk10/202208/W020220831368118636346.pdf
+  - Gov.cn interpretation: https://www.gov.cn/zhengce/2022-08/26/content_5706915.htm
 
-- *Special Action Plan for Green and Low-Carbon Development of Data Centers*:
+- *Special Action Plan for Green and Low-Carbon Development of Data Centers* (NDRC, MIIT, NEA, National Data Administration):
   - 2025 targets:
-    - National average PUE for all DCs: < 1.5.  
-    - Rack rate ≥ 60%.  
-    - Renewable utilization: ≥ 10% average annual growth.  
+    - National average PUE for all DCs: < 1.5.
+    - Rack rate ≥ 60%.
+    - Renewable utilization: ≥ 10% average annual growth.
+  - PDF: https://www.ndrc.gov.cn/xwdt/tzgg/202407/P020240723625616053849.pdf
+  - Interpretation: https://home.wuhan.gov.cn/zcfg/202408/t20240808_2439562.shtml
 
-- Joint note (National Data Administration + NEA, 2025):
+- Joint note (National Data Administration + NEA, 2025) — *Systematically Promoting Synergy between Computing Power and Electricity*:
   - In the eight EDWC hubs, clusters have average PUE ≈ 1.3, with best-practice cases at 1.04.
+  - NDA: https://www.nda.gov.cn/sjj/swdt/sjdt/0318/20250318212051776584737_pc.html
+  - People’s Daily reprint: https://finance.people.com.cn/n1/2025/0319/c1004-40442025.html
 
 **Other sources:**
 
 - ODCC – *Data Center Green Design White Paper*:
-  - Design PUE for projects under construction ~1.32; hyperscale ~1.28–1.29; target PUE ≤ 1.25.  
+  - Design PUE for projects under construction ~1.32; hyperscale ~1.28–1.29; target PUE ≤ 1.25.
+  - Download: https://www.odcc.org.cn/download/p-1673994360961089537.html
 
 - RMI – *Decoupling Computing Power Growth and Carbon Emissions – Data Center Energy Use*:
-  - Confirms PUE 2023 = 1.48 (CAICT).  
-  - Tightened targets: new/expanded large DCs PUE ≤ 1.25, EDWC hubs PUE ≤ 1.2.  
+  - Confirms PUE 2023 = 1.48 (CAICT).
+  - Tightened targets: new/expanded large DCs PUE ≤ 1.25, EDWC hubs PUE ≤ 1.2.
+  - PDF: https://rmi.org.cn/wp-content/uploads/2024/11/241119-%E8%A7%A3%E8%80%A6%E7%AE%97%E5%8A%9B%E5%8F%91%E5%B1%95%E4%B8%8E%E7%A2%B3%E6%8E%92%E6%94%BE-%E2%80%93-%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E7%94%A8%E8%83%BD%E5%A2%9E%E9%95%BF%E7%9A%84%E6%8C%91%E6%88%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E8%B7%AF%E5%BE%84.pdf
 
 - Greenpeace East Asia – *Clean Cloud 2024*:
   - Rankings of cloud/DC operators; renewables use; recap of PUE targets.
+  - PDF: https://www.greenpeace.org.cn/wp-content/uploads/2024/07/Clean-Cloud-2024.pdf
 
 **Interpretation in the thesis (trajectories $\text{PUE}_{p,t}$):**
 
