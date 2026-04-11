@@ -165,8 +165,8 @@ This document breaks down the thesis work into concrete steps. Start from the to
 
 ---
 
-### Step 2.3: Synthetic Control (Gansu)
-**Time Estimate:** 4-6 hours | **Priority:** HIGH
+### Step 2.3: Synthetic Control (Gansu) — Optional
+**Time Estimate:** 4-6 hours | **Priority:** MEDIUM (optional / supplementary)
 
 **Tasks:**
 - [ ] Select donor pool
@@ -291,10 +291,10 @@ This document breaks down the thesis work into concrete steps. Start from the to
 
 ---
 
-## Phase 4: RQ3 & Writing (Weeks 9-12)
+## Phase 4: Extension & Writing (Weeks 9-12)
 
-### Step 4.1: Economic Outcomes (RQ3)
-**Time Estimate:** 2-3 days | **Priority:** MEDIUM
+### Step 4.1: Economic Outcomes (Exploratory Extension)
+**Time Estimate:** 2-3 days | **Priority:** LOW (program-fit extension)
 
 **Tasks:**
 - [ ] Collect provincial economic data
@@ -305,7 +305,7 @@ This document breaks down the thesis work into concrete steps. Start from the to
 - [ ] Estimate event-study with economic outcomes
 - [ ] Document correlations between energy/compute and economics
 
-**Output:** RQ3 results section
+**Output:** Economic extension section (discussion)
 
 ---
 
@@ -332,7 +332,7 @@ This document breaks down the thesis work into concrete steps. Start from the to
 5. **Results** (2 weeks)
    - [ ] RQ1: Event-study and SCM findings
    - [ ] RQ2: CPC and compute scenarios
-   - [ ] RQ3: Economic outcomes
+   - [ ] Economic extension (program-fit)
 6. **Conclusion** (1 week)
    - [ ] Summary of findings
    - [ ] Policy implications

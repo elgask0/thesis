@@ -17,6 +17,14 @@ The key step is that the DiD/event-study delivers reduced-form EDWC-induced chan
 
 ---
 
+## 0b. Dropped Idea: Curtailment-Welfare RQ
+
+**Original proposal (dropped):** Estimate social welfare from reduced renewable curtailment due to EDWC-driven data center demand. Mechanism: datacenters shift flexible workloads to off-peak hours where curtailment occurs → less curtailed energy.
+
+**Why dropped:** No intraday provincial load/price curves available. Without hourly data, cannot credibly attribute curtailment reduction to datacenter behavior or show price sensitivity. The curtailment-based welfare RQ is not defensible with current data.
+
+---
+
 ## 1. Research Questions and Contribution
 
 ### RQ1 — Causal (reduced-form EDWC → energy and emissions)
@@ -71,18 +79,15 @@ Starting from the causal RQ1 results $(\Delta \text{MWh}, \Delta \text{CO₂})$,
 
 ---
 
-### RQ3 — “China Economy” focus: investment, employment, specialization
+### Extension — Economic outcomes (program-fit mitigation)
 
-**RQ3.** How are EDWC’s effects on energy and compute related to provincial economic variables such as investment, employment, and digital specialization?
+Relate scenario-based $\Delta \text{EF·h}$ to provincial economic variables as a **mitigation for program-fit concerns** (ensuring the thesis is grounded in Chinese economics, not only energy/technology):
 
-Ideas:
+- Provincial fixed investment (infrastructure, power sector, ICT).
+- Employment in ICT/software/data center sectors.
+- Positions in CAICT compute indices.
 
-- Relate scenario-based $\Delta \text{EF·h}$ to:  
-  - Provincial fixed investment (infrastructure, power sector, ICT).  
-  - Employment in ICT/software/data center sectors.  
-  - Positions in CAICT compute indices.
-
-This anchors the thesis in **Chinese economics**, not only in energy/technology.
+> **Status:** This is an exploratory extension, not a core research question. It supports the thesis positioning as a Chinese economics study and may become a discussion section or appendix.
 
 ---
 
@@ -91,7 +96,7 @@ This anchors the thesis in **Chinese economics**, not only in energy/technology.
 1. **Upstream AI → energy causality**  
    - Estimate EDWC → CO₂/kWh effects via:
      - Staggered adoption event-study (Sun–Abraham).  
-     - Synthetic Control (SCM) for Gansu as the main case.  
+     - Synthetic Control (SCM) for Gansu as an optional/supplementary check.
    - Clearly interpreted as **reduced-form effects** on energy and emissions, not on “pure CI”.
 
 2. **AI-native physical accounting (CPC)**  
@@ -146,24 +151,22 @@ Treatment is defined by **operational go-live dates** (“投运/上线/试运�
 
 ### 3.1. Operational $T_0$ Dates (Baseline + Robustness)
 
-**Ningxia (NX)**  
+**Ningxia (NX)**
 
-- Baseline $T_0$: 2023-02-24.  
-- Asset: 东数西算一体化算力服务平台 (Integrated EDWC Computing Power Service Platform).  
+- Baseline $T_0$: 2023-07-21.
+- Asset: China Telecom Ningxia Data Center Phase I (中卫).
 - Evidence:
-  - Ningxia News Network: “上线发布” conference; platform “正式发布上线” as a milestone in the 算力 service network.  
-  - CCTV (“共同关注”): reports that the platform “上线运营” as a key national EDWC node.  
-- Interpretation: the $T_0$ shock is the operational go-live of the compute platform that enables routing/trading of compute, beyond physical infrastructure alone.
+  - Zhongwei Government / Zhongwei DRC progress reports: China Telecom Ningxia DC Phase I accepted and ready for operation.
+- Interpretation: the $T_0$ shock is the commissioning of a major data center facility in the Ningxia EDWC node.
 
-**Guizhou (GZ)**  
+**Guizhou (GZ)**
 
-- Baseline $T_0$: 2023-09.  
+- Baseline $T_0$: 2023-12 / 2024-01.
 - Relevant assets:
-  - 国家电投贵安数据中心 (SPIC Gui’an DC): Xinhua notes it has been “投用” since September 2023; migrating data from subordinate units since then.  
-  - 网易贵安数据中心 (NetEase Gui’an DC): trial operation (“试运行”) planned for Sept 2023 (Guizhou DRC and provincial portals).  
-  - June 2024: Guizhou Big Data Bureau reports full migration of a Beijing data center to the Gui’an node (complete switchover).  
+  - 网易贵安数据中心 (NetEase Gui’an DC): trial operation (“试运行”) end of 2023; ramp in 2024 (Guiyang Daily PDF; Gui’an Admin).
+  - 国家电投贵安数据中心 (SPIC Gui’an DC): reported online & in operation by early 2024.
 - Interpretation:
-  - Main $T_0$: 2023-09 (SPIC commissioning and start of real load in the cluster).  
+  - Main $T_0$: 2023-12 / 2024-01 (NetEase DC trial operation and SPIC commissioning).
   - Alternative $T_0$ (robustness): 2024-06 (completed migration from Beijing).
 
 **Gansu (GS)**  
@@ -179,19 +182,16 @@ Treatment is defined by **operational go-live dates** (“投运/上线/试运�
   - $T_0 =$ June 2024, when the cluster reaches significant operational scale (≥10k P).  
   - The post period includes further expansion (Dec 2024, Jan 2025).
 
-**Inner Mongolia (IM)**  
+**Inner Mongolia (IM)**
 
-- Baseline $T_0$: 2024-09.  
-- Asset: 九州智算中心 (Jiuzhou Intelligent Computing Center) in 和林格尔新区 (Horinger New Area).  
+- Baseline $T_0$: 2024-04-28.
+- Asset: China Mobile Hohhot Intelligent Computing Center (中国移动呼和浩特智算中心).
 - Evidence:
-  - Xinhua / Sina: the center “建成投运” at end of Sept 2024, with:
-    - 672 cabinets at 24 kW,  
-    - Capacity to deploy 20,000 P of compute.  
-  - Further reports describe it as building a “全国绿色算力保障基地” (national green computing power security base).  
-  - May 2025: multi-cloud monitoring and dispatch platform for the Horinger cluster goes into operation and interconnects with Beijing, Anhui, Guizhou, Chongqing.  
+  - China Mobile / Inner Mongolia News: the center commissioned/in production (“投运”) by late April 2024.
+  - Further reports describe continued expansion in the Horinger New Area through 2024–2025.
 - Interpretation:
-  - Main $T_0$: 2024-09 (operational start of the large Jiuzhou center with 20k P).  
-  - Alternative $T_0$ (robustness): 2025-05 (multi-cloud dispatch platform).
+  - Main $T_0$: 2024-04-28 (China Mobile center commissioned and in production).
+  - Alternative $T_0$ (robustness): 2024-09 or later (Jiuzhou Intelligent Computing Center in Horinger).
 
 **Note on Sichuan**
 
@@ -366,7 +366,7 @@ Uses of the second construction:
 Built from:
 
 1. **Green500 FP64:**
-   - Take the median (or 75th percentile) GF/W of top-10 systems per list.  
+   - Take the frontier GF/W per edition (options: median of top-10 systems, or Q4 / P75 of all systems; sensitivity test both).
    - Interpolate between releases to obtain a monthly series.
 
 2. **HPL-MxP speedup (MxP/FP64):**
@@ -438,10 +438,12 @@ $$
 
 ---
 
-### 5.2. SCM for Gansu
+### 5.2. SCM for Gansu (optional / supplementary)
 
-- Treated unit: **Gansu**.  
-- Pre period: 2019-01 to 2024-05.  
+> **Status:** SCM is a supplementary robustness exercise. The main identification comes from the Sun–Abraham event-study (5.1). SCM is run if time and data permit.
+
+- Treated unit: **Gansu**.
+- Pre period: 2019-01 to 2024-05.
 - Post period: from 2024-06 (Gansu $T_0$).
 
 **Donors:**
@@ -639,7 +641,7 @@ Figures and tables show medians + bands instead of single-point estimates.
 1. **Introduction**  
    - Motivation (upstream AI → energy).  
    - What EDWC does.  
-   - RQ1–RQ3 and contributions.
+   - RQ1–RQ2, contributions, and economic extension.
 
 2. **Context and institutions**  
    - EDWC, hubs, clusters.  
@@ -652,39 +654,36 @@ Figures and tables show medians + bands instead of single-point estimates.
    - CI, PUE, $\text{GF/W}_{\text{AI,China}}(t)$.  
    - $T_0$ dates; CAICT tiers.
 
-4. **Empirical strategy for RQ1**  
-   - Sun–Abraham event-study.  
-   - SCM for Gansu.  
+4. **Empirical strategy for RQ1**
+   - Sun–Abraham event-study.
+   - SCM for Gansu (optional / supplementary).
    - Identification discussion (reduced-form nature).
 
-5. **RQ1 results**  
-   - Plots of $\beta_\ell$ (CO₂, kWh).  
-   - Gansu SCM (actual vs synthetic paths, placebos).  
+5. **RQ1 results**
+   - Plots of $\beta_\ell$ (CO₂, kWh).
+   - Gansu SCM — actual vs synthetic paths, placebos (optional, if run).
    - Heterogeneity (by CAICT tier, by province, by offset index).
 
-6. **CPC and compute translation (RQ2)**  
-   - Construction of GF/W and $\text{PUE}_{p,t}$.  
-   - $\text{CPC}_{p,t}$ and $\Delta \text{CPC}$.  
+6. **CPC and compute translation (RQ2)**
+   - Construction of GF/W and $\text{PUE}_{p,t}$.
+   - $\text{CPC}_{p,t}$ and $\Delta \text{CPC}$.
    - $\Delta \text{EF·h}$ scenarios and emissions offsets.
 
-7. **Economic results (RQ3)**  
-   - Relationship between $\Delta \text{EF·h}$ and investment, employment, digital specialization.  
-   - EDWC vs non-EDWC comparisons.
-
-8. **Robustness and sensitivity**  
-   - Alternative event windows.  
-   - Alternative $T_0$ (Guizhou, IM).  
-   - PUE/GF/W parameters.  
+7. **Robustness and sensitivity**
+   - Alternative event windows.
+   - Alternative $T_0$ (Guizhou, IM).
+   - PUE/GF/W parameters.
    - Exclusion of Sichuan, etc.
 
-9. **Discussion and applications**  
-   - Implications for energy and digital policy in China.  
+8. **Discussion and applications**
+   - Implications for energy and digital policy in China.
    - Compute–climate trade-offs; lessons for other countries.
+   - Exploratory: relationship to provincial investment and employment (program-fit extension).
 
-10. **Conclusions**  
-    - Summary of findings.  
-    - Limitations (especially CI/mix).  
-    - Future agenda (hourly data, prices, curtailment, if available).
+9. **Conclusions**
+   - Summary of findings.
+   - Limitations (especially CI/mix).
+   - Future agenda (hourly data, prices, curtailment, if available).
 
 **Appendices:** full formulas, detailed $T_0$ source tables, alternative specifications, Monte Carlo details.
 
@@ -700,9 +699,9 @@ Figures and tables show medians + bands instead of single-point estimates.
 6. Estimate Sun–Abraham event-study (CO₂ and, where relevant, kWh).  
 7. Estimate SCM for Gansu (and optionally for another province).  
 8. Compute $\text{CPC}_{p,t}$ and $\Delta \text{CPC}$; decompose volume vs mix; build offset indices.  
-9. Translate $\Delta \text{MWh}$/$\Delta \text{CO₂}$ into $\Delta \text{EF·h}$ under multiple scenarios ($\theta$, net, gross).  
-10. Cross with economic variables (investment, employment, CAICT).  
-11. Generate final figures/tables and write results sections.
+9. Translate $\Delta \text{MWh}$/$\Delta \text{CO₂}$ into $\Delta \text{EF·h}$ under multiple scenarios ($\theta$, net, gross).
+10. Generate final figures/tables and write results sections.
+11. *(Optional extension)* Cross with economic variables (investment, employment, CAICT) for program-fit discussion.
 
 ---
 

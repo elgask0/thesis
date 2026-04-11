@@ -10,7 +10,7 @@
 
 ## Abstract
 
-China’s **Eastern Data, Western Computing (EDWC)** program redirects data-processing workloads from coastal demand centers to inland provinces rich in land and lower-cost/cleaner power. We provide causal evidence on how EDWC affects **electricity use** and **CO₂ emissions** at the provincial level, with a **spotlight on Gansu**, and we translate these impacts into **AI-compute-relevant metrics** using an auditable **Carbon‑per‑Compute (CPC)** framework. Our identification combines (i) a **staggered‑adoption event study** (Sun–Abraham) with the go‑live timing of EDWC clusters (Ningxia 2023‑02, Guizhou 2024‑01, Gansu 2024‑06, Inner Mongolia 2024‑11) and (ii) a **single‑treated synthetic control** (SCM) for Gansu (2019–2025) using untreated provinces in the same CAICT compute tier as donors. We estimate dynamic effects on **daily CO₂ emissions** (primary) and **monthly electricity consumption** (secondary), show robust **parallel pre‑trends**, and translate post‑treatment effects into **ΔCPC** using exogenous **compute‑efficiency (GF/W)** and **PUE** paths. We discuss mechanisms (cooling load, task migration, green power availability), heterogeneity by **CAICT quartile** and **EDWC cohort**, and provide **policy/industry products** (risk dashboard, stress‑test inputs, and CPC indices).
+China’s **Eastern Data, Western Computing (EDWC)** program redirects data-processing workloads from coastal demand centers to inland provinces rich in land and lower-cost/cleaner power. We provide causal evidence on how EDWC affects **electricity use** and **CO₂ emissions** at the provincial level, with a **spotlight on Gansu**, and we translate these impacts into **AI-compute-relevant metrics** using an auditable **Carbon‑per‑Compute (CPC)** framework. Our identification combines (i) a **staggered‑adoption event study** (Sun–Abraham) with the go‑live timing of EDWC clusters (Ningxia 2023‑07, Guizhou 2023‑12/2024‑01, Gansu 2024‑06, Inner Mongolia 2024‑04) and (ii) a **single‑treated synthetic control** (SCM) for Gansu (2019–2025) using untreated provinces in the same CAICT compute tier as donors. We estimate dynamic effects on **daily CO₂ emissions** (primary) and **monthly electricity consumption** (secondary), show robust **parallel pre‑trends**, and translate post‑treatment effects into **ΔCPC** using exogenous **compute‑efficiency (GF/W)** and **PUE** paths. We discuss mechanisms (cooling load, task migration, green power availability), heterogeneity by **CAICT quartile** and **EDWC cohort**, and provide **policy/industry products** (risk dashboard, stress‑test inputs, and CPC indices).
 
 ---
 
@@ -39,10 +39,10 @@ China’s **Eastern Data, Western Computing (EDWC)** program redirects data-proc
 
 - **EDWC design.** In **February 2022**, China approved **8 national hub nodes** and **10 data‑center clusters**, launching EDWC to shift compute westward while ensuring strong network interconnection and greener energy use (cleaner resource bases, land, cooling).  
 - **Staggered go‑live dates we use as treatment:**
-  - **Ningxia (NX)**: **2023‑02‑24** — provincial **computing power trading platform** went online; marks the earliest operational step toward coordinated allocation and transaction of compute.  
-  - **Guizhou (GZ)**: **2024‑01‑21** — **SPIC Guian Data Center** reported **online & in operation**; NetEase Guian DC **trial operation** in **2023‑12**.  
+  - **Ningxia (NX)**: **2023‑07‑21** — **China Telecom Ningxia DC Phase I** accepted and ready for operation (Zhongwei Gov; Zhongwei DRC).
+  - **Guizhou (GZ)**: **2023‑12 / 2024‑01** — **NetEase Gui'an DC** trial operation end-2023; ramp in 2024 (Guiyang Daily PDF; Gui'an Admin); **SPIC Guian Data Center** reported online & in operation early 2024.
   - **Gansu (GS)**: **2024‑06‑19** — **Qingyang DC cluster** first **10,000P** batch **online**, **15,000 racks** reported by late June; multiple facilities “投运/上线”.  
-  - **Inner Mongolia (IM)**: **2024‑11** (late month) — in **Horinger New District**, multiple **intelligent compute centers** **built & commissioned (投运)**.
+  - **Inner Mongolia (IM)**: **2024‑04‑28** — **China Mobile Hohhot Intelligent Computing Center** commissioned/in production (China Mobile; Inner Mongolia News).
 - **Why these dates?** They mark **operational milestones** at scale (transaction platform online; DC clusters entering service; official communications indicating commissioning). We use ±1–2‑month windows in robustness.
 
 > **Note.** Sichuan/Chongqing are an EDWC pair; however **Sichuan’s 2022 hydro drought power rationing** complicates identification. We keep SC/Chongqing **out of the initial treated set** and use them in **robustness** or as excluded donors in SCM.
@@ -93,7 +93,7 @@ where $\alpha_p$ are **province fixed effects**, $\tau_t$ **time fixed effects**
 
 **Interpretation (simple):** if $\widehat{\beta}_{+6} = 1{,}500$ tCO₂/day for Gansu, six months after go‑live, then all else equal EDWC is associated with **+1.5 kt/day** emissions relative to the no‑EDWC counterfactual for that date (after removing province/time effects and controls).
 
-### 5.2 Synthetic Control for Gansu (single‑treated) — RQ1
+### 5.2 Synthetic Control for Gansu (optional / supplementary) — RQ1
 
 We build a **synthetic Gansu** from a convex combination of **untreated donor provinces** (same **CAICT quartile Q1**; exclude EDWC destinations and provinces with major power shocks). Pre‑period: 2019–**2024‑05**. Post: **2024‑06** onward.
 
@@ -275,9 +275,9 @@ CPC = CI * PUE * (1000.0 / GF_W)
 ## 14. Implementation Checklist
 
 - [ ] Build panel (daily CO₂; monthly kWh, CI, PUE; weather).  
-- [ ] Tag **T₀** for NX (2023‑02‑24), GZ (2024‑01‑21), GS (2024‑06‑19), IM (2024‑11 late).  
+- [ ] Tag **T₀** for NX (2023‑07‑21), GZ (2023‑12/2024‑01), GS (2024‑06‑19), IM (2024‑04‑28).
 - [ ] Estimate **Sun–Abraham** event study (primary: CO₂/day).  
-- [ ] SCM for **Gansu** (2019–2025).  
+- [ ] SCM for **Gansu** (2019–2025) — optional.
 - [ ] Construct **GF/W\_{AI,China}(t)**, **PUE\_{p,t}**, **CI\_{p,t}**; compute **CPC** and **ΔCPC**.  
 - [ ] Translate into **products** (dashboard, tables, write‑up).
 
@@ -328,7 +328,7 @@ National Development and Reform Commission (NDRC). (2022, Feb 17). **“东数�
 
 National Development and Reform Commission (NDRC). (2022, Feb 17). **“东数西算”三问**. https://www.gov.cn/zhengce/2022-02/17/content_5674406.htm
 
-Ningxia Development & Reform Commission. (2023, Feb 24). **宁夏算力交易平台上线运行**. https://fzggw.nx.gov.cn/xwzx/zwxx/202303/t20230329_4006941.html
+Zhongwei Government / Zhongwei DRC. (2023, Jul 21). **China Telecom Ningxia DC Phase I accepted and ready for operation** (中卫市).
 
 People’s Daily / Guangming Daily. (2024, Jun 19–25). **庆阳数据中心集群首批万P算力上线 / 算力规模新突破**. https://gansu.gansudaily.com.cn/system/2024/06/19/031018769.shtml ; https://kpzg.people.com.cn/n1/2024/0625/c404214-40263395.html
 
@@ -340,9 +340,9 @@ RMI. (2024, Nov). **Powering the Data‑Center Boom with Low‑Carbon Solutions*
 
 Sun, L., & Abraham, S. (2021). **Estimating dynamic treatment effects in event studies with heterogeneous treatment effects**. *Journal of Econometrics, 225*(2), 175–199. https://www.sciencedirect.com/science/article/abs/pii/S030440762030378X
 
-Inner Mongolia / Horinger New District. (2024, Nov). **和林格尔新区算力项目建成投运、算力规模突破**. https://fgw.huhhot.gov.cn/zwdt/ssxw/202411/t20241128_1818870.html ; https://inews.nmgnews.com.cn/system/2024/11/05/030060263.shtml
+China Mobile / Inner Mongolia News. (2024, Apr 28). **China Mobile Hohhot Intelligent Computing Center commissioned/in production** (中国移动呼和浩特智算中心).
 
-SPIC (Guian) / Guizhou reports. (2024–2025). **国家电投贵安数据中心已上线投运 / 整体搬迁并运行**. https://hqtime.huanqiu.com/article/4GGeMFvhPEy ; https://www.gzstv.com/a/2ff8b181d5fe4a1c8c45827ee6131e32
+Guiyang Daily PDF / Gui'an Admin. (2023–2024). **NetEase Gui'an DC trial operation / SPIC Guian DC online** (贵阳日报; 贵安新区).
 
 TOP500/Green500 (various years). **Green500 Lists and Methodology.** https://top500.org/lists/green500/
 

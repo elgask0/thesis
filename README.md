@@ -18,7 +18,7 @@ Master's thesis in Chinese Economy at Zhejiang University.
 
 **Research Question:** What is the causal effect of China's EDWC program on provincial CO₂ emissions, electricity consumption, and AI compute?
 
-**Methods:** Sun-Abraham event-study + Synthetic Control (Gansu)
+**Methods:** Sun-Abraham event-study + Synthetic Control (Gansu, optional)
 
 **Key Contribution:** Translating energy effects into AI-native Carbon-per-Compute (CPC) metrics
 
@@ -29,7 +29,7 @@ Master's thesis in Chinese Economy at Zhejiang University.
 | What to Read | Why | Length |
 |--------------|-----|--------|
 | **[[NEXT_STEPS.md|Next Steps →]]** | Action roadmap, start here for work! | - |
-| **[[01_notes/global_plan.md|Global Plan]]** | Complete research design (RQ1-RQ3, data, methods) | 722 lines |
+| **[[01_notes/global_plan.md|Global Plan]]** | Complete research design (RQ1-RQ2 + extension, data, methods) | 722 lines |
 | **[[01_notes/EDWC_Gansu_EventStudy.md|Working Paper]]** | Current draft of the thesis | 352 lines |
 | **[[01_notes/AI_equivalent_GFLOPS_per_W.md|GF/W Methodology]]** | How we build the CPC metric | 213 lines |
 | **[[01_notes/thesis_structure.md|Structure]]** | Chapter-by-chapter outline | 257 lines |
@@ -40,7 +40,7 @@ Master's thesis in Chinese Economy at Zhejiang University.
 
 ### RQ1 — Causal Effects
 What is the effect of EDWC go-live on provincial CO₂ and electricity?
-- **Method:** Event-study (Sun-Abraham) + Synthetic Control (Gansu)
+- **Method:** Event-study (Sun-Abraham) + Synthetic Control (Gansu, optional)
 - **Outcomes:** Daily CO₂ (primary), monthly kWh (secondary)
 
 ### RQ2 — Compute Translation
@@ -48,8 +48,9 @@ What is the implied Carbon-per-Compute (CPC) before and after EDWC?
 - **Method:** CPC = CI × PUE × (1000/GF/W)
 - **Output:** tCO₂ per EF·h by province-month
 
-### RQ3 — Economic Outcomes
+### RQ3 — Economic Outcomes (exploratory extension)
 How do energy/compute changes relate to provincial economics?
+- **Status:** Exploratory extension for program-fit (Chinese economics positioning)
 - **Outcomes:** Investment, employment, digital specialization (CAICT tiers)
 
 ---
@@ -57,7 +58,7 @@ How do energy/compute changes relate to provincial economics?
 ## Progress
 
 ### Done ✓
-- [x] Research design (RQ1-RQ3 finalized)
+- [x] Research design (RQ1-RQ2 + extension finalized)
 - [x] Data sources identified (CO₂, electricity, PUE, GF/W)
 - [x] Empirical strategy (Sun-Abraham + SCM)
 - [x] Treatment dates documented (T₀ for each province)
@@ -66,11 +67,11 @@ How do energy/compute changes relate to provincial economics?
 - [ ] Build CO₂ panel (daily → monthly)
 - [ ] Build kWh panel (scraping + API)
 - [ ] Estimate event-study
-- [ ] Build synthetic Gansu
+- [ ] Build synthetic Gansu (optional)
 
 ### To Do ⏳
 - [ ] Construct CPC series
-- [ ] Estimate RQ3
+- [ ] Explore economic outcomes (program-fit extension)
 - [ ] Write thesis chapters
 
 ---

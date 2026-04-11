@@ -115,10 +115,10 @@ It should evolve as the empirical work and positioning become clearer.
 - Model specification: province FE, time FE, weather and other controls.  
 - Definition of event-time leads and lags, binning strategy.
 
-4.3. Synthetic Control for Gansu (and possibly other cases)  
-- Motivation for SCM as a complementary design.  
-- Donor pool selection (CAICT tiers, exclusion of EDWC and extreme-shock provinces).  
-- Predictor set (pre-trends in CO₂ / MWh, weather, economic indicators).  
+4.3. Synthetic Control for Gansu (optional / supplementary)
+- Motivation for SCM as a complementary design.
+- Donor pool selection (CAICT tiers, exclusion of EDWC and extreme-shock provinces).
+- Predictor set (pre-trends in CO₂ / MWh, weather, economic indicators).
 - Placebo tests, pre-treatment fit, and robustness checks.
 
 4.4. Identification and limitations  
@@ -179,80 +179,68 @@ It should evolve as the empirical work and positioning become clearer.
 
 ---
 
-## 7. Economic outcomes and EDWC (RQ3)
+## 7. Robustness and sensitivity analyses
 
-7.1. Conceptual link between compute, energy and economic activity  
-- How increased compute and energy use may relate to investment and employment.  
-- EDWC as part of a broader digital-industrial strategy.
-
-7.2. Empirical approach for RQ3  
-- Construction of ΔEF·h scenarios as explanatory variables.  
-- Regression or descriptive analysis linking ΔEF·h to investment, employment, digital specialization.  
-- Heterogeneity across provinces and CAICT tiers.
-
-7.3. Results  
-- Patterns relating compute/energy shifts to economic indicators.  
-- Discussion of causality vs association; limitations.
-
----
-
-## 8. Robustness and sensitivity analyses
-
-8.1. Alternative treatment timings  
-- Guizhou: later migration-based T₀.  
-- Inner Mongolia: multi-cloud dispatch platform T₀.  
+7.1. Alternative treatment timings
+- Guizhou: later migration-based T₀.
+- Inner Mongolia: multi-cloud dispatch platform T₀.
 - Effects of shifting T₀ windows on estimated impacts.
 
-8.2. Alternative samples and donor pools  
-- Excluding Sichuan or other provinces with extreme shocks.  
+7.2. Alternative samples and donor pools
+- Excluding Sichuan or other provinces with extreme shocks.
 - Alternative donor sets for SCM.
 
-8.3. Alternative parameter choices for PUE and GF/W  
-- Different PUE convergence paths (more/less aggressive).  
-- Alternative assumptions about MFU and interconnect haircut.  
+7.3. Alternative parameter choices for PUE and GF/W
+- Different PUE convergence paths (more/less aggressive).
+- Alternative assumptions about MFU and interconnect haircut.
 - Sensitivity of CPC and EF·h scenarios.
 
-8.4. Alternative CI constructions  
-- Using mix-based CI instead of CM-based CI.  
+7.4. Alternative CI constructions
+- Using mix-based CI instead of CM-based CI.
 - Effects on CPC and offset indexes.
 
 ---
 
-## 9. Discussion
+## 8. Discussion
 
-9.1. What do the results imply for China's EDWC strategy?  
-- Trade-offs between regional development, compute capacity and emissions.  
+8.1. What do the results imply for China's EDWC strategy?
+- Trade-offs between regional development, compute capacity and emissions.
 - Role of renewables and grid integration.
 
-9.2. Comparison with international debates on AI and energy  
-- How China's EDWC experience fits into global concerns about AI energy use.  
+8.2. Comparison with international debates on AI and energy
+- How China's EDWC experience fits into global concerns about AI energy use.
 - Lessons for other countries considering “compute hubs”.
 
-9.3. Limitations and open questions  
-- Data gaps, especially for electricity and data center-specific loads.  
+8.3. Exploratory: economic outcomes (program-fit extension)
+- Descriptive patterns linking compute/energy shifts to provincial investment and employment.
+- Discussion of causality vs association; limitations.
+- How EDWC effects map to broader digital-industrial strategy.
+
+8.4. Limitations and open questions
+- Data gaps, especially for electricity and data center-specific loads.
 - Identification limits for mix vs volume effects.
 
 ---
 
-## 10. Conclusions
+## 9. Conclusions
 
-10.1. Summary of main findings  
-- Concise recap of RQ1–RQ3 answers.
+9.1. Summary of main findings
+- Concise recap of RQ1–RQ2 answers.
 
-10.2. Policy implications  
-- For EDWC and future compute-oriented industrial policy.  
+9.2. Policy implications
+- For EDWC and future compute-oriented industrial policy.
 - For green data center regulation and grid planning.
 
-10.3. Future research  
-- Data center-level load and hourly data.  
-- Integration of prices, curtailment, and demand response.  
+9.3. Future research
+- Data center-level load and hourly data.
+- Integration of prices, curtailment, and demand response.
 - Extensions to other countries or global models.
 
 ---
 
 ## Appendices
 
-- A. Additional data description and cleaning procedures.  
-- B. Full formulas for GF/W, PUE trajectories and CPC.  
-- C. Detailed event-study and SCM specifications.  
+- A. Additional data description and cleaning procedures.
+- B. Full formulas for GF/W, PUE trajectories and CPC.
+- C. Detailed event-study and SCM specifications.
 - D. Full robustness tables and additional figures.

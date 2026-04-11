@@ -16,7 +16,7 @@ $$
 
 ### 1.1 Green500 (HPL FP64 efficiency)
 - **What:** energy efficiency during HPL FP64, in **GF/W** (audited).
-- **Where:** Green500 list (June/November editions). Keep top‑N rows to compute a robust frontier (median top‑10 or P75).
+- **Where:** Green500 list (June/November editions). Keep top‑N rows to compute a robust frontier (options: median top‑10, or Q4 / P75 of all systems; sensitivity test both).
 
 **Columns (example):**
 
