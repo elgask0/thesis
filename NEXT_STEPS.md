@@ -8,14 +8,14 @@ created: 2026-02-19
 
 # EDWC Thesis — Next Steps & Action Plan
 
-**Last Updated:** 2026-02-19
+**Last Updated:** 2026-04-11
 **Status:** Phase 1 — Data Collection
 
 ---
 
 ## Overview
 
-This document breaks down the thesis work into concrete steps. Start from the top and work down.
+This document is orientative, not binding. Right now the real priority is to build the basic empirical backbone: CO₂ first, then a first-pass electricity workflow starting from Gansu.
 
 ---
 
@@ -43,32 +43,31 @@ This document breaks down the thesis work into concrete steps. Start from the to
 **Time Estimate:** 1-2 days | **Priority:** HIGH
 
 **Tasks:**
-- [ ] Identify bulletin URLs for each treated province
-  - Gansu: https://gxt.gansu.gov.cn
-  - Ningxia: Find site
-  - Inner Mongolia: Find site
-  - Guizhou: Find site
-- [ ] Inspect bulletin structure for each province
+- [ ] Start with Gansu only
+  - Base search URL: `https://gxt.gansu.gov.cn/guestweb4/s?siteCode=6200000082&checkHandle=1&pageSize=10&left_right_index=0&searchWord=全省电力生产运行情况`
+  - Query phrase: `全省电力生产运行情况`
+- [ ] Inspect the Gansu bulletin structure
   - Note format (HTML/PDF)
   - Identify recurring title pattern
-  - Check monthly coverage (2019-2025)
-- [ ] Build scraper for Gansu (highest coverage)
-  - Paginate through bulletin list
-  - Extract article text
-  - Parse monthly kWh values
-- [ ] Extend scraper to other provinces
-- [ ] Save to `03_data/processed/panel_kwh_monthly.csv`
-- [ ] QA check: Coverage % by province; flag if <80%
+  - Check whether bulletins report province-wide electricity consumption, production, or only YTD aggregates
+- [ ] Collect a small verified seed set for Gansu
+  - Save title, publication date, search URL, and final article URL
+  - Extract the units used in the bulletin
+  - Record one parsing template that could later be automated
+- [ ] Only after Gansu works, identify starting URLs for Ningxia, Inner Mongolia, and Guizhou
+- [ ] Log findings in `01_notes/electricity_data_pipeline.md`
+- [ ] Only create `03_data/processed/panel_kwh_monthly.csv` after extraction is proven workable
+- [ ] QA check: confirm what can actually be extracted before claiming coverage
 
-**Output:** `panel_kwh_monthly.csv`
+**Output:** Verified Gansu source log + extraction template
 
-**Coverage Status:**
-| Province | 2024 | 2025 | Status |
-|----------|------|------|--------|
-| Gansu | 100% | 100% | ✓ Confirmed |
-| Ningxia | ? | ? | ? Verify |
-| Inner Mongolia | ? | ? | ? Verify |
-| Guizhou | ? | ? | ? Verify |
+**Current Source Status:**
+| Province | Current status |
+|----------|----------------|
+| Gansu | Base search URL identified |
+| Ningxia | Not mapped yet |
+| Inner Mongolia | Not mapped yet |
+| Guizhou | Not mapped yet |
 
 ---
 
@@ -95,9 +94,9 @@ This document breaks down the thesis work into concrete steps. Start from the to
 
 **Tasks:**
 - [ ] Create treatment dates file
-  - Ningxia: 2023-07-21
-  - Guizhou: 2023-12 (use 2023-12-01)
-  - Inner Mongolia: 2024-04-28
+  - Ningxia: 2023-02-24 (use 2023-02-01 for month coding)
+  - Guizhou: 2023-09 (use 2023-09-01; keep 2024-06 as robustness)
+  - Inner Mongolia: 2024-09 (use 2024-09-01 for month coding; refine exact daily date later if needed)
   - Gansu: 2024-06 (use 2024-06-01)
 - [ ] For each province-month, calculate:
   - `is_treated`: 1 if province ∈ {Gansu, Ningxia, IM, Guizhou}
@@ -204,103 +203,18 @@ This document breaks down the thesis work into concrete steps. Start from the to
 
 ---
 
-## Phase 3: CPC Construction (Weeks 7-8)
+## Phase 3: Extension & Writing (Weeks 7-12)
 
-### Step 3.1: Compute Carbon Intensity (CI)
-**Time Estimate:** 1-2 hours | **Priority:** HIGH
-
-**Tasks:**
-- [ ] Calculate CI by province-month
-  - CI = CO₂ / kWh (both in consistent units)
-  - If kWh missing, skip CI for that obs
-- [ ] Save CI series to `03_data/processed/panel_ci.csv`
-
-**Output:** `panel_ci.csv`
-
----
-
-### Step 3.2: Build GF/W Series
-**Time Estimate:** 4-6 hours | **Priority:** HIGH
-
-**Tasks:**
-- [ ] Download Green500 data (2019-2025)
-  - URL: https://www.top500.org/green500/
-  - Extract top-10 systems per edition
-  - Compute median GF/W as frontier
-- [ ] Download HPL-MxP speedup factors
-  - Find HPL-MxP benchmark results
-  - Extract speedup = MxP_EF / FP64_EF
-- [ ] Interpolate to monthly frequency
-  - Linear interpolation between Green500 editions
-- [ ] Apply adjustments
-  - MFU (utilization): κ ∈ [0.4, 0.6], center 0.5
-  - China interconnect: λ ∈ [0.3, 0.5], center 0.4
-  - GF/W_China = GF/W_FP64 × speedup × κ × (1 - λ × (1 - β))
-  - where β = A800_bandwidth / A100_bandwidth = 400/600 = 0.667
-- [ ] Generate uncertainty bands via Monte Carlo
-- [ ] Save to `03_data/processed/series_gfw.csv`
-
-**Output:** `series_gfw.csv` (monthly 2019-2025)
-
----
-
-### Step 3.3: Apply PUE Trajectories
-**Time Estimate:** 1-2 hours | **Priority:** MEDIUM
-
-**Tasks:**
-- [ ] Define PUE paths by province
-  - Start: Current PUE (if known) or assume 1.8 (2022)
-  - End: 1.5 by 2025 (policy target)
-  - Linear interpolation between start and end
-- [ ] Add uncertainty band: ±0.1
-- [ ] Save to `03_data/processed/series_pue.csv`
-
-**Output:** `series_pue.csv`
-
----
-
-### Step 3.4: Calculate CPC
-**Time Estimate:** 1-2 hours | **Priority:** HIGH
-
-**Tasks:**
-- [ ] Compute CPC by province-month
-  - CPC = CI × PUE × (1000 / GF/W)
-  - Units: tCO₂ per EF·h
-- [ ] Compare pre- vs. post-EDWC CPC
-  - Pre-period: Average CPC before T₀
-  - Post-period: Average CPC after T₀
-  - Calculate ΔCPC
-- [ ] Save to `03_data/processed/panel_cpc.csv`
-
-**Output:** `panel_cpc.csv`
-
----
-
-### Step 3.5: Translate to Compute Scenarios
-**Time Estimate:** 2-3 hours | **Priority:** HIGH
-
-**Tasks:**
-- [ ] For each treated province and post-treatment month:
-  - Energy-based: ΔEF·h = ΔMWh × θ / (PUE × GF/W)
-    - Where θ ∈ [0.5, 1.0] = fraction of MWh from datacenters
-  - Emissions-based: ΔEF·h = ΔCO₂ / CPC
-- [ ] Generate scenario bands (low, medium, high)
-- [ ] Plot implied compute over time
-
-**Output:** Compute scenarios by province-month
-
----
-
-## Phase 4: Extension & Writing (Weeks 9-12)
-
-### Step 4.1: Economic Outcomes (Exploratory Extension)
+### Step 3.1: Economic Outcomes (Exploratory Extension)
 **Time Estimate:** 2-3 days | **Priority:** LOW (program-fit extension)
 
 **Tasks:**
 - [ ] Collect provincial economic data
   - Fixed asset investment (monthly/quarterly)
   - Employment (ICT sector, if available)
-  - CAICT compute index updates (if new editions)
+  - Extract CAICT province tiers / indicators
+  - Prioritize 2022 and 2023 `综合算力` editions for comparable province-level benchmarking
+  - Use broader CAICT `算力发展指数` variables only as cross-sectional enrichment, not as a direct year-to-year continuation
 - [ ] Merge with main panel
 - [ ] Estimate event-study with economic outcomes
 - [ ] Document correlations between energy/compute and economics
@@ -309,7 +223,7 @@ This document breaks down the thesis work into concrete steps. Start from the to
 
 ---
 
-### Step 4.2: Write Thesis Chapters
+### Step 3.2: Write Thesis Chapters
 **Time Estimate:** 2-3 weeks | **Priority:** HIGH
 
 **Chapter Outline:**
@@ -324,14 +238,14 @@ This document breaks down the thesis work into concrete steps. Start from the to
 3. **Data** (1 week)
    - [ ] CO₂ sources
    - [ ] Electricity data collection
-   - [ ] CPC inputs
+   - [ ] Source logging and provenance
 4. **Methods** (1 week)
    - [ ] Event-study design
    - [ ] SCM design
-   - [ ] CPC construction
+   - [ ] Identification assumptions and robustness
 5. **Results** (2 weeks)
    - [ ] RQ1: Event-study and SCM findings
-   - [ ] RQ2: CPC and compute scenarios
+   - [ ] Electricity evidence, if data quality permits
    - [ ] Economic extension (program-fit)
 6. **Conclusion** (1 week)
    - [ ] Summary of findings
@@ -357,30 +271,23 @@ This document breaks down the thesis work into concrete steps. Start from the to
 - [ ] Step 2.3: Synthetic Control
 - [ ] Step 2.4: Interpret results
 
-### Phase 3: CPC
-- [ ] Step 3.1: Carbon intensity
-- [ ] Step 3.2: GF/W series
-- [ ] Step 3.3: PUE trajectories
-- [ ] Step 3.4: CPC calculation
-- [ ] Step 3.5: Compute scenarios
-
-### Phase 4: Writing
-- [ ] Step 4.1: RQ3 economic outcomes
-- [ ] Step 4.2: Thesis chapters
+### Phase 3: Extension & Writing
+- [ ] Step 3.1: RQ3 economic outcomes
+- [ ] Step 3.2: Thesis chapters
 
 ---
 
 ## Quick Start for Today
 
-**Recommended first task:** Step 1.1 — Build CO₂ Panel
+**Recommended electricity task for now:** Step 1.2 — map the Gansu bulletin structure from the base URL
 
-1. Go to https://carbonmonitor.org
-2. Download China daily CO₂ data (2019-2025)
-3. Aggregate to monthly by province
-4. Save to `03_data/processed/panel_co2_monthly.csv`
+1. Open the Gansu search endpoint
+2. Save a few candidate bulletin titles and URLs
+3. Check what each article actually reports
+4. Write down one reusable parsing template
 
-This is the easiest win and gets you started immediately!
+This is the current best way to turn the electricity note into real work.
 
 ---
 
-*Last updated: 2026-02-19*
+*Last updated: 2026-04-11*

@@ -10,7 +10,9 @@ tags: [project, thesis, economics, china, energy, AI, EDWC]
 Master's thesis in Chinese Economy at Zhejiang University.
 
 **Author:** Mario D.M.
-**Last Updated:** 2026-02-19
+**Last Updated:** 2026-04-11
+
+**Current State:** This repo is still an early scaffold. It contains the project structure, working notes, source archives, and the research plan, but no real analysis code or committed datasets yet.
 
 ---
 
@@ -26,13 +28,13 @@ Master's thesis in Chinese Economy at Zhejiang University.
 
 ## Where to Start
 
-| What to Read | Why | Length |
-|--------------|-----|--------|
-| **[[NEXT_STEPS.md|Next Steps →]]** | Action roadmap, start here for work! | - |
-| **[[01_notes/global_plan.md|Global Plan]]** | Complete research design (RQ1-RQ2 + extension, data, methods) | 722 lines |
-| **[[01_notes/EDWC_Gansu_EventStudy.md|Working Paper]]** | Current draft of the thesis | 352 lines |
-| **[[01_notes/AI_equivalent_GFLOPS_per_W.md|GF/W Methodology]]** | How we build the CPC metric | 213 lines |
-| **[[01_notes/thesis_structure.md|Structure]]** | Chapter-by-chapter outline | 257 lines |
+| What to Read | Why |
+|--------------|-----|
+| **[[NEXT_STEPS|Next Steps →]]** | Current orientative work order for the repo |
+| **[[global_plan|Global Plan]]** | Full research design, scope, and empirical logic |
+| **[[electricity_data_pipeline|Electricity Data Pipeline]]** | Current state of the provincial electricity collection plan |
+| **[[edwc_treatment_dates|Treatment Dates]]** | T₀ evidence archive by province |
+| **[[thesis_structure|Structure]]** | Chapter-level thesis outline |
 
 ---
 
@@ -58,20 +60,21 @@ How do energy/compute changes relate to provincial economics?
 ## Progress
 
 ### Done ✓
-- [x] Research design (RQ1-RQ2 + extension finalized)
-- [x] Data sources identified (CO₂, electricity, PUE, GF/W)
-- [x] Empirical strategy (Sun-Abraham + SCM)
-- [x] Treatment dates documented (T₀ for each province)
+- [x] Repo structure initialized
+- [x] Core research notes and plan drafted
+- [x] Treatment-date archive started
+- [x] Source tracking notes started
 
 ### In Progress 🔄
 - [ ] Build CO₂ panel (daily → monthly)
-- [ ] Build kWh panel (scraping + API)
-- [ ] Estimate event-study
-- [ ] Build synthetic Gansu (optional)
+- [ ] Map Gansu electricity bulletin structure
+- [ ] Turn source notes into actual collected data
+- [ ] Refine the implementation roadmap as real work begins
 
 ### To Do ⏳
-- [ ] Construct CPC series
-- [ ] Explore economic outcomes (program-fit extension)
+- [ ] Build the electricity panel
+- [ ] Estimate the baseline models
+- [ ] Operationalize CPC after the core panel exists
 - [ ] Write thesis chapters
 
 ---
@@ -92,17 +95,13 @@ How do energy/compute changes relate to provincial economics?
 
 ```
 edwc-thesis/
-├── 01_notes/              # Research documentation
-│   ├── global_plan.md              # START HERE - Complete plan
-│   ├── EDWC_Gansu_EventStudy.md    # Working paper draft
-│   ├── AI_equivalent_GFLOPS_per_W.md  # CPC methodology
-│   └── thesis_structure.md         # Chapter outline
+├── 01_notes/              # Main research notes, source archives, and method notes
 ├── 02_literature/         # Papers and sources
-├── 03_data/               # Raw, interim, processed datasets
+├── 03_data/               # Empty scaffold for raw, interim, and processed datasets
 ├── 04_drafts/             # Working drafts
 ├── 05_misc/               # Slides, miscellaneous
-├── notebooks/             # Jupyter analysis notebooks
-└── src/                   # Data collection code
+├── notebooks/             # Placeholder for future analysis notebooks
+└── src/                   # Placeholder for future code
 ```
 
 ---
@@ -112,9 +111,9 @@ edwc-thesis/
 **Treated Provinces:** Gansu, Ningxia, Inner Mongolia, Guizhou
 
 **T₀ Dates:**
-- Ningxia: 2023-07-21
-- Guizhou: 2023-12 / 2024-01
-- Inner Mongolia: 2024-04-28
+- Ningxia: 2023-02 (platform go-live)
+- Guizhou: 2023-09 (DC put into use; 2024-06 migration robustness)
+- Inner Mongolia: 2024-09 (Jiuzhou center go-live)
 - Gansu: 2024-06
 
 **Event Window:** [-12, +18] months around T₀
@@ -126,4 +125,4 @@ $$
 
 ---
 
-*Last updated: 2026-02-19*
+*Last updated: 2026-04-11*

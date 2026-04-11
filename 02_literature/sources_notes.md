@@ -165,6 +165,8 @@ Master's thesis literature and reference materials for EDWC research.
 
 ## CAICT (China Academy of Information and Communications Technology)
 
+- See also [[caict_series_map|CAICT series map]] for a working summary of the series structure and thesis-use guidance.
+
 ### China Green Computing Power Development Research Report (2024)
 - **Publisher:** CAICT
 - **Description:** Annual report on computing power and green development
@@ -181,6 +183,13 @@ Master's thesis literature and reference materials for EDWC research.
   - **Q4:** Shandong, Sichuan, etc.
   - **Q1:** Gansu, Ningxia, etc. (potential EDWC destinations)
 - **Usage:** Heterogeneity analysis; SCM donor pool selection
+
+### CAICT series families relevant to this thesis
+- **Comparable province/city compute benchmarking:** 2022 and 2023 `综合算力` evaluations (compute, storage, transport/network, environment).
+- **Broader ecosystem-rich compute benchmarking:** 2023 `算力发展指数`, which adds software, IC, R&D, connectivity, open-data, and industrial-digitalization signals.
+- **Province-level companion series:** 2024 Industrial Internet evaluation for 2023 provincial performance.
+- **National context only:** 5G impact, cloud market, data-center market, and global digital-economy reports.
+- **Main caution:** do not mix these frameworks into a pseudo-panel without checking methodology changes first.
 
 ---
 
@@ -200,6 +209,26 @@ Master's thesis literature and reference materials for EDWC research.
 - [ ] Renewable capacity expansion and utilization
 - [ ] Grid flexibility and demand response
 
+#### Provincial time-of-use tariff reforms (working archive note)
+- **Stored note:** [[time_of_use_tariff_reforms|Time-of-use tariff reforms]]
+- **Coverage in current note:** Jiangsu, Gansu, Henan, and Hubei
+- **What it captures:** Regulatory changes to `峰 / 平 / 谷 / 尖峰 / 深谷` schedules, ratios, and scope
+- **Relevance:** Mechanism background on incentives for intraday load shifting
+- **Main caution:** useful for institutional context, but not sufficient to prove hourly demand reshaping without hourly electricity-use data
+
+#### National New Energy Consumption Monitoring and Early Warning Center — Monthly new energy grid integration and consumption statistics
+- **Official origin:** 全国新能源消纳监测预警中心
+- **Example repost:** International Energy Network (2024-06-04)
+- **Title:** `2024年4月全国新能源并网消纳情况统计表`
+- **URL:** https://mnewenergy.in-en.com/html/newenergy-2434843.shtml?utm_source=chatgpt.com
+- **Variables:** Wind utilization rate, photovoltaic utilization rate, current month, year-to-date cumulative rate
+- **Relevance:** Descriptive proxy for renewable integration conditions and possible curtailment pressure around EDWC go-live
+- **Important caveats:**
+  - Rates are not curtailed MWh
+  - The linked page is a repost, not the preferred official archive
+  - Inner Mongolia is reported as `蒙西` and `蒙东`, not one province-level value
+  - Good for appendix/mechanism context, not enough for a causal curtailment-welfare design
+
 ### AI Energy Consumption Studies
 - [ ] Large language model training energy costs
 - [ ] Data center AI workload characterization
@@ -212,14 +241,12 @@ Master's thesis literature and reference materials for EDWC research.
 ```
 02_literature/
 ├── sources_notes.md          # This file — literature catalog
-├── pdf/                      # PDF files of papers and reports
-│   ├── The_Eastern_Data_and_Western_Computing_Initiative_in_China_Contributes_to_Its_Net-Zero_Target.pdf
-│   └── ... (additional PDFs)
-└── zotero/                   # Auto-synced from Zotero (if using)
+├── pdf/                      # Placeholder for downloaded PDFs
+└── summaries/                # Placeholder for paper or source summaries
 ```
 
 ---
 
 ## Last Updated
 
-2026-02-19
+2026-04-11
