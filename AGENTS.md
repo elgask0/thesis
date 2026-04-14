@@ -13,11 +13,20 @@ Before building code, workflows, or timelines:
 3. surface hidden assumptions or contradictions
 4. only then implement the smallest useful next step
 
+## Environment Rule
+
+Python work in this repo must use the project conda environment `edwc-thesis`.
+
+- Prefer `conda run -n edwc-thesis ...` for one-off commands.
+- If you activate manually, use `conda activate edwc-thesis` before running project Python.
+- Do not install Python packages into the base environment for thesis work.
+- When adding Python dependencies, update `environment.yml` first so the environment stays reproducible.
+
 ## Canonical Docs
 
 Use these as the current project anchors:
 
-- `05_misc/slides/supervisor_meeting_slides.pdf` for the current supervisor-facing narrative and thesis framing
+- `05_misc/pdfs/supervisor_meeting_slides.pdf` for the current supervisor-facing narrative and thesis framing
 - `README.md` for the project summary
 - `NEXT_STEPS.md` for current sequencing
 - `01_notes/edwc_treatment_dates.md` for working treatment anchors
@@ -122,7 +131,7 @@ Use explicit labels where helpful:
 - EDWC is a bundled intervention; do not oversell "pure data center" causality.
 - Do not use CI as a baseline control in RQ1 unless that choice is explicitly defended; it is plausibly post-treatment and may be outcome-derived.
 - Do not promise electricity coverage from search leads alone.
-- Do not automate extraction before a manual template has been proven.
+- Script-first electricity scraping is allowed, but do not claim structured panel coverage until parsed outputs have been spot-checked against source bulletins.
 - Do not design around hourly demand-shifting, curtailment welfare, or TOU response without hourly data.
 - Do not turn speculative products or dashboards into baseline thesis tasks.
 

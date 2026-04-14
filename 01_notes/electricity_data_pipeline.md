@@ -13,8 +13,10 @@ Working note for the electricity bulletin collection and extraction process used
 - Raw bulletin files are stored in `../03_data/raw/electricity_bulletins/`
 - Intermediate monthly panels will be created in `../03_data/interim/`
 - The target is province-month coverage for treated provinces with clear provenance
-- Right now only a Gansu starting point is identified; no province has verified coverage yet
+- Python collection and parsing scripts should run from the `edwc-thesis` conda environment
+- Gansu now has a verified first scrape and panel rebuild; other provinces still need province-by-province discovery
 - Availability should be discovered by trying province by province, not by estimating confidence in advance
+- For Gansu specifically, direct HTTP scraping is currently blocked by the site's anti-bot layer; the working technical path is browser-assisted fetching through a real Chrome session driven from Python over DevTools Protocol
 
 ## Source Leads
 
@@ -34,6 +36,10 @@ Working note for the electricity bulletin collection and extraction process used
 - Prefer bulletins that explicitly report province-wide electricity consumption totals (`全社会用电量`) or monthly power operation summaries.
 - Do not claim coverage until specific monthly bulletins have been collected and logged.
 - Do not spend time assigning ex ante confidence scores to province coverage; attempt the EDWC provinces one by one and record what is actually available.
+- For Gansu, the current practical script stack is: Python -> Chrome DevTools Protocol -> rendered page HTML -> Beautiful Soup parser.
+- Selenium and plain headless Chrome both failed on the live site, while a persistent real Chrome session worked for both discovery and article extraction.
+- The current Gansu discovery scrape found `72` bulletin pages covering `2020-03` through `2026-02`.
+- The current rebuilt Gansu panel has `71` months with parsed monthly total electricity consumption and one remaining gap at `2022-06`, where both the article body and the search summary are empty in the saved source.
 
 ## Related Notes
 

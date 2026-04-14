@@ -34,7 +34,7 @@ Master's thesis in Chinese Economy at Zhejiang University.
 
 | What to Read | Why |
 |--------------|-----|
-| **`05_misc/slides/supervisor_meeting_slides.pdf`** | Current supervisor-facing framing of the thesis |
+| **`05_misc/pdfs/supervisor_meeting_slides.pdf`** | Current supervisor-facing framing of the thesis |
 | **[[NEXT_STEPS|Next Steps →]]** | Current orientative work order for the repo |
 | **[[global_plan|Global Plan]]** | Full research design, scope, and empirical logic |
 | **[[electricity_data_pipeline|Electricity Data Pipeline]]** | Current state of the provincial electricity collection plan |
