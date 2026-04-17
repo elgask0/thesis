@@ -15,13 +15,13 @@ from browser_fetch import fetch_source
 
 TITLE_MONTH_PATTERN = re.compile(r"(\d{4})年(\d{1,2})月")
 MONTHLY_PATTERNS = [
-    re.compile(r"(?P<month>\d{1,2})月(?:当月|，)?(?:全省)?全社会用电量(?P<value>[0-9]+(?:\.[0-9]+)?)亿千瓦时"),
-    re.compile(r"当月(?:，)?(?:全省)?全社会用电量(?P<value>[0-9]+(?:\.[0-9]+)?)亿千瓦时"),
+    re.compile(r"(?P<month>\d{1,2})月(?:当月|[，,])?(?:全省)?全社会用电量(?P<value>[0-9]+(?:\.[0-9]+)?)亿千瓦时"),
+    re.compile(r"当月(?:[，,])?(?:全省)?全社会用电量(?P<value>[0-9]+(?:\.[0-9]+)?)亿千瓦时"),
     re.compile(r"(?:全省)?全社会用电量(?P<value>[0-9]+(?:\.[0-9]+)?)亿千瓦时"),
 ]
 YTD_PATTERNS = [
-    re.compile(r"1-(?P<month>\d{1,2})月，?(?:全省)?全社会用电量累计(?:为)?(?P<value>[0-9]+(?:\.[0-9]+)?)亿千瓦时"),
-    re.compile(r"1-(?P<month>\d{1,2})月，?(?:全省)?全社会累计用电量(?P<value>[0-9]+(?:\.[0-9]+)?)亿千瓦时"),
+    re.compile(r"1-(?P<month>\d{1,2})月[，,]?(?:全省)?全社会用电量累计(?:为)?(?P<value>[0-9]+(?:\.[0-9]+)?)亿千瓦时"),
+    re.compile(r"1-(?P<month>\d{1,2})月[，,]?(?:全省)?全社会累计用电量(?P<value>[0-9]+(?:\.[0-9]+)?)亿千瓦时"),
 ]
 
 
@@ -88,8 +88,17 @@ def extract_metrics_from_text(text: str, title_month: int | None) -> dict[str, i
 
 def parse_article(html: str, url: str) -> dict[str, object]:
     soup = BeautifulSoup(html, "html.parser")
-    content_node = soup.select_one(".nr-003")
-    content_text = text_or_empty(content_node)
+    content_text = ""
+    for selector in [".nr-003", ".v_news_content", "#vsb_content", ".arc-con", 'meta[name="Description"]']:
+        node = soup.select_one(selector)
+        if node is None:
+            continue
+        if selector.startswith("meta"):
+            candidate = (node.get("content") or "").strip()
+        else:
+            candidate = text_or_empty(node)
+        if candidate and len(compact_text(candidate)) > len(compact_text(content_text)):
+            content_text = candidate
 
     title = ""
     title_meta = soup.select_one('meta[name="ArticleTitle"]')

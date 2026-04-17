@@ -9,6 +9,7 @@ import json
 import re
 from contextlib import nullcontext
 from pathlib import Path
+from urllib.parse import urlsplit
 
 from browser_fetch import fetch_source
 from chrome_cdp_fetch import ChromeFetcher
@@ -77,9 +78,10 @@ def discover_all(
 
 
 def slugify_article(url: str) -> str:
-    match = re.search(r"/(\d+)\.shtml$", url)
-    if match:
-        return match.group(1)
+    path = urlsplit(url).path.rstrip("/")
+    stem = Path(path).stem
+    if stem:
+        return stem
     return re.sub(r"[^a-zA-Z0-9]+", "-", url).strip("-")
 
 
@@ -99,6 +101,8 @@ def save_panel_csv(rows: list[dict[str, object]], path: Path) -> None:
         "year_month",
         "title",
         "article_url",
+        "source_url_used",
+        "source_note",
         "pub_date",
         "content_source",
         "monthly_kwh_100m",
@@ -183,6 +187,8 @@ def main() -> None:
                     "year_month": year_month,
                     "title": parsed.get("title"),
                     "article_url": article_url,
+                    "source_url_used": article_url,
+                    "source_note": "",
                     "pub_date": parsed.get("pub_date"),
                     "content_source": parsed.get("content_source"),
                     "monthly_kwh_100m": parsed.get("monthly_kwh_100m"),

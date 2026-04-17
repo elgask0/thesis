@@ -1,0 +1,708 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{natbib}
+\onehalfspacing
+
+\begin{document}
+
+% ============================================================
+% COVER PAGE
+% ============================================================
+
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+
+{\Large Zhejiang University}\\[0.3cm]
+{\large School of Economics}\\[0.5cm]
+{\large Master's Thesis Proposal}\\[2cm]
+
+{\LARGE \textbf{Eastern Data, Western Compute: Causal Effects on\\[0.3cm]
+Provincial Electricity Consumption, CO\textsubscript{2} Emissions,\\[0.3cm]
+and Carbon-per-Compute in China}}\\[3cm]
+
+\begin{tabular}{r l}
+Author:      & Mario D.M. \\[0.3cm]
+Student ID:  & [TO BE FILLED] \\[0.3cm]
+Program:     & Master in Chinese Economy \\[0.3cm]
+Supervisor:  & Professor Du Limin \\[0.3cm]
+Date:        & [TO BE FILLED] \\
+\end{tabular}
+
+\vfill
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+
+% ============================================================
+% SECTION 1 --- RESEARCH BACKGROUND AND SIGNIFICANCE
+% ============================================================
+% Target length: 5--7 pages
+% Purpose: establish why this research matters; ground in policy
+% context; state the gap the proposal fills.
+
+\section{Research Background and Significance}
+
+% ------------------------------------------------------------
+\subsection{Research Background}
+
+% ............................................................
+\subsubsection{AI Compute Demand and Electricity Consumption}
+% PURPOSE: Establish that AI adoption creates growing, material
+% electricity demand at the infrastructure level.
+%
+% CONTENT:
+% - Global data-center energy growth trajectory
+% - AI training and inference as dominant new drivers of DC load
+% - IEA, Masanet et al. (2020) projections
+% - Most AI-economy research studies downstream outcomes;
+%   this thesis focuses on the upstream energy channel
+%
+% REPO SUPPORT: global_plan S0, slides p.3
+% STILL NEEDED: 4--5 references on AI/DC energy demand
+% DO NOT OVERCLAIM: do not cite global projections as directly
+% applicable to China without qualification.
+
+[TO BE DRAFTED]
+
+
+% ............................................................
+\subsubsection{Eastern Data, Western Compute}
+% PURPOSE: Describe the EDWC policy --- launch, design, goals,
+% provinces involved.
+%
+% CONTENT:
+% - February 2022 NDRC launch: 8 national hubs, 10 clusters
+% - East-to-west workload migration logic: land, climate,
+%   renewables, cost
+% - Four treated provinces: Ningxia, Guizhou, Gansu, Inner Mongolia
+% - EDWC as a bundled infrastructure intervention
+%
+% REPO SUPPORT: global_plan S2.1, S3; edwc_treatment_dates.md;
+% NDRC source URLs
+% FULLY DRAFTABLE.
+
+[TO BE DRAFTED]
+
+
+% ............................................................
+\subsubsection{Renewable Energy and Data Center Siting in Western China}
+% PURPOSE: Explain why western provinces matter --- higher
+% renewable share, grid differences, PUE advantages from climate.
+%
+% CONTENT:
+% - Provincial variation in generation mix
+% - Renewable curtailment as a western-province issue
+% - Climate advantages for data-center cooling
+%
+% REPO SUPPORT: renewable_curtailment_extension.md; global_plan S4.4
+% STILL NEEDED: 3--4 references on China curtailment / grid mix
+% DO NOT OVERCLAIM: do not claim EDWC reduces curtailment.
+
+[TO BE DRAFTED]
+
+
+% ............................................................
+\subsubsection{Policy Targets: PUE, Compute Capacity, and Carbon Peaking}
+% PURPOSE: Show the policy intersection --- compute expansion +
+% green DC targets + carbon peaking create the tension this
+% thesis studies.
+%
+% CONTENT:
+% - MIIT/NDRC/NEA PUE targets
+% - CAICT compute-capacity targets
+% - Carbon peaking / dual carbon macro constraint
+% - EDWC hub clusters achieving PUE near 1.3
+%
+% REPO SUPPORT: global_plan S4.4 with full PUE policy source list
+% FULLY DRAFTABLE.
+
+[TO BE DRAFTED]
+
+
+% ------------------------------------------------------------
+\subsection{Research Problem}
+% PURPOSE: State the specific gap in one tight paragraph.
+%
+% KEY CLAIM: No prior study has causally estimated provincial-level
+% electricity and emissions effects of EDWC go-lives using a
+% staggered event-study, nor translated those effects into
+% AI-relevant compute metrics.
+%
+% NOTE: Zhang et al. (2025) simulates EDWC carbon effects but does
+% not provide causal province-level identification. The gap is
+% causal DiD + compute translation.
+
+[TO BE DRAFTED]
+
+
+% ------------------------------------------------------------
+\subsection{Research Significance}
+% PURPOSE: Explain both theoretical and practical significance
+% in one unified subsection.
+%
+% THEORETICAL SIGNIFICANCE:
+% - Upstream AI-energy causality (vs. downstream AI-labor focus)
+% - CPC as a measurement contribution
+% - Applied causal inference for digital infrastructure policy
+%
+% PRACTICAL / POLICY SIGNIFICANCE:
+% - EDWC site selection and compute-hub placement decisions
+% - Green compute procurement using CPC rankings
+% - Carbon accounting for AI at the provincial level
+% - Implications for dual-carbon strategy
+%
+% REPO SUPPORT: global_plan S12
+
+[TO BE DRAFTED]
+
+
+% ============================================================
+% SECTION 2 --- LITERATURE REVIEW
+% ============================================================
+% Target length: 6--8 pages
+% Purpose: establish what existing research has done, what it
+% has not done, and why the gap matters.
+%
+% MUST BE SYNTHETIC, not paper-by-paper.
+%
+% STRUCTURAL LOGIC (derived from the research problem):
+% 2.1 -- outcome side: what do we know about how compute
+%        infrastructure affects electricity and emissions?
+% 2.2 -- treatment/policy side: what do we know about evaluating
+%        place-based infrastructure interventions like EDWC?
+% 2.3 -- mechanism/translation side: what do we know about
+%        converting energy into compute-relevant carbon metrics?
+% 2.4 -- gap synthesis: what is missing?
+
+\section{Literature Review}
+
+% ------------------------------------------------------------
+\subsection{Existing Research on Energy and Emissions Effects of
+Compute Infrastructure}
+% ANALYTICAL FUNCTION: Establish that DC/AI energy demand is
+% recognized and growing, that provincial-level effects matter,
+% but that causal sub-national evidence is missing.
+%
+% INCLUDE:
+% - DC energy demand literature (IEA, Masanet et al. 2020)
+% - AI training/inference energy (Patterson et al., Strubell et al.)
+% - China-specific DC energy studies
+% - China provincial emissions studies (Carbon Monitor, CEADs)
+% - Renewable curtailment and grid-mix literature for context
+% - Zhang et al. (2025) on EDWC simulation
+%
+% EXCLUDE: general digital-economy / productivity papers
+%
+% TARGET: 10--12 references, 2.5--3 pages
+%
+% STRUCTURE: global DC energy growth -> AI-specific demand ->
+% China provincial energy/emissions -> arrive at EDWC as the
+% under-studied shock on the outcome side.
+
+[TO BE DRAFTED --- REQUIRES LITERATURE GATHERING FIRST]
+
+
+% ------------------------------------------------------------
+\subsection{Existing Research on Place-Based Infrastructure Policies
+and Causal Evaluation}
+% ANALYTICAL FUNCTION: Show that DiD/event-study methods have been
+% productively applied to infrastructure shocks, and that EDWC is
+% a natural candidate. Also justify the specific methodological
+% choice (Sun--Abraham over TWFE).
+%
+% INCLUDE:
+% - Classic place-based evaluations: Kline and Moretti (2014),
+%   Greenstone et al. (2010), Busso et al. (2013)
+% - China-specific infrastructure/SEZ evaluations
+% - Applied energy/environment DiD papers
+% - Modern staggered-DiD methodology: Sun and Abraham (2021),
+%   Callaway and Sant'Anna (2021), Goodman-Bacon (2021),
+%   de Chaisemartin and D'Haultfoeuille (2020)
+% - Abadie et al. (2010, 2015) for SCM reference (brief)
+%
+% EXCLUDE: pure theory of place-based policy; pre-2018 DiD
+% textbook expositions
+%
+% TARGET: 8--10 references, 2--2.5 pages
+%
+% STRUCTURE: classic place-based evaluations -> China applications
+% -> modern staggered-DiD methods -> gap: no causal evaluation of
+% a compute-infrastructure policy like EDWC.
+
+[TO BE DRAFTED --- REQUIRES LITERATURE GATHERING FIRST]
+
+
+% ------------------------------------------------------------
+\subsection{Existing Research on Energy--Compute Accounting and
+Carbon Metrics}
+% ANALYTICAL FUNCTION: Show that translating energy/emissions into
+% compute-relevant units is an emerging need, and that no existing
+% framework provides a provincial-level CPC index for China.
+%
+% INCLUDE:
+% - Carbon footprint of computing (Patterson et al. 2022,
+%   Dodge et al. 2022, Wu et al. 2022)
+% - PUE methodology and standards (Uptime Institute, ASHRAE)
+% - Compute-efficiency benchmarking (Green500, MLPerf Power)
+% - Emission-factor / carbon-intensity methodology (IPCC, CEADs)
+% - China-specific: CAICT green computing reports, RMI (2024)
+%
+% EXCLUDE: hardware architecture papers without energy/carbon
+% content; AI model papers without energy measurement
+%
+% TARGET: 5--7 references, 1.5--2 pages
+%
+% STRUCTURE: carbon footprint of AI -> PUE as site-efficiency
+% metric -> compute-efficiency benchmarks -> emission factors
+% and grid CI -> gap: no integrated provincial CPC framework.
+
+[TO BE DRAFTED --- REQUIRES LITERATURE GATHERING FIRST]
+
+
+% ------------------------------------------------------------
+\subsection{Literature Summary and Research Gap}
+% PURPOSE: Synthesize 2.1--2.3 into a clear gap statement that
+% directly motivates RQ1 and RQ2.
+%
+% STRUCTURE:
+% - Stream 2.1 established that compute infrastructure creates
+%   material energy/emissions effects, but causal sub-national
+%   evidence is absent.
+% - Stream 2.2 showed that event-study/DiD designs work for
+%   place-based shocks, but no study has applied them to EDWC.
+% - Stream 2.3 developed carbon-footprint metrics for AI, but
+%   no framework provides provincial-level CPC for China
+%   connecting causal energy estimates to compute units.
+% - This proposal fills that gap by combining RQ1 (causal
+%   province-level identification) with RQ2 (energy-to-compute
+%   translation).
+%
+% Target: 1--1.5 pages.
+% DO NOT OVERCLAIM: Zhang et al. (2025) exists. The gap is causal
+% identification + CPC, not "no prior EDWC research."
+
+[TO BE DRAFTED AFTER 2.1--2.3 ARE COMPLETE]
+
+
+% ============================================================
+% SECTION 3 --- RESEARCH CONTENT AND DESIGN
+% ============================================================
+% Target length: 10--14 pages
+% Purpose: the empirical core --- RQs, variables, data,
+% identification, model, CPC framework, and feasibility.
+
+\section{Research Content and Design}
+
+% ------------------------------------------------------------
+\subsection{Research Questions}
+% RQ1: What is the causal effect of EDWC cluster go-lives on
+% provincial electricity consumption and CO2 emissions?
+%   - Electricity is the PRIMARY outcome.
+%   - CO2 is a COMPLEMENTARY environmental outcome and input
+%     into carbon intensity / CPC.
+%
+% RQ2: Given the provincial energy environment (CI, PUE, GF/W),
+% what are the levels and changes of Carbon-per-Compute (CPC)
+% before and after EDWC, and what range of additional compute is
+% compatible with the estimated electricity effects?
+%   - RQ2 is DOWNSTREAM from RQ1.
+%
+% Target: 0.5 page. FULLY DRAFTABLE.
+
+[TO BE DRAFTED]
+
+
+% ------------------------------------------------------------
+\subsection{Variables}
+% PURPOSE: Define all outcome, treatment, control, and constructed
+% variables used in the empirical design and CPC framework.
+%
+% STRUCTURE:
+% - Outcome variables: monthly electricity (primary), monthly CO2
+%   (complementary)
+% - Treatment variable: EDWC go-live indicator and event time
+% - Control variables: CDD, HDD, precipitation, holiday indicator
+% - Constructed variables for RQ2: carbon intensity (CI),
+%   PUE, GF/W, CPC
+
+% --- Variable Summary Table ---
+\begin{table}[htbp]
+\centering
+\caption{Variables, Definitions, and Data Sources}
+\label{tab:variables}
+\small
+\begin{tabular}{p{3.2cm} p{1.8cm} p{4.2cm} p{2.5cm} p{2.5cm}}
+\toprule
+\textbf{Variable} & \textbf{Symbol} & \textbf{Definition} & \textbf{Source} & \textbf{Status} \\
+\midrule
+Monthly electricity (primary)
+  & $\text{kWh}_{p,t}$
+  & Province-month total electricity (MWh)
+  & Provincial bulletins
+  & Gansu verified; others in progress \\[0.2cm]
+Monthly CO\textsubscript{2} (complementary)
+  & $\text{CO}_2{}_{p,t}$
+  & Province-month total CO\textsubscript{2} (tonnes)
+  & Carbon Monitor China
+  & Ready (31 prov., 2019--2025) \\[0.2cm]
+EDWC treatment
+  & $\mathbb{1}\{p \in \mathcal{G}\}$
+  & Province in treated set
+  & Official go-live evidence
+  & Working default dates \\[0.2cm]
+Event time
+  & $\ell$
+  & $t - E_p$ (months relative to go-live)
+  & Computed
+  & --- \\[0.2cm]
+CDD / HDD
+  & ---
+  & Monthly cooling/heating degree days
+  & Meteorological data
+  & Not yet collected \\[0.2cm]
+Precipitation
+  & $\text{Precip}_{p,t}$
+  & Monthly precipitation (mm)
+  & Meteorological data
+  & Not yet collected \\[0.2cm]
+Carbon intensity
+  & $\text{CI}_{p,t}$
+  & tCO\textsubscript{2}/MWh
+  & Computed from CO\textsubscript{2} + kWh
+  & Depends on electricity panel \\[0.2cm]
+PUE
+  & $\text{PUE}_{p,t}$
+  & Site energy / IT energy
+  & Policy targets + climate adj.
+  & Method documented \\[0.2cm]
+AI-equivalent efficiency
+  & $\text{GF/W}(t)$
+  & GFLOPS per watt
+  & Green500 + HPL-MxP + adj.
+  & Method documented \\[0.2cm]
+Carbon-per-Compute
+  & $\text{CPC}_{p,t}$
+  & tCO\textsubscript{2} per EF$\cdot$h
+  & CI $\times$ PUE $\times$ 1000/GF/W
+  & Depends on CI, PUE, GF/W \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% [Insert brief prose defining each variable group and
+%  explaining construction choices]
+
+[TO BE DRAFTED]
+
+
+% ------------------------------------------------------------
+\subsection{Data Sources and Processing}
+% PURPOSE: Describe each data source, acquisition method, and
+% processing steps.
+%
+% Target: 2--2.5 pages.
+
+% ............................................................
+\subsubsection{Provincial Electricity Consumption}
+% - Source: official provincial bulletins
+% - Method: browser-assisted scraping pipeline
+% - Current coverage: Gansu verified (71/72 months, 2020--2026);
+%   other treated provinces and controls in progress
+% - Acceptance rule: >=80% monthly coverage
+% - Units standardized to MWh
+%
+% REPO SUPPORT: electricity_data_pipeline.md; src/electricity/gansu/
+% DO NOT OVERCLAIM: state that coverage beyond Gansu is in progress.
+
+[TO BE DRAFTED]
+
+% ............................................................
+\subsubsection{CO\textsubscript{2} Emissions}
+% - Source: Carbon Monitor China (daily, 31 provinces, 2019--2025)
+% - Citation: Liu et al. (2020); Figshare consolidated dataset
+% - Processing: daily to monthly aggregation by province
+%
+% REPO SUPPORT: src/carbon_monitor/build_monthly_panel.py
+% FULLY DRAFTABLE.
+
+[TO BE DRAFTED]
+
+% ............................................................
+\subsubsection{EDWC Treatment Timing}
+% - Coding rule: prioritize official go-live milestones with
+%   significant operational capacity
+% - Working defaults: NX 2023-02, GZ 2023-09, GS 2024-06,
+%   IM 2024-09
+% - Robustness windows documented per province
+%
+% REPO SUPPORT: edwc_treatment_dates.md
+
+[TO BE DRAFTED]
+
+% ............................................................
+\subsubsection{Weather Controls and Other Inputs}
+% - CDD, HDD, precipitation by province-month
+% - Source TBD (CMA or ERA5 reanalysis)
+% - CAICT compute indices for heterogeneity / donor selection
+%
+% REPO SUPPORT: caict_series_map.md
+
+[TO BE DRAFTED]
+
+
+% ------------------------------------------------------------
+\subsection{Empirical Strategy and Model}
+% PURPOSE: Present the full empirical design for both RQs,
+% including the event-study model, the CPC translation framework,
+% and robustness plans.
+%
+% Target: 4--5 pages total for this subsection.
+
+% ............................................................
+\subsubsection{Identification Strategy for RQ1}
+% CONTENT:
+% - EDWC as a staggered policy shock across 4 provinces
+% - Sun--Abraham as the main estimator: avoids TWFE bias under
+%   staggered adoption and heterogeneous effects
+% - Identifying assumptions:
+%   (a) conditional parallel trends
+%   (b) no anticipation (pre-trend test)
+% - Controls: province FE, time FE, weather, holidays
+%
+% REPO SUPPORT: EDWC_Gansu_EventStudy S5.1; global_plan S5.1
+% FULLY DRAFTABLE.
+
+[TO BE DRAFTED]
+
+% ............................................................
+\subsubsection{Event-Study Model Specification}
+% The Sun--Abraham estimating equation:
+
+\begin{equation}
+Y_{p,t} = \alpha_p + \delta_t
++ \sum_{\ell \in \mathcal{L},\, \ell \neq -1}
+  \beta_\ell \, \mathbb{1}\{t - E_p = \ell\} \cdot \mathbb{1}\{p \in \mathcal{G}\}
++ \mathbf{X}_{p,t}' \boldsymbol{\gamma}
++ \varepsilon_{p,t}
+\label{eq:event_study}
+\end{equation}
+
+% DEFINITIONS:
+% - Y_{p,t}: monthly outcome in {MWh (primary), CO2 (complementary)},
+%   estimated in separate runs
+% - E_p: first EDWC go-live month for province p
+% - l = t - E_p: event time; omit l = -1 as reference
+% - 1{p in G}: treated set (Gansu, Ningxia, IM, Guizhou)
+% - alpha_p: province FE; delta_t: calendar-month FE
+% - X_{p,t}: weather (CDD, HDD, precipitation), holidays
+% - beta_l: event-time ATT (Sun--Abraham cohort-interaction-weighted)
+% - epsilon_{p,t}: clustered by province
+%
+% Event window: l in [-12, +18] months; tails binned.
+% Estimation: cohort-specific regressions aggregated per
+% Sun and Abraham (2021).
+%
+% FULLY DRAFTABLE.
+
+% [Insert variable-by-variable definition paragraph]
+% [Insert discussion of event window, binning, clustering]
+% [Insert note on Sun--Abraham aggregation procedure]
+
+[TO BE DRAFTED]
+
+% ............................................................
+\subsubsection{Compute Translation Framework (RQ2)}
+% PURPOSE: Present the CPC framework as the translation layer
+% that operationalizes RQ2, downstream from RQ1.
+%
+% CPC DEFINITION:
+
+\begin{equation}
+\text{CPC}_{p,t}
+= \text{CI}_{p,t} \times \text{PUE}_{p,t}
+  \times \frac{1000}{\text{GF/W}_{\text{AI,China}}(t)}
+\quad \left[\frac{\text{tCO}_2}{\text{EF}\cdot\text{h}}\right]
+\label{eq:cpc}
+\end{equation}
+
+% GF/W CONSTRUCTION:
+
+\begin{equation}
+\text{GF/W}_{\text{AI,China}}(t)
+= \underbrace{\text{GF/W}_{\text{FP64}}(t) \cdot s_{\text{mxp}}(t)
+  \cdot \kappa_{\text{global}}}_{\text{GF/W}_{\text{AI,global}}(t)}
+  \times \chi_{\text{CN}}(t)
+\label{eq:gfw}
+\end{equation}
+
+% CONTENT:
+% - CI computed from CO2 and kWh panels (DiD-CPC consistency)
+% - PUE trajectories: national anchor (~1.48 in 2023), EDWC hubs
+%   converging toward 1.3, seasonal climate adjustment
+% - GF/W: Green500 FP64 frontier x HPL-MxP speedup x MFU (0.5)
+%   x China interconnect haircut (A800/H800 epochs)
+% - Translation: define theta in [0,1] as data-center share of
+%   additional MWh; compute Delta EF.h scenarios
+% - Monte Carlo uncertainty over s_mxp, kappa, lambda, PUE, CI
+%
+% REPO SUPPORT: AI_equivalent_GFLOPS_per_W.md; global_plan S6
+% FULLY DRAFTABLE from repo method notes.
+%
+% DO NOT OVERCLAIM: CPC is a method, not a result. Call it a
+% "transparent proxy" or "reproducible approximation."
+
+[TO BE DRAFTED]
+
+% ............................................................
+\subsubsection{Robustness and Heterogeneity}
+% PURPOSE: Concise list of planned robustness exercises.
+%
+% CONTENT:
+% - Alternative T0 windows (+/-1--2 months)
+% - Placebo provinces and placebo years
+% - SCM for Gansu as a supplementary robustness exercise (brief;
+%   reference Abadie et al. 2010, 2015; not a co-equal design)
+% - Alternative PUE/GF/W parameters for CPC sensitivity
+% - Heterogeneity by CAICT compute tier and by province
+% - Exclusion of confounded provinces (Sichuan 2022)
+%
+% Target: 0.5--1 page. FULLY DRAFTABLE as a plan.
+
+[TO BE DRAFTED]
+
+
+% ------------------------------------------------------------
+\subsection{Feasibility and Limitations}
+% PURPOSE: Short, honest assessment.
+%
+% FEASIBLE:
+% - CO2 panel ready; Gansu electricity verified
+% - Sun--Abraham implementable with 4 treated provinces
+% - CPC method documented and auditable
+%
+% LIMITATIONS:
+% - Electricity coverage beyond Gansu in progress
+% - No intraday data
+% - Attribution risk: extra kWh may include non-DC load
+% - CPC is intensive, not a measure of total AI compute
+% - Treatment dates are working defaults
+%
+% FUTURE WORK (one sentence only):
+% A possible extension would link estimated energy and compute
+% effects to provincial economic outcomes such as fixed
+% investment and ICT employment.
+%
+% Target: 0.5--1 page. FULLY DRAFTABLE.
+
+[TO BE DRAFTED]
+\subsection{Research Structure}
+% Research structure
+%This paper mainly consists of six chapters. Chapter 1 is the introduction, mainly including problem statement...; Chapter 2 is the literature review, including...; Chapter 3 is the theoretical mechanism and research hypotheses... The following is the technical roadmap (the example below is simplified and needs to be more detailed):
+%Introduction
+%Literature Review
+%Theoretical Mechanism and Research Hypotheses
+%Research Design
+%Empirical Results
+%Conclusion and Recommendations
+[TO BE DRAFTED]
+
+
+%============================================================
+% SECTION 4 --- CONTRIBUTIONS AND INNOVATIONS
+% ============================================================
+% Target length: 1--1.5 pages
+
+\section{Contributions and Innovations}
+
+% ------------------------------------------------------------
+\subsection{Academic Contributions}
+% TWO MAIN POINTS:
+%
+% 1. First study to apply staggered-adoption event-study
+%    (Sun--Abraham) to EDWC go-lives, estimating province-level
+%    causal effects on electricity consumption and CO2 emissions.
+%    Fills the gap between simulation-based EDWC studies and the
+%    need for credible causal evidence.
+%
+% 2. Construction of a reproducible Carbon-per-Compute (CPC) index
+%    combining provincial carbon intensity, PUE, and an AI-equivalent
+%    efficiency series with China-specific export-control adjustments.
+%    Provides a transparent energy-to-compute bridge applicable
+%    beyond this thesis.
+%
+% DO NOT OVERCLAIM: call CPC a "transparent proxy," not a
+% definitive metric.
+
+[TO BE DRAFTED]
+
+% ------------------------------------------------------------
+\subsection{Policy Contributions}
+% TWO MAIN POINTS:
+%
+% 1. Province-level evidence on EDWC energy and emissions effects
+%    that can inform compute-hub siting decisions and regional
+%    energy planning under dual-carbon constraints.
+%
+% 2. A CPC-based provincial ranking framework that could support
+%    green compute procurement, data-center carbon accounting,
+%    and compute-electricity synergy policy.
+%
+% Keep compact. Do not oversell.
+
+[TO BE DRAFTED]
+
+
+% ============================================================
+% SECTION 5 --- WORK ALREADY COMPLETED AND CURRENT PROGRESS
+% ============================================================
+% Target length: 1--1.5 pages
+% Purpose: show the committee that real work has been done.
+%
+% CONTENT: describe completed items (CO2 panel, Gansu electricity,
+% treatment-date archive, CPC method documentation, CAICT mapping)
+% and remaining items (non-Gansu electricity, weather controls,
+% estimation, literature completion).
+
+\section{Work Already Completed and Current Progress}
+
+[TO BE DRAFTED]
+
+
+% ============================================================
+% SECTION 6 --- RESEARCH PLAN AND TIMELINE
+% ============================================================
+% Target length: 0.5--1 page
+% Purpose: show a phased completion plan.
+%
+% CONTENT: 5 phases --- data collection, baseline estimation,
+% CPC construction, writing, revision/defense.
+
+\section{Research Plan and Timeline}
+
+[TO BE DRAFTED]
+
+
+% ============================================================
+% REFERENCES
+% ============================================================
+
+\section*{References}
+
+% \bibliographystyle{apalike}
+% \bibliography{references}
+
+
+\end{document}
