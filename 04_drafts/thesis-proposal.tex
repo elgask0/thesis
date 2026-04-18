@@ -1,5 +1,6 @@
 \documentclass[12pt,a4paper]{article}
 
+\usepackage[numbib]{tocbibind}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath,amssymb}
@@ -453,7 +454,108 @@ Compute Infrastructure}
 % China provincial energy/emissions -> arrive at EDWC as the
 % under-studied shock on the outcome side.
 
-[TO BE DRAFTED --- REQUIRES LITERATURE GATHERING FIRST]
+Electricity demand from compute infrastructure is now a recognized
+but fast-moving outcome. Global bottom-up accounting put data-center
+electricity at roughly 205~TWh in 2018, close to 1\% of world
+electricity, and showed that through 2018 compute-instance growth had
+been largely absorbed by efficiency improvements in servers, storage,
+and facility operation
+\citep{masanetetal-2020-recalibratingglobaldata}. That historical
+decoupling has not survived the AI acceleration. Bottom-up estimates
+for the United States place data-center electricity at 176~TWh in
+2023, about 4.4\% of national electricity, with 2028 scenario ranges
+of roughly 325--580~TWh driven primarily by accelerated servers for
+artificial intelligence \citep{shehabietal-2024-2024unitedstates}.
+Global syntheses project data-center electricity near 945~TWh by 2030
+in the base case, close to 3\% of world electricity, with China and
+the United States jointly accounting for about 80\% of projected
+growth; the same synthesis flags unusually large measurement gaps for
+China, where data centers already absorb on the order of a quarter of
+global data-center electricity \citep{internationalenergyagency-2025-energyai}.
+The baseline claim for the outcome side is therefore that compute
+infrastructure is a material and fast-growing electricity load whose
+provincial distribution in China is both policy-relevant and
+imperfectly observed.
+
+A second body of work shows that the mapping from compute to
+electricity to emissions is not a fixed coefficient. Bottom-up
+estimates of training-footprint energy and CO\textsubscript{2} for
+large neural networks vary by factors of roughly five to ten with
+hardware generation, facility efficiency, and grid assumptions, so
+estimates conditioned on these choices rather than on raw compute are
+what the field treats as meaningful
+\citep{pattersonetal-2021-carbonemissionslarge}. Follow-up work for
+machine-learning operations at scale identifies data-center location
+as one of a small number of first-order mitigation levers and reports
+that inference, not training, often dominates operational energy in
+production systems \citep{pattersonetal-2022-carbonfootprintmachine}.
+Parallel cloud-instance evidence shows that selecting a cloud region
+is the single most effective operational step for reducing emissions
+conditional on the workload
+\citep{dodgeetal-2022-measuringcarbonintensity}. Lifecycle accounting
+for a single large language model confirms that inference and
+deployment can add substantially to the training footprint under
+realistic usage and grid mixes
+\citep{luccionietal-2023-estimatingcarbonfootprint}. The common
+implication is that relocating workloads across grids with different
+carbon intensities changes the emissions footprint even when total
+electricity use is unchanged, and can shift total electricity use
+through facility-efficiency differences.
+
+The mechanism that connects this literature to EDWC is workload
+migration between regions with different renewable penetration. A
+study of flexible-load migration between the CAISO and PJM footprints
+finds that existing data centers can absorb a sizeable share of
+regional wind and solar curtailment and reduce carbon emissions by
+113--239~ktCO\textsubscript{2}e per year, while making explicit that
+the sign of the emissions effect depends on the interaction between
+the source grid, the destination grid, and the temporal structure of
+the shifted load \citep{zhengetal-2020-mitigatingcurtailmentcarbon}.
+EDWC is, in policy form, a spatial counterpart: westward relocation
+of compute workloads toward provinces with higher renewable shares
+and cooler climates. The relevant point for the outcome side is not
+that migration is automatically clean, but that its electricity and
+emissions effects must be estimated rather than assumed.
+
+Evidence specific to China confirms that data centers already
+constitute a material emissions source with pronounced provincial
+variation. A Kaya--LMDI decomposition of national data-center
+CO\textsubscript{2} emissions over 2017--2021 documents a marked
+increase across provinces driven primarily by expanding computing
+scale, with provincial emission intensities differing substantially
+because of underlying grid composition and facility efficiency
+\citep{nietal-2024-co2emissionmitigationpathways}. This heterogeneity
+is part of what motivates evaluating EDWC province by province
+rather than through a single national coefficient.
+
+EDWC itself has been addressed in three prospective assessments.
+\citet{zhangetal-2025-easterndatawestern} frame westward relocation
+as a net-zero lever and estimate a roughly 16--20\% reduction in
+data-center sector emissions by 2030 under scenario analysis.
+\citet{zhangetal-2025-decarbonizingdatacenters} simulate energy,
+economic, and carbon effects for three major east-to-west migration
+routes and report annual energy savings of about 332--942~GWh from
+cooling reductions and avoided transmission losses, with carbon
+outcomes that vary sharply across routes: some interregional pairs
+reduce emissions substantially, while pairs whose destination grid
+is more carbon-intensive than the source grid increase emissions. In
+both studies the sign and magnitude of the carbon effect depend on
+the source--sink emission-factor gap, and neither produces an ex post
+estimate of realized province-level changes around EDWC go-live
+dates.
+
+Taken together, the outcome-side literature establishes three points
+that this proposal builds on. Compute-infrastructure electricity is a
+material load whose trajectory has been redefined by AI. The
+compute-to-emissions mapping depends on grid, facility, and
+hardware, so geographic reallocation has first-order effects that are
+theoretically ambiguous in sign. And within China, both the
+measurement base and the small existing EDWC literature are
+prospective and decomposition-based rather than causal at the
+province-year level. What this literature has not delivered is the
+outcome of interest for the present proposal: an ex post, province-level
+estimate of how EDWC go-lives have moved provincial electricity
+consumption, with CO\textsubscript{2} as a complementary outcome.
 
 
 % ------------------------------------------------------------
@@ -483,7 +585,91 @@ and Causal Evaluation}
 % -> modern staggered-DiD methods -> gap: no causal evaluation of
 % a compute-infrastructure policy like EDWC.
 
-[TO BE DRAFTED --- REQUIRES LITERATURE GATHERING FIRST]
+Place-based infrastructure programs that activate in specific
+locations at specific dates have long been treated in applied
+economics as quasi-experiments, and the design template that has
+emerged is directly usable for a staggered infrastructure rollout
+like EDWC. The canonical evaluation of the Tennessee Valley Authority
+uses authorities that were proposed but never approved by Congress as
+controls, and draws identification from the timing and geography of
+the program rather than from cross-sectional comparisons alone
+\citep{klinemoretti-2014-localeconomicdevelopment}. Large
+manufacturing-plant openings have been evaluated by comparing
+winner counties with runner-up counties that narrowly lost the
+siting competition, treating the discrete opening as a shock whose
+local effects can be tracked through event time
+\citep{--identifyingagglomerationspillovers}. Assessments of the
+urban Empowerment Zone program use rejected and future applicants as
+comparison units to construct credible counterfactuals, an
+identification strategy whose logic carries directly into a
+not-yet/never-treated control group under staggered adoption
+\citep{bussoetal-2013-assessingincidenceefficiency}. These studies
+share two features relevant here: the treatment is a geographically
+concentrated, time-specific intervention, and the counterfactual is
+built from units that were eligible or plausibly comparable but did
+not receive treatment at the same time.
+
+The same design approach has an established record in
+China-focused applied work, and the closest methodological parallel
+to the present proposal is already available in the China
+energy-policy literature. An evaluation of China's economic-zone
+program combines rich firm and administrative panels with a
+difference-in-differences design to estimate effects of a
+place-based Chinese policy, demonstrating that quasi-experimental
+evaluation of geographically targeted rollouts is standard practice
+in this setting
+\citep{luetal-2019-placebasedpoliciescreation}. More directly,
+\citet{wangetal-2023-transregionalelectricitytransmission} treat
+China's ultra-high-voltage transmission projects as a quasi-natural
+experiment and apply a time-varying difference-in-differences
+estimator to regional carbon emissions and carbon intensity. That
+paper shares the elements that matter for EDWC: a Chinese grid-linked
+infrastructure shock with staggered activation dates, panel data at a
+subnational level, and an energy-environment outcome. On the
+outcome-variable side, \citet{deryuginaetal-2020-longrundynamicselectricity}
+apply difference-in-differences to monthly residential-electricity
+consumption across more than 250 Illinois communities, with explicit
+parallel-trends validation, anticipation checks, and placebo tests,
+providing a template for presenting dynamic electricity-consumption
+effects from monthly subnational panels. The setting is a price shock
+rather than an infrastructure rollout, but the outcome variable and
+the empirical toolkit are the same.
+
+The methodological literature of the last several years sharpens how
+staggered event studies should be implemented. Two-way fixed-effects
+specifications with leads and lags, long treated as the default in
+applied work, can deliver event-time coefficients that are
+contaminated by effects from other periods and apparent pre-trends
+that arise purely from treatment-effect heterogeneity
+\citep{sunabraham-2021-estimatingdynamictreatmenta}. Decomposition of
+the pooled two-way fixed-effects estimator shows that it is a weighted
+average of all possible two-group/two-period comparisons, with
+weights that can be negative when treatment effects vary over time
+\citep{goodman-bacon-2021-differenceindifferencesvariationtreatmenta,
+dechaisemartindhaultfoeuille-2020-twowayfixedeffects}. The constructive
+response has been a family of estimators that restrict comparisons to
+clean pairs, typically treated cohorts against not-yet-treated or
+never-treated units, and aggregate the resulting group-time average
+treatment effects into event-time paths
+\citep{callawaysantanna-2021-differenceindifferencesmultipletimea}.
+For a staggered rollout across a small number of treated provinces
+with differing go-live dates, the implication is specific: the main
+estimator should be a cohort-interacted event study in the
+Sun--Abraham form, with Callaway--Sant'Anna as an alternative
+aggregation under the same identifying assumptions.
+
+These three bodies of work deliver the elements the empirical design
+requires: a template for treating a geographically targeted,
+time-specific shock as a quasi-experiment; a China-centred precedent
+that uses the same template for a grid-linked infrastructure
+intervention with energy and emissions outcomes; and a
+methodological consensus on how to estimate event-time effects under
+staggered adoption. What the existing applied work does not contain
+is a study that applies this template to a compute-infrastructure
+policy of EDWC's kind, with provincial electricity consumption as
+the primary outcome and CO\textsubscript{2} as a complementary
+outcome, and that treats the province-level go-lives as a staggered
+shock rather than a single pooled intervention.
 
 
 % ------------------------------------------------------------
@@ -510,7 +696,75 @@ Carbon Metrics}
 % metric -> compute-efficiency benchmarks -> emission factors
 % and grid CI -> gap: no integrated provincial CPC framework.
 
-[TO BE DRAFTED --- REQUIRES LITERATURE GATHERING FIRST]
+Translating electricity and emissions from compute infrastructure
+into a compute-relevant metric requires an accounting framework that
+the computing-systems and standards literatures have now largely
+converged on. The clearest formulation separates operational
+emissions, which scale with electricity use and grid carbon
+intensity, from embodied emissions tied to hardware manufacturing
+and facility construction, and treats the footprint of a computing
+system as the sum of the two expressed per unit of useful compute
+rather than as a raw energy total
+\citep{guptaetal-2022-chasingcarbonelusive}. The Software Carbon
+Intensity specification formalizes the same logic as a rate-based
+standard: operational plus embodied emissions per functional unit,
+with no role for offsets as a way to lower the reported value
+\citep{greensoftwarefoundation-2024-softwarecarbonintensity}. A
+parallel systems literature shows that the operational term is
+inherently time- and location-specific, because grid carbon intensity
+varies by hour and by location with the generation mix that is
+dispatched, so the same workload can produce different emissions
+depending only on where and when it runs
+\citep{radovanovicetal-2023-carbonawarecomputingdatacenters}. The
+common structure is a compute-normalized rate whose three inputs are
+grid carbon intensity, facility efficiency, and the efficiency of the
+hardware itself.
+
+Each input has its own measurement tradition. Facility efficiency is
+standardly reported as Power Usage Effectiveness, defined as total
+facility energy divided by the IT-equipment energy it supports, with
+detailed conventions for measurement boundaries, partial-facility
+variants, and reporting practice
+\citep{thegreengrid-2012-puecomprehensiveexamination}. The same
+practitioner literature treats PUE as an input into a broader
+carbon metric rather than as a standalone environmental indicator,
+because it is silent on grid mix and on hardware efficiency and
+therefore cannot capture the relocation effects that motivate EDWC.
+
+Hardware efficiency has a comparable benchmarking tradition. The
+Green500 and Top500 power-measurement methodology specifies how
+system power under a defined workload should be instrumented,
+sampled, and reported, with graded quality levels and clear
+requirements for full-run measurement, producing the audited
+performance-per-watt series that now underlies most high-performance-computing
+efficiency comparisons
+\citep{energyefficienthighperformancecomputingworkinggroup-2015-energyefficienthigh}.
+The resulting efficiency numbers are expressed in GFLOPS per watt and
+provide an auditable base for the hardware-efficiency term in any
+compute-normalized carbon rate; they are reported for
+double-precision workloads, which implies the need for an explicit
+adjustment when the target application is AI training or inference.
+
+The grid carbon-intensity term is the input most closely tied to the
+Chinese setting and the one where provincial resolution matters
+most. A core method paper for China links provincial apparent energy
+consumption to updated local emission factors, recalculating
+provincial CO\textsubscript{2} inventories in a way that materially
+changes totals relative to defaults and that now grounds the
+subnational CEADs methodology
+\citep{shanetal-2016-newprovincialco2}. Chinese institutional work
+organizes green compute around equipment efficiency, facility
+efficiency, and coordination between compute and electricity
+supply, and it documents that the centre-west is now a growing share
+of nationally selected green data-centre sites
+\citep{chinaacademyofinformationandcommunicationstechnologyhoringernewarea-2024-zhongguolusesuanlifazhanyanjiubaogao2024nian}.
+Across the standards, the systems literature, and the Chinese
+institutional documents, the three inputs that a province-year
+compute-normalized carbon rate requires are available as
+methodologies and series, but they have not been assembled into a
+single provincial Carbon-per-Compute measure for China that can be
+read alongside a causal estimate of EDWC's effect on provincial
+electricity consumption.
 
 
 % ------------------------------------------------------------
@@ -535,70 +789,66 @@ Carbon Metrics}
 % DO NOT OVERCLAIM: Zhang et al. (2025) exists. The gap is causal
 % identification + CPC, not "no prior EDWC research."
 
-The three streams reviewed above leave a specific opening that this
-proposal is designed to fill. Read together, they show that the
-outcome of interest is recognized, the empirical tools are mature, and
-the measurement frameworks are in place, yet none of the existing work
-joins these elements at the province-year level for the EDWC rollout.
+The three streams reviewed above can now be read jointly. Taken
+together, they establish that the outcome of interest is material,
+that the identification tools for a staggered infrastructure rollout
+are available, and that the measurement components for a
+compute-normalized carbon rate exist. What is missing is a study that
+joins these elements at the province-year level for EDWC.
 
-The outcome stream has settled the basic premise. Compute infrastructure
-is a material and growing source of electricity demand, and its
-environmental footprint depends on where workloads run, not only on how
-much is computed \citep{zhengetal-2020-mitigatingcurtailmentcarbon}.
-For China, provincial decomposition work has documented sizeable
+On the outcome side, the evidence on energy and emissions from
+compute infrastructure has two features specific to the Chinese
+setting. Provincial decomposition work documents sizeable
 heterogeneity in data-center emissions across regions
-\citep{nietal-2024-co2emissionmitigationpathways}. EDWC itself has
-already attracted attention, but the existing assessments are
-prospective: \citet{zhangetal-2025-easterndatawestern} estimate
-emission reductions from scenario analysis tied to net-zero pathways,
-and \citet{zhangetal-2025-decarbonizingdatacenters} simulate route-by-route
-energy and carbon savings under bits-migration assumptions, with the
-sign of the carbon effect depending on the source--sink emission-factor
-gap. What this body of work does not provide is an ex post, province-level
-causal estimate of how EDWC go-lives have moved electricity consumption,
-with CO\textsubscript{2} as a complementary outcome.
+\citep{nietal-2024-co2emissionmitigationpathways}, and the existing
+EDWC-specific assessments remain prospective, either scenario-based
+\citep{zhangetal-2025-easterndatawestern} or route-simulation
+\citep{zhangetal-2025-decarbonizingdatacenters}, with the sign of
+the carbon effect depending on the source--sink emission-factor gap
+and with workload-migration mechanisms indicating that relocation
+effects are theoretically ambiguous
+\citep{zhengetal-2020-mitigatingcurtailmentcarbon}. None of this
+work estimates the realized, ex post effect of EDWC go-lives on
+provincial electricity consumption.
 
-The design stream supplies the tools needed to close that gap, but has
-not been applied to a compute-infrastructure shock of this kind.
-Modern staggered-adoption methods now allow event-time effects to be
-estimated without the contamination that two-way fixed-effects
-specifications impose under heterogeneous treatment effects
+On the design side, the methodological tools have matured precisely
+to address the kind of rollout EDWC embodies. Event-time effects
+under staggered adoption can now be estimated without the
+contamination that pooled two-way fixed-effects specifications
+impose under heterogeneous timing
 \citep{sunabraham-2021-estimatingdynamictreatmenta,
-goodman-bacon-2021-differenceindifferencesvariationtreatmenta}.
-These estimators have been used in China to evaluate place-based
-infrastructure of comparable scale, and in energy and environment
-settings to recover dynamic responses from monthly panels. EDWC,
-which activates in four western provinces over roughly two years,
-fits the same template, yet no published study treats its province-level
-go-lives as a staggered shock and reports event-time estimates on
-electricity or emissions.
+goodman-bacon-2021-differenceindifferencesvariationtreatmenta}. The
+tools have been used in China for grid-linked infrastructure and in
+energy-economics settings on monthly subnational panels, but not for
+a compute-infrastructure policy activating across four western
+provinces over roughly two years.
 
-The measurement stream points to a parallel gap on the translation
-side. Carbon accounting for compute is now organized around rate-based
-metrics that combine grid carbon intensity, facility efficiency, and
-hardware efficiency into a single denominator
-\citep{guptaetal-2022-chasingcarbonelusive}. Chinese institutional work
-treats green compute as a multi-component planning problem with explicit
-provincial concentration, but stops short of an integrated provincial
-metric that ties grid carbon intensity, PUE, and AI-relevant efficiency
-together
-\citep{chinaacademyofinformationandcommunicationstechnologyhoringernewarea-2024-zhongguolusesuanlifazhanyanjiubaogao2024nian}.
-The components exist; their assembly into a province-year carbon-per-compute
-series for China does not.
+On the measurement side, the accounting logic has converged, the
+component methodologies are published, and Chinese institutional
+documents already treat green compute as a multi-component planning
+problem \citep{guptaetal-2022-chasingcarbonelusive,
+chinaacademyofinformationandcommunicationstechnologyhoringernewarea-2024-zhongguolusesuanlifazhanyanjiubaogao2024nian}.
+What is absent is the assembly of these components into a
+province-year carbon-per-compute series for China that can be read
+alongside a causal electricity estimate for the same provinces and
+periods.
 
-These three openings define the proposal's two research questions. RQ1
-addresses the outcome and design gaps jointly: it asks how EDWC
-go-lives have changed provincial electricity consumption, with CO\textsubscript{2}
-as a complementary environmental outcome, using a staggered event-study
-estimator rather than a pooled two-way fixed-effects specification.
-RQ2 addresses the measurement gap and is downstream from RQ1: it
-constructs a provincial Carbon-per-Compute series as a transparent
-proxy that links the estimated energy effects to compute units, and
-asks how it moves before and after EDWC. Neither question has been
-posed in this form for EDWC; together they connect a credible causal
-estimate of energy effects to a reproducible compute-side translation,
-which is what the existing literature, taken together, has not yet
-delivered.
+These three openings are not independent, and that is what justifies
+pairing the proposal's two research questions rather than treating
+them as separable. A causal estimate of the electricity effect
+without a compute-side translation is hard to interpret against
+China's stated compute-expansion goals. A compute-side translation
+without a causal electricity estimate reduces to a descriptive
+accounting exercise whose behaviour around EDWC go-lives cannot be
+attributed to the policy. The first question therefore asks how EDWC
+go-lives have changed provincial electricity consumption, with
+CO\textsubscript{2} as a complementary environmental outcome, using
+a staggered event-study estimator rather than a pooled two-way
+fixed-effects specification. The second, downstream from the first,
+constructs a provincial carbon-per-compute series as a transparent
+proxy, reports its levels and changes around the go-lives, and asks
+what range of additional compute is compatible with the estimated
+electricity effects.
 
 
 % ============================================================
@@ -1766,8 +2016,6 @@ component that is actually moving.
 % ============================================================
 % REFERENCES
 % ============================================================
-
-\section*{References}
 
 \bibliographystyle{apalike}
 \bibliography{references}
