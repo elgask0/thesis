@@ -2,7 +2,7 @@
 filename_stem: "liu_2020_carbon_monitor_dataset"
 citation: "Liu, Z., Ciais, P., Deng, Z., et al. (2020).** Carbon Monitor, a near-real-time daily dataset of global CO₂ emission from fossil fuel and cement production. *Scientific Data, 7*, 392. https://doi.org/10.1038/s41597-020-00708-7"
 first_author: "Liu"
-year: 2020
+year: "2020"
 title: "Carbon Monitor, a near-real-time daily dataset of global CO₂ emission from fossil fuel and cement production"
 venue: "Liu, Z., Ciais, P., Deng, Z., et al. (2020)."
 doi: "10.1038/s41597-020-00708-7"
@@ -16,7 +16,7 @@ priority: "must-cite"
 caveat: ""
 zotero_key: "DEY8BAE4"
 pdf_local: "pdf/liu_2020_carbon_monitor_dataset.pdf"
-note_status: "stub-pdf-read"
+note_status: "upgraded-mineru-full"
 ---
 
 # Carbon Monitor, a near-real-time daily dataset of global CO₂ emission from fossil fuel and cement production
@@ -41,25 +41,33 @@ Foundational dataset-methodology paper for Carbon Monitor. Documents the activit
 1 Scientific Data | (2020) 7:392 | https://doi.org/10.1038/s41597-020-00708-7 www.nature.com/scientificdata Carbon Monitor, a near-real-time daily dataset of global CO2 emission from fossil fuel and cement production Zhu Liu 1,13 ✉, Philippe Ciais 2,13 ✉, Zhu Deng 1,13, Steven J. Davis 3 ✉, Bo Zheng 2, Yilong Wang4, Duo Cui1, Biqing Zhu1, Xinyu Dou 1, Piyu Ke 1, Taochun Sun 1, Rui Guo 1, Haiwang Zhong5, Olivier Boucher6, François-Marie Bréon 2, Chenxi Lu1, Runtao Guo7, Jinjun Xue8,9,10, Eulalie Boucher 11, Katsumasa Tanaka 2,12 & Frédéric Chevallier 2 We constructed a near-real-time daily CO2 emission dataset, the Carbon Monitor, to monitor the variations in CO2 emissions from fossil fuel combustion and cement production since January 1, 2019, at the national level, with near-global coverage on a daily basis and the potential to be frequently updated. Daily CO2 emissions are estimated from a diverse range of activity data, including the hourly to daily electrical power generation data of 31 countries, monthly production data and production indices of industry processes of 62 countries/regions, and daily mobility data and mobility indices for the ground transportation of 416 cities worldwide. Individual flight location data and monthly data were utilized for aviation and maritime transportation sector estimates. In addition, monthly fuel consumption data corrected for the daily air temperature of 206 countries were used to estimate the emissions from commercial and residential buildings. This Carbon Monitor dataset manifests the dynamic nature of CO2 emissions through daily, weekly and seasonal variations as influenced by workdays and holidays, as well as by the unfolding impacts of the COVID-19 pandemic. The Carbon Monitor near-real-time CO2 emission dataset shows a 8.8
 
 ## Core argument / findings
-
-- _to fill during close read_
+- Foundational dataset-methodology paper for Carbon Monitor. Documents the activity-data methodology for daily, sector-resolved CO₂ estimates. Required citation whenever the proposal's complementary CO₂ outcome data are used.
+- SCIENTIFIC DATA 10110 11011110 011101101 Check for updates OPEN Dat a Desc ripto r Carbon Monitor, a near-real-time daily dataset of global CO2 emission from fossil fuel and cement production Zhu Liu 1,13 ✉, Philippe Ciais 2,13 ✉, Zhu Deng 1,13, Steven J.
+- In addition, monthly fuel consumption data corrected for the daily air temperature of 206 countries were used to estimate the emissions from commercial and residential buildings.
+- This Carbon Monitor dataset manifests the dynamic nature of CO2 emissions through daily, weekly and seasonal variations as infuenced by workdays and holidays, as well as by the unfolding impacts of the COVID-19 pandemic.
 
 ## Method & data
-
-- _to fill during close read_
+- Paper type: empirical paper.
+- Parsed coverage used here: full document (12 pages).
+- SCIENTIFIC DATA 10110 11011110 011101101 Check for updates OPEN Dat a Desc ripto r Carbon Monitor, a near-real-time daily dataset of global CO2 emission from fossil fuel and cement production Zhu Liu 1,13 ✉, Philippe Ciais 2,13 ✉, Zhu Deng 1,13, Steven J.
+- In addition, monthly fuel consumption data corrected for the daily air temperature of 206 countries were used to estimate the emissions from commercial and residential buildings.
+- This Carbon Monitor dataset manifests the dynamic nature of CO2 emissions through daily, weekly and seasonal variations as infuenced by workdays and holidays, as well as by the unfolding impacts of the COVID-19 pandemic.
 
 ## Key quotes
-
-- _page / quote_
+- p. 4: "Data acquisition and processing of carbon monitor daily CO2 emissions."
+- p. 1: "7School of Mathematical School, Tsinghua University, Beijing, 100084, China."
+- p. 1: "1Department of Earth System Science, Tsinghua University, Beijing, 100084, China."
 
 ## Relevance to EDWC thesis
-
-- _how this paper supports specific claims / sections_
+- Foundational dataset-methodology paper for Carbon Monitor. Documents the activity-data methodology for daily, sector-resolved CO₂ estimates. Required citation whenever the proposal's complementary CO₂ outcome data are used.
+- Proposal placement: §3.3 data source; §2.1 background.
+- Most relevant use within the proposal: literature review.
 
 ## Caveats / limitations
-
-- _none noted in master file_
+- No major citation-use caveat beyond the paper's own scope is obvious from the current parse.
 
 ## Related papers in corpus
-
-- _link sibling notes_
+- [dodge_2022_carbon_intensity_ai_cloud.md](dodge_2022_carbon_intensity_ai_cloud.md): same stream; shared tags: outcome.
+- [greenpeace_2021_china_5g_dc_outlook.md](greenpeace_2021_china_5g_dc_outlook.md): same stream; shared tags: outcome.
+- [iea_2025_energy_and_ai.md](iea_2025_energy_and_ai.md): same stream; shared tags: outcome.
+- [luccioni_2023_bloom_carbon_footprint.md](luccioni_2023_bloom_carbon_footprint.md): same stream; shared tags: outcome.

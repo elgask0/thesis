@@ -32,5 +32,7 @@ ENV/
 # IDEs
 .vscode/
 .idea/
+02_literature/parsed/*
 
-
+# Overleaf staging bundle (temporary, not tracked)
+04_drafts/overleaf_bundle/

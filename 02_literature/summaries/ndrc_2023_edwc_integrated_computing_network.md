@@ -1,9 +1,9 @@
 ---
 filename_stem: "ndrc_2023_edwc_integrated_computing_network"
-citation: "National Development and Reform Commission. (2023, December 29).** *关于深入实施\"东数西算\"工程加快构建全国一体化算力网的实施意见（发改数据〔2023〕1779号）* [Implementation opinions on deeply advancing the Eastern Data, Western Compute project and accelerating the building of an integrated national computing network]."
-first_author: "National Development and Reform Commission. (2023"
-year: 2023
-title: "*关于深入实施\"东数西算\"工程加快构建全国一体化算力网的实施意见（发改数据〔2023〕1779号）* [Implementation opinions on deeply advancing the Eastern Data, Western Compute project and accelerating the building of an integrated national computing network]"
+citation: "National Development and Reform Commission. (2023, December 29).** *关于深入实施\\\"东数西算\\\"工程加快构建全国一体化算力网的实施意见（发改数据〔2023〕1779号）* [Implementation opinions on deeply advancing the Eastern Data, Western Compute project and accelerating the building of an integrated national computing network]."
+first_author: "National Development and Reform Commission"
+year: "2023"
+title: "*关于深入实施\\\"东数西算\\\"工程加快构建全国一体化算力网的实施意见（发改数据〔2023〕1779号）* [Implementation opinions on deeply advancing the Eastern Data, Western Compute project and accelerating the building of an integrated national computing network]"
 venue: "National Development and Reform Commission. (2023, December 29)."
 doi: ""
 url: ""
@@ -16,12 +16,12 @@ priority: "must-cite"
 caveat: ""
 zotero_key: "EMECC7RC"
 pdf_local: "pdf/ndrc_2023_edwc_integrated_computing_network.pdf"
-note_status: "stub-pdf-read"
+note_status: "upgraded-pdf-fallback-full"
 ---
 
 # *关于深入实施"东数西算"工程加快构建全国一体化算力网的实施意见（发改数据〔2023〕1779号）* [Implementation opinions on deeply advancing the Eastern Data, Western Compute project and accelerating the building of an integrated national computing network]
 
-**Authors:** National Development and Reform Commission. (2023
+**Authors:** National Development and Reform Commission and related departments
 **Year:** 2023
 **Venue:** National Development and Reform Commission. (2023, December 29).
 **DOI:** —
@@ -38,28 +38,38 @@ Core official EDWC policy text linking westward siting, compute-power coordinati
 
 ## Abstract
 
-2026年4⽉17⽇ 星期五 ⽆障碍模式 Accessibility Mode ⼯作邮箱 Work Email En 请输⼊关键字 热⻔搜索：油价⼗五五电价⼈⼯智能以旧换新 Popular Searches: Oil Prices, 15th Five-Year Plan, Electricity Prices, Artificial ⾸⻚ ⾸⻚ ⾸⻚ ⾸⻚ Home Home Home Home 机构设 机构设 机构设 机构设 置 Organization Organization Organization Organization Setup Setup Setup Setup 新闻动态 新闻动态 新闻动态 新闻动态 News News News News & Updates & Updates & Updates & Updates 政务公 政务公 政务公 政务公 开 Government Government Government Government Information Information Information Information Disclosure Disclosure Disclosure Disclosure 政务服 政务服 政务服 政务服 务 Government Government Government Government Services Services Services Services 发改数 发改数 发改数 发改数 据 Development Development Development Development and Reform Data and Reform Data and Reform Data and Reform Data 互动交 互动交 互动交 互动交 流 Interactive Interactive Interactive Interactive Communication Communication Communication Communication 发布时间：2023/12/29 Release Date: 2023/12/29 来源：数据局 Source: Data Administration [ 打印 ] [ Print ] 微博 微信 Weibo WeChat 关于深⼊实施“东数⻄算”⼯程加快构建全国⼀体化算⼒⽹的实施意⻅(发改数据 关于深⼊实施“东数⻄算”⼯程加快构建全国⼀体化算⼒⽹的实施意⻅(发改数据 关于深⼊实施“东数⻄算”⼯程加快构建全国⼀体化算⼒⽹的实施意⻅(发改数据 关于深⼊实施“东数⻄算”⼯程加快构建全国⼀体化算⼒⽹的实施意⻅(发改数据 〔2023〕1779号) 〔2023〕1779号) 〔2023〕1779号) 〔2023〕1779号) Implementation Opinions on Deepening the "East Data, West Implementation Opinions on Deepening the "East Data, West Implementation Opinions on Deepening the "East Data, West Implementation Opinions on Deepening the "East Data, West Computing" Project to Accelerate the Construction of a National Computing" Project to Accelerate the Construction of a National Computing" Project to Accelerate the Construction of a National Computing" Project to Accelerate the Construction of a National Integrated Computing Power Network (Development and Reform Data Integrated Computing Power Network (Development and Refor
+Official implementation opinion issued on 2023-12-29 setting out the principles, targets, and task list for deepening EDWC and building a nationally integrated computing-power network.
 
 ## Core argument / findings
-
-- _to fill during close read_
+- Core official EDWC policy text linking westward siting, compute-power coordination, and clean-energy advantages.
+- The document asks how EDWC should move from initial hub-and-node planning to an integrated national computing network with coordinated siting, scheduling, transmission, and green-power use.
+- Its main policy conclusion is that compute resources should be concentrated in national hub nodes, linked through a dedicated national computing network, and coordinated with green electricity and east-west transmission arrangements.
+- The key institutional moves are: no new large or ultra-large data centres outside national hub nodes in principle; coordination of general-purpose, intelligent, and supercomputing resources; explicit compute-power and power-system coordination; and lower cross-node transmission costs through new settlement and billing mechanisms.
+- The document also gives concrete 2025 targets: more than 60% of newly added national computing capacity should be located in hub-node areas, and green electricity should exceed 80% in newly built data centres at those hub nodes.
 
 ## Method & data
-
-- _to fill during close read_
+- Paper type: official policy / implementation opinion.
+- This is an institutional document, not an empirical paper. It sets administrative principles, numerical targets, and task assignments across NDRC, the National Data Administration, MIIT, CAC, and energy authorities.
+- The document's logic is programmatic rather than statistical: define the network architecture, define where capacity should be built, define scheduling and transmission arrangements, and define green-power coordination targets.
 
 ## Key quotes
-
-- _page / quote_
+- p. 1: "In principle, no new large or ultra-large data centers of any kind shall be constructed outside the national hub nodes."
+- p. 1: "By the end of 2025 ... over 60% of the nation's newly added computing capacity will be concentrated in national hub node areas."
+- p. 1: "green electricity accounting for over 80% of the power consumption in newly built data centers at national hub nodes."
 
 ## Relevance to EDWC thesis
-
-- _how this paper supports specific claims / sections_
+- Core official EDWC policy text linking westward siting, compute-power coordination, and clean-energy advantages.
+- Proposal placement: §1.1.2 EDWC policy; §1.1.4 policy context; §3 interpretation.
+- Most relevant use within the proposal: background, empirical strategy interpretation, China contextual interpretation.
+- It supports precise claims that EDWC is not only a data-centre siting policy. It is also a compute-network, transmission-cost, and green-power coordination program. That matters for treatment interpretation in RQ1 and for later CPC discussion.
 
 ## Caveats / limitations
-
-- _none noted in master file_
+- This is an institutional source rather than peer-reviewed causal evidence.
+- It states targets and intended mechanisms, not realised outcomes. It should discipline treatment interpretation and background discussion, not be cited as evidence that the targets were achieved.
+- The local MinerU output was noisy, so these sections rely on direct PDF text.
 
 ## Related papers in corpus
-
-- _link sibling notes_
+- [ndrc_miit_nea_nda_2024_green_datacenter_action_plan.md](ndrc_miit_nea_nda_2024_green_datacenter_action_plan.md): closest companion policy text on green-data-centre implementation after the 2023 network opinion.
+- [zhang_li_wang_2025_edwc_bits_migration.md](zhang_li_wang_2025_edwc_bits_migration.md): empirical EDWC paper that can be read against the official policy logic set out here.
+- [xie_2024_ewcrt_co2_reduction.md](xie_2024_ewcrt_co2_reduction.md): another EDWC-focused paper useful for contrasting policy intent with modeled environmental claims.
+- [caict_2024_green_computing_report.md](caict_2024_green_computing_report.md): institutional bridge on how green-computing and compute-energy coordination are framed in practice.

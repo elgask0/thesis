@@ -2,7 +2,7 @@
 filename_stem: "gsf_2024_sci_specification"
 citation: "Green Software Foundation. (2024).** *Software Carbon Intensity (SCI) specification* (ISO/IEC 21031:2024). https://sci.greensoftware.foundation/"
 first_author: "Green Software Foundation"
-year: 2024
+year: "2024"
 title: "*Software Carbon Intensity (SCI) specification* (ISO/IEC 21031:2024)"
 venue: "Green Software Foundation. (2024)."
 doi: ""
@@ -16,7 +16,7 @@ priority: "must-cite"
 caveat: ""
 zotero_key: "M7MWJU6L"
 pdf_local: "pdf/gsf_2024_sci_specification.pdf"
-note_status: "stub-pdf-read"
+note_status: "upgraded-pdf-fallback-parse_poor"
 ---
 
 # *Software Carbon Intensity (SCI) specification* (ISO/IEC 21031:2024)
@@ -38,28 +38,38 @@ Formal rate-based accounting standard: operational + embodied emissions normaliz
 
 ## Abstract
 
-Version 1.1.0 of the Software Carbon Intensity (SCI) specification by the Standards Working Group in the Green Software Foundation. The SCI technical specification describes how to calculate the carbon intensity of a software application. It describes the methodology of calculating the total carbon emissions and the selection criteria to turn the total into a rate that can be used to achieve real-world, physical emissions reductions. To see the latest version, raise an issue or ask a question visit the GitHub repository. Software systems cause emissions through the hardware that they operate on, both through the energy that the physical hardware consumes and the emissions associated with manufacturing the hardware. This specification defines a methodology for calculating the rate of carbon emissions for a software system. The purpose is to help users and developers make informed choices about which tools, approaches, architectures, and services they use in the future. It is a score rather than a total; lower numbers are better than higher numbers, and reaching 0 is impossible. This specification is focused on helping users and developers understand how to improve software to reduce or avoid the creation of emissions. Reducing an SCI score is only possible through the elimination of emissions. That can be achieved by modifying a software system to use less physical hardware, less energy, or consume lower-carbon energy sources. Neutralization or avoidance offsets do not reduce an SCI score (see exclusions section). This makes the SCI an ideal strategy that organizations can adopt to meet climate targets focused on eliminating emissions, such as those specified by [1]. The SCI is for everyone. It is possible to calculate an SCI score for any software application, from a la
+Version 1.1.0 technical specification defining Software Carbon Intensity as a rate that combines operational and embodied emissions per functional unit of software service. The standard is designed for measurement and design comparison, not for claiming net-zero through offsets.
 
 ## Core argument / findings
-
-- _to fill during close read_
+- The specification asks how software emissions should be expressed as a comparable rate rather than as a raw total.
+- Its central move is to define `SCI = (O + M) per R`, where operational emissions `O` come from energy use times grid carbon intensity and embodied emissions `M` allocate hardware manufacturing emissions over time and resource share.
+- The standard treats energy efficiency, hardware efficiency, and carbon awareness as the three main ways to reduce the score. It explicitly rejects offsetting as a way to lower SCI.
+- For the thesis, the important contribution is structural: SCI is a formal template for a rate-based metric that normalizes emissions by a functional unit. CPC follows the same logic but swaps the software service unit for compute output.
 
 ## Method & data
-
-- _to fill during close read_
+- Paper type: standard / accounting methodology.
+- This is not an empirical study. It defines a reporting framework, the required variables, and the decomposition of emissions into operational and embodied components.
+- Operational emissions are calculated as `O = E * I`. Embodied emissions are allocated as `M = TE * TS * RS`, then normalized by the functional unit `R`.
+- The document allows modeled inputs when direct measurement is unavailable, but the preferred approach is granular real-world data.
 
 ## Key quotes
-
-- _page / quote_
+- Page numbers were not reliably recoverable from the local PDF extraction, so any direct quotation should be checked against the source PDF or website before citation.
+- "SCI is a rate; carbon emissions per one unit of `R`."
+- "Reducing an SCI score is only possible through the elimination of emissions."
+- "Carbon Awareness: Actions taken to time- or region-shift software computation to take advantage of cleaner ... electricity."
 
 ## Relevance to EDWC thesis
-
-- _how this paper supports specific claims / sections_
+- Formal accounting analogue for CPC. It shows how to turn emissions into a rate by dividing by a functional unit and by keeping operational and embodied components explicit.
+- Proposal placement: §2.3 standards reference; §3.4.3 CPC structure; §4 contribution framing.
+- Most relevant use within the proposal: literature review, empirical strategy, CPC / measurement logic.
 
 ## Caveats / limitations
-
-- _none noted in master file_
+- This is a standards document rather than peer-reviewed causal evidence.
+- SCI is written for software services, not for province-level compute infrastructure. The thesis can borrow its accounting logic, but not its functional unit directly.
+- The local PDF extraction was poor and page numbering was unreliable, so any future direct quotation needs source checking.
 
 ## Related papers in corpus
-
-- _link sibling notes_
+- [gupta_2022_chasing_carbon.md](gupta_2022_chasing_carbon.md): closest conceptual neighbor on emissions accounting choices for compute workloads.
+- [radovanovic_2023_carbon_aware_computing.md](radovanovic_2023_carbon_aware_computing.md): direct complement on time- and location-shifting to lower operational emissions.
+- [freitag_2021_ict_climate_critique.md](freitag_2021_ict_climate_critique.md): broad systems-level critique that cautions against narrow or incomplete carbon metrics.
+- [caict_2023_computing_power_index.md](caict_2023_computing_power_index.md): institutional bridge from general carbon-accounting logic to the Chinese compute-capacity setting.

@@ -138,16 +138,13 @@ work where the skeleton requests it.
   rather than inventing a citation or reopening literature search.
 - Do not reopen literature search. The corpus is frozen for the proposal.
 - Do not invent references, DOIs, or quotes.
-- Preserve citation keys as they will appear in the `.bib` once available.
-  Until the `.bib` is in place, cite using `\citep{authorYEARshortkey}`
-  placeholders that match the conventional key derivable from the
-  `literature_master.md` `Filename:` field (for example
-  `masanet_2020_recalibrating_dc_energy.md` → `\citep{masanet2020}` or
-  a similar stable key). Flag the chosen convention once at the top of
-  your first drafting session and keep it consistent.
-- The `.bib` will live under `/Users/elgask0/REPOS/thesis/02_literature/`.
-  Once it is populated, switch placeholder keys to the real keys in a
-  single consolidation pass rather than ad hoc during drafting.
+- The `.bib` file is available at `02_literature/Exported Items.bib` with
+  Zotero auto-generated keys (51 entries). These keys are canonical.
+- Each entry in `literature_master.md` has a `bib_key` field mapping the
+  human-readable `Filename:` stem to the actual Zotero `.bib` key.
+  Use the `bib_key` value directly in `\citep{}` commands.
+- Do not invent or modify `.bib` keys. If a key seems wrong, flag it to
+  the user rather than changing it unilaterally.
 
 ---
 
@@ -248,14 +245,10 @@ Two skills are relevant to this repo.
 - Cite only papers present in `literature_master.md`.
 - Use `natbib` commands (`\citep`, `\citet`) consistent with the preamble
   of `thesis-proposal.tex`.
-- Until the `.bib` file is available under
-  `/Users/elgask0/REPOS/thesis/02_literature/`, use stable placeholder
-  keys derived from the paper `Filename:` field in `literature_master.md`.
+- Use the Zotero auto-generated `.bib` keys listed in the `bib_key`
+  field of each `literature_master.md` entry. These keys are canonical.
 - Do not hand-insert fabricated DOIs, URLs, or bibliographic entries in
   the `.tex`.
-- Run one consolidation pass at the end of drafting to switch placeholder
-  keys to the real `.bib` keys. Do not mix real and placeholder keys
-  ad hoc.
 - Do not over-cite. Follow the per-paper `Use in proposal` guidance in
   `literature_master.md`. If a paper says it belongs in §2.1 outcome
   motivation, use it there — not as a drive-by citation elsewhere.
@@ -341,7 +334,7 @@ drafting. Do not resolve them unilaterally.
 
 - Second province target for electricity scraping after Gansu.
 - Exact coverage rule for inclusion in the first kWh estimation sample.
-- Final citation-key convention once the `.bib` is in place.
+- Final citation-key convention (now resolved: Zotero auto-generated keys in `bib_key` field of `literature_master.md`).
 - Final locked `T0` values (currently working anchors).
 
 ---

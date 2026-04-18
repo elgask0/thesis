@@ -29,6 +29,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §1.1.1 opening DC-electricity claim; §2.1 baseline reference.
 - **Tags:** `DC-energy`; `global-estimates`; `efficiency-decoupling`; `outcome`
 - **Filename:** `masanet_2020_recalibrating_dc_energy.md`
+- **bib_key:** `masanetetal-2020-recalibratingglobaldata`
 
 **Shehabi, A., Smith, S. J., Hubbard, A., Newkirk, A., Lei, N., Siddik, M. A. B., Holecek, B., Koomey, J., Masanet, E., & Sartor, D. (2024).** *2024 United States Data Center Energy Usage Report* (LBNL-2001637). Lawrence Berkeley National Laboratory. https://doi.org/10.71468/P1WC7Q
 
@@ -36,6 +37,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §1.1.1 AI-era benchmark; §2.1 scaling evidence.
 - **Tags:** `DC-energy`; `bottom-up`; `AI-servers`; `LBNL`; `outcome`
 - **Filename:** `shehabi_2024_us_dc_energy_report.md`
+- **bib_key:** `shehabietal-2024-2024unitedstates`
 
 **International Energy Agency. (2025).** *Energy and AI*. IEA, Paris. https://www.iea.org/reports/energy-and-ai
 
@@ -43,6 +45,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §1.1.1 global framing; §1.1.2 policy framing; §2.1 policy-relevance.
 - **Tags:** `IEA`; `AI-energy`; `DC-projections`; `policy-report`; `outcome`
 - **Filename:** `iea_2025_energy_and_ai.md`
+- **bib_key:** `internationalenergyagency-2025-energyai`
 
 ### 1.2 AI-specific carbon accounting
 
@@ -52,6 +55,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §1.1.1 background; §2.1 outcome motivation.
 - **Tags:** `AI-carbon`; `training`; `CPC-logic`; `outcome`
 - **Filename:** `patterson_2021_carbon_nn_training.md`
+- **bib_key:** `pattersonetal-2021-carbonemissionslarge`
 
 **Patterson, D., Gonzalez, J., Hölzle, U., Le, Q., Liang, C., Munguia, L.-M., Rothchild, D., So, D. R., Texier, M., & Dean, J. (2022).** The carbon footprint of machine learning training will plateau, then shrink. *Computer, 55*(7), 18–28. https://doi.org/10.1109/MC.2022.3148714
 
@@ -59,6 +63,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §1.1.1 background; §2.1 outcome motivation.
 - **Tags:** `AI-carbon`; `inference`; `location-effects`; `outcome`
 - **Filename:** `patterson_2022_ml_carbon_plateau.md`
+- **bib_key:** `pattersonetal-2022-carbonfootprintmachine`
 
 **Dodge, J., Prewitt, T., Tachet des Combes, R., et al. (2022).** Measuring the carbon intensity of AI in cloud instances. *FAccT '22*, 1877–1894. https://doi.org/10.1145/3531146.3533234
 
@@ -66,6 +71,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §2.1 outcome motivation.
 - **Tags:** `AI-carbon`; `marginal-emissions`; `CPC-framework`; `outcome`
 - **Filename:** `dodge_2022_carbon_intensity_ai_cloud.md`
+- **bib_key:** `dodgeetal-2022-measuringcarbonintensity`
 
 **Luccioni, A. S., Viguier, S., & Ligozat, A.-L. (2023).** Estimating the carbon footprint of BLOOM, a 176B parameter language model. *Journal of Machine Learning Research, 24*(253), 1–15. https://www.jmlr.org/papers/v24/23-0069.html
 
@@ -73,6 +79,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §1.1.1 background; §2.1 outcome motivation.
 - **Tags:** `AI-carbon`; `inference`; `lifecycle`; `outcome`
 - **Filename:** `luccioni_2023_bloom_carbon_footprint.md`
+- **bib_key:** `luccionietal-2023-estimatingcarbonfootprint`
 
 ### 1.3 Workload migration mechanism
 
@@ -82,6 +89,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §2.1 mechanism; §1.1.2 policy framing; §2.4 research gap.
 - **Tags:** `workload-migration`; `grid-interactions`; `curtailment`; `emissions`; `outcome`
 - **Filename:** `zheng_2020_load_migration_curtailment.md`
+- **bib_key:** `zhengetal-2020-mitigatingcurtailmentcarbon`
 
 ### 1.4 China DC energy and emissions
 
@@ -91,6 +99,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §1.1 China framing; §2.1 China-side outcome evidence; §2.4 provincial-heterogeneity motivation.
 - **Tags:** `China-DC`; `emissions`; `China-provincial`; `decomposition`; `outcome`
 - **Filename:** `ni_2024_china_dc_emissions_pathways.md`
+- **bib_key:** `nietal-2024-co2emissionmitigationpathways`
 
 **Greenpeace East Asia. (2021).** *China 5G and Data Center Carbon Emissions Outlook 2035* (English briefing). https://www.greenpeace.org/static/planet4-eastasia-stateless/2021/05/a5886d59-china-5g-and-data-center-carbon-emissions-outlook-2035-english.pdf
 
@@ -98,6 +107,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §1.1 background; §1.1.2 policy framing.
 - **Tags:** `China-DC`; `electricity-demand`; `Greenpeace`; `outcome`
 - **Filename:** `greenpeace_2021_china_5g_dc_outlook.md`
+- **bib_key:** `greenpeaceeastasia-2021-china5gdata`
 
 ### 1.5 EDWC-specific evaluations (closest prior work)
 
@@ -107,6 +117,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §1.1.2 policy framing; §2.4 research gap (prospective, not causal).
 - **Tags:** `EDWC`; `policy-assessment`; `China-netzero`; `scenario-analysis`; `outcome`
 - **Filename:** `zhang_duan_2025_edwc_net_zero.md`
+- **bib_key:** `zhangetal-2025-easterndatawestern`
 
 **Zhang, Y., Li, H., & Wang, S. (2025).** Decarbonizing data centers through regional bits migration: A comprehensive assessment of China's "eastern data, Western computing" initiative and its global implications. *Applied Energy, 392*, 126020. https://doi.org/10.1016/j.apenergy.2025.126020
 
@@ -114,6 +125,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §2.1 closest prior work; §2.4 direct gap reference.
 - **Tags:** `EDWC`; `bits-migration`; `grid-mix`; `Applied-Energy`; `outcome`
 - **Filename:** `zhang_li_wang_2025_edwc_bits_migration.md`
+- **bib_key:** `zhangetal-2025-decarbonizingdatacenters`
 
 **Xie, X., Han, Y., & Tan, H. (2024).** Greening China's digital economy: exploring the contribution of the East–West Computing Resources Transmission Project to CO₂ reduction. *Humanities and Social Sciences Communications, 11*, Article 466. https://doi.org/10.1057/s41599-024-02963-0
 
@@ -122,6 +134,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §1.1.2 policy framing; §2.4 research gap.
 - **Tags:** `EDWC`; `China-digital-economy`; `CO2-scenarios`; `outcome`
 - **Filename:** `xie_2024_ewcrt_co2_reduction.md`
+- **bib_key:** `xieetal-2024-greeningchinasdigital`
 
 ### 1.6 Carbon Monitor data methodology
 
@@ -131,6 +144,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §3.3 data source; §2.1 background.
 - **Tags:** `Carbon-Monitor`; `CO2-daily`; `methodology`; `data-source`; `outcome`
 - **Filename:** `liu_2020_carbon_monitor_dataset.md`
+- **bib_key:** `liuetal-2020-carbonmonitornearrealtimea`
 
 ---
 
@@ -144,6 +158,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §2.2 lead example; §2.4 design-side gap.
 - **Tags:** `place-based-policy`; `infrastructure-shock`; `event-study`; `DiD-precedent`; `design`
 - **Filename:** `kline_moretti_2014_tva_big_push.md`
+- **bib_key:** `klinemoretti-2014-localeconomicdevelopment`
 
 **Greenstone, M., Hornbeck, R., & Moretti, E. (2010).** Identifying agglomeration spillovers: Evidence from winners and losers of large plant openings. *Journal of Political Economy, 118*(3), 536–598. https://doi.org/10.1086/653714
 
@@ -151,6 +166,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §2.2 design template; §2.4 design-side gap.
 - **Tags:** `place-based-policy`; `infrastructure-shock`; `quasi-experiment`; `event-time`; `design`
 - **Filename:** `greenstone_2010_plant_openings_spillovers.md`
+- **bib_key:** `--identifyingagglomerationspillovers`
 
 **Busso, M., Gregory, J., & Kline, P. (2013).** Assessing the incidence and efficiency of a prominent place based policy. *American Economic Review, 103*(2), 897–947. https://doi.org/10.1257/aer.103.2.897
 
@@ -158,6 +174,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §2.2 control-group design example.
 - **Tags:** `place-based-policy`; `DiD-precedent`; `control-group`; `policy-evaluation`; `design`
 - **Filename:** `busso_2013_place_based_policy.md`
+- **bib_key:** `bussoetal-2013-assessingincidenceefficiency`
 
 ### 2.2 China infrastructure evaluations using DiD
 
@@ -167,6 +184,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §2.2 China-specific applied precedent; §2.4 design-side gap.
 - **Tags:** `China-policy`; `economic-zones`; `place-based-policy`; `DiD`; `design`
 - **Filename:** `lu_wang_zhu_2019_china_economic_zones.md`
+- **bib_key:** `luetal-2019-placebasedpoliciescreation`
 
 ### 2.3 Applied DiD in energy and environment
 
@@ -176,6 +194,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §2.2 direct methodological analogue; §3.4 design precedent; §3.4.4 robustness framing.
 - **Tags:** `energy-DiD`; `China-infrastructure`; `emissions`; `staggered-DiD`; `UHV`; `design`
 - **Filename:** `wang_2023_uhv_emissions_staggered_did.md`
+- **bib_key:** `wangetal-2023-transregionalelectricitytransmission`
 
 **Deryugina, T., MacKay, A., & Reif, J. (2020).** The long-run dynamics of electricity demand: Evidence from municipal aggregation. *American Economic Journal: Applied Economics, 12*(1), 86–114. https://doi.org/10.1257/app.20180256
 
@@ -183,6 +202,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §2.2 as a precedent for causal evaluation of sub-national electricity-consumption effects using monthly panel data and event-study logic; §3.4 as a methodological guide for table/figure structure and robustness design. The setting differs from the proposal (price shock vs infrastructure shock), but the outcome variable (monthly electricity consumption) and the empirical toolkit (DiD with event-time plots, pre-trend validation, placebo exercises) are directly parallel.
 - **Tags:** `electricity-demand`; `DiD`; `event-study`; `monthly-panel`; `design`
 - **Filename:** `deryugina_2020_electricity_demand_dynamics.md`
+- **bib_key:** `deryuginaetal-2020-longrundynamicselectricity`
 
 ### 2.4 Modern staggered-DiD methodology
 
@@ -192,6 +212,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §3.4 main estimator justification; §3.4.2 event-study specification; §2.4 design-side gap.
 - **Tags:** `Sun-Abraham`; `staggered-DiD`; `event-study`; `TWFE-bias`; `design`
 - **Filename:** `sun_abraham_2021_event_study_het.md`
+- **bib_key:** `sunabraham-2021-estimatingdynamictreatmenta`
 
 **Callaway, B., & Sant'Anna, P. H. C. (2021).** Difference-in-differences with multiple time periods. *Journal of Econometrics, 225*(2), 200–230. https://doi.org/10.1016/j.jeconom.2020.12.001
 
@@ -199,6 +220,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §3.4 alternative estimator; §3.4.4 robustness reference.
 - **Tags:** `Callaway-SantAnna`; `staggered-DiD`; `ATT`; `robustness`; `design`
 - **Filename:** `callaway_santanna_2021_did_multiple_periods.md`
+- **bib_key:** `callawaysantanna-2021-differenceindifferencesmultipletimea`
 
 **Goodman-Bacon, A. (2021).** Difference-in-differences with variation in treatment timing. *Journal of Econometrics, 225*(2), 254–277. https://doi.org/10.1016/j.jeconom.2021.03.014
 
@@ -206,6 +228,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §3.4 "why not TWFE" explanation; §2.4 design-side gap.
 - **Tags:** `Goodman-Bacon`; `TWFE-weights`; `staggered-DiD`; `identification`; `design`
 - **Filename:** `goodman_bacon_2021_did_timing.md`
+- **bib_key:** `goodman-bacon-2021-differenceindifferencesvariationtreatmenta`
 
 **de Chaisemartin, C., & D'Haultfœuille, X. (2020).** Two-way fixed effects estimators with heterogeneous treatment effects. *American Economic Review, 110*(9), 2964–2996. https://doi.org/10.1257/aer.20181169
 
@@ -213,6 +236,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §3.4 methodological justification; §2.4 design-side gap.
 - **Tags:** `TWFE-bias`; `negative-weights`; `heterogeneous-effects`; `staggered-DiD`; `design`
 - **Filename:** `dechaisemartin_dhaultfoeuille_2020_twfe.md`
+- **bib_key:** `dechaisemartindhaultfoeuille-2020-twowayfixedeffects`
 
 **Borusyak, K., Jaravel, X., & Spiess, J. (2024).** Revisiting event-study designs: Robust and efficient estimation. *Review of Economic Studies, 91*(6), 3253–3285. https://doi.org/10.1093/restud/rdae007
 
@@ -220,6 +244,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §3.4 methodology; §3.4.4 robustness reference.
 - **Tags:** `event-study`; `imputation`; `staggered-DiD`; `inference`; `design`
 - **Filename:** `borusyak_2024_event_study_imputation.md`
+- **bib_key:** `borusyaketal-2024-revisitingeventstudydesigns`
 
 ### 2.5 Synthetic control methodology
 
@@ -229,6 +254,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §3.4.4 robustness (supplementary SCM for Gansu).
 - **Tags:** `SCM`; `synthetic-control`; `robustness`; `comparative-case`; `design`
 - **Filename:** `abadie_2010_scm_tobacco.md`
+- **bib_key:** `abadieetal-2010-syntheticcontrolmethodsa`
 
 **Abadie, A., Diamond, A., & Hainmueller, J. (2015).** Comparative politics and the synthetic control method. *American Journal of Political Science, 59*(2), 495–510. https://doi.org/10.1111/ajps.12116
 
@@ -236,6 +262,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §3.4.4 robustness reference.
 - **Tags:** `SCM`; `comparative-case`; `robustness`; `counterfactual`; `design`
 - **Filename:** `abadie_2015_scm_comparative_politics.md`
+- **bib_key:** `abadieetal-2015-comparativepoliticssynthetic`
 
 ---
 
@@ -250,6 +277,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §2.3 opening framework; §3.4.3 CPC justification; §2.4 measurement gap; §4 contribution.
 - **Tags:** `CPC`; `accounting-framework`; `embodied-carbon`; `operational-carbon`; `measurement`
 - **Filename:** `gupta_2022_chasing_carbon.md`
+- **bib_key:** `guptaetal-2022-chasingcarbonelusive`
 
 **Radovanović, A., Koningstein, R., Schneider, I., et al. (2023).** Carbon-aware computing for datacenters. *IEEE Transactions on Power Systems, 38*(2), 1270–1280. https://doi.org/10.1109/TPWRS.2022.3173250
 
@@ -258,6 +286,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §2.3 carbon-aware computing; §3.4.3 CI justification.
 - **Tags:** `carbon-aware-computing`; `grid-CI`; `scheduling`; `CPC`; `measurement`
 - **Filename:** `radovanovic_2023_carbon_aware_computing.md`
+- **bib_key:** `radovanovicetal-2023-carbonawarecomputingdatacenters`
 
 **Green Software Foundation. (2024).** *Software Carbon Intensity (SCI) specification* (ISO/IEC 21031:2024). https://sci.greensoftware.foundation/
 
@@ -266,6 +295,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §2.3 standards reference; §3.4.3 CPC structure; §4 contribution framing.
 - **Tags:** `SCI`; `carbon-accounting`; `functional-unit`; `standards`; `measurement`
 - **Filename:** `gsf_2024_sci_specification.md`
+- **bib_key:** `greensoftwarefoundation-2024-softwarecarbonintensity`
 
 **Freitag, C., Berners-Lee, M., Widdicks, K., Knowles, B., Blair, G. S., & Friday, A. (2021).** The real climate and transformative impact of ICT: A critique of estimates, trends and regulations. *Patterns, 2*(9), Article 100340. https://doi.org/10.1016/j.patter.2021.100340
 
@@ -274,6 +304,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §2.3 ICT measurement challenge; §2.4 measurement gap; §4 contribution.
 - **Tags:** `ICT-footprint`; `lifecycle`; `measurement-critique`; `CPC`; `measurement`
 - **Filename:** `freitag_2021_ict_climate_critique.md`
+- **bib_key:** `freitagetal-2021-realclimatetransformative`
 
 ### 3.2 PUE and facility efficiency
 
@@ -284,6 +315,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §3.4.3 PUE construction; §3.2 variable definition; §2.3 standards.
 - **Tags:** `PUE`; `data-center-efficiency`; `standards`; `facility-efficiency`; `measurement`
 - **Filename:** `green_grid_2012_pue_wp49.md`
+- **bib_key:** `thegreengrid-2012-puecomprehensiveexamination`
 
 **Yuventi, J., & Mehdizadeh, R. (2013).** A critical analysis of Power Usage Effectiveness and its use in communicating data center energy consumption. *Energy and Buildings, 64*, 90–94. https://doi.org/10.1016/j.enbuild.2013.04.015
 
@@ -292,6 +324,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §2.3 PUE critique; §3.4.3 CPC design rationale.
 - **Tags:** `PUE`; `metric-critique`; `facility-efficiency`; `data-centers`; `measurement`
 - **Filename:** `yuventi_2013_pue_critique.md`
+- **bib_key:** `yuventimehdizadeh-2013-criticalanalysispower`
 
 ### 3.3 Compute efficiency benchmarks (GF/W)
 
@@ -302,6 +335,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §3.4.3 GF/W construction; §3.2 variable definition; §2.3 benchmarking.
 - **Tags:** `Green500`; `GF-W`; `benchmark-methodology`; `power-measurement`; `measurement`
 - **Filename:** `eehpc_2015_green500_methodology.md`
+- **bib_key:** `energyefficienthighperformancecomputingworkinggroup-2015-energyefficienthigh`
 
 **Dongarra, J., & Luszczek, P. (2026).** HPL-MxP benchmark: Mixed-precision algorithms, iterative refinement, and scalable data generation. *The International Journal of High Performance Computing Applications*. https://doi.org/10.1177/10943420251382476
 
@@ -310,6 +344,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §3.4.3 HPL-MxP multiplier; §3.2 variable definition; §2.3 benchmarking.
 - **Tags:** `HPL-MxP`; `mixed-precision`; `GF-W`; `AI-benchmark`; `measurement`
 - **Filename:** `dongarra_luszczek_2026_hpl_mxp.md`
+- **bib_key:** `dongarraluszczek-2026-hplmxpbenchmarkmixedprecision`
 
 **Tschand, A., Rajan, A. T. R., Idgunji, S., et al. (2025).** MLPerf Power: Benchmarking the energy efficiency of machine learning systems from microwatts to megawatts for sustainable AI. *2025 IEEE HPCA*, 1201–1216. https://arxiv.org/abs/2410.12032
 
@@ -318,6 +353,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §2.3 ML-specific benchmarking; §3.4.3 GF/W construction.
 - **Tags:** `MLPerf-Power`; `AI-efficiency`; `system-power`; `benchmark`; `measurement`
 - **Filename:** `tschand_2025_mlperf_power.md`
+- **bib_key:** `tschandetal-2025-mlperfpowerbenchmarkinga`
 
 **Fernandez, J., Wehrstedt, L., Shamis, L., et al. (2025).** Efficient Hardware Scaling and Diminishing Returns in Large-Scale Training of Language Models. *Transactions on Machine Learning Research*. https://openreview.net/forum?id=p7jQEf3wlh
 
@@ -326,6 +362,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §3.4.3 MFU / interconnect adjustment; §3.2 variable definition.
 - **Tags:** `MFU`; `interconnect`; `distributed-training`; `realized-efficiency`; `measurement`
 - **Filename:** `fernandez_2025_hardware_scaling_llm.md`
+- **bib_key:** `fernandezetal-2025-efficienthardwarescaling`
 
 ### 3.4 Carbon intensity and emission factor methodology
 
@@ -336,6 +373,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §3.4.3 CI construction; §3.2 variable definition; §2.3 methodology. Also supporting context in Stream 4 for provincial carbon-intensity variation.
 - **Tags:** `CEADs`; `emission-factors`; `provincial-CO2`; `carbon-intensity`; `measurement`
 - **Filename:** `shan_2016_china_provincial_emissions.md`
+- **bib_key:** `shanetal-2016-newprovincialco2`
 
 ### 3.5 China institutional context for CPC
 
@@ -346,6 +384,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §1.1.2 compute-scale quantification; §2.3 institutional framing; §3 interpretation of provincial compute concentration.
 - **Tags:** `CAICT`; `computing-power-index`; `China-provincial`; `institutional-context`; `measurement`
 - **Filename:** `caict_2023_computing_power_index.md`
+- **bib_key:** `chinaacademyofinformationandcommunicationstechnology-2023-zhongguosuanlifazhanzhishubaipishu2023nian`
 
 **China Academy of Information and Communications Technology & Horinger New Area. (2024).** *中国绿色算力发展研究报告（2024年）* [China Green Computing Power Development Research Report (2024)]. https://www.caict.ac.cn/kxyj/qwfb/ztbg/202407/P020240711551514828756.pdf
 
@@ -354,6 +393,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §2.3 institutional framing; §2.4 measurement gap; §4 contribution claim.
 - **Tags:** `CAICT`; `green-computing`; `China`; `institutional-context`; `measurement`
 - **Filename:** `caict_2024_green_computing_report.md`
+- **bib_key:** `chinaacademyofinformationandcommunicationstechnologyhoringernewarea-2024-zhongguolusesuanlifazhanyanjiubaogao2024nian`
 
 **RMI. (2024, November).** *Powering the data-center boom with low-carbon solutions: China's perspective and global insights*. https://rmi.org/wp-content/uploads/dlm_uploads/2024/11/powering_the_data_center_boom.pdf
 
@@ -362,6 +402,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §2.3 institutional bridge; §2.4 measurement gap; §4 contribution claim.
 - **Tags:** `RMI`; `China`; `low-carbon-data-centers`; `EDWC-context`; `measurement`
 - **Filename:** `rmi_2024_china_data_center_low_carbon.md`
+- **bib_key:** `rmi-2024-poweringdatacenterboom`
 
 ---
 
@@ -377,6 +418,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §3 carbon-intensity context; §3 heterogeneity / interpretation.
 - **Tags:** `power-sector-co2`; `provincial-heterogeneity`; `generation-side`; `china-context`
 - **Filename:** `liao_2019_power_sector_co2_clustering.md`
+- **bib_key:** `liaoetal-2019-drivingforcesclustering`
 
 ### 4.2 Renewable curtailment and utilization
 
@@ -386,6 +428,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §1.1.3 background; §3 heterogeneity / interpretation.
 - **Tags:** `curtailment`; `northwest-china`; `renewable-utilization`; `china-context`
 - **Filename:** `liu_2018_curtailment_northwest_china.md`
+- **bib_key:** `liuetal-2018-curtailmentrenewableenergy`
 
 **Song, F., Bi, D., & Wei, C. (2019).** Market segmentation and wind curtailment: An empirical analysis. *Energy Policy, 132*, 831–838.
 
@@ -393,6 +436,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §3 heterogeneity / interpretation; §3 transmission / grid context.
 - **Tags:** `wind-curtailment`; `market-segmentation`; `dispatch-frictions`; `china-context`
 - **Filename:** `song_2019_market_segmentation_wind_curtailment.md`
+- **bib_key:** `songetal-2019-marketsegmentationwind`
 
 **Zhang, X., Wang, J.-X., Cao, Z., Shen, S., Meng, S., & Fan, J.-L. (2021).** What is driving the remarkable decline of wind and solar power curtailment in China? Evidence from China and four typical provinces. *Renewable Energy, 174*, 31–42. https://doi.org/10.1016/j.renene.2021.04.043
 
@@ -400,6 +444,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §1.1.3 background; §3 heterogeneity / interpretation.
 - **Tags:** `wind-curtailment`; `solar-curtailment`; `UHV`; `provincial-cases`; `china-context`
 - **Filename:** `zhang_2021_decline_wind_solar_curtailment.md`
+- **bib_key:** `zhangetal-2021-whatdrivingremarkable`
 
 ### 4.3 Transmission and interprovincial electricity flows
 
@@ -409,6 +454,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §3 carbon-intensity context; §3 transmission / grid context.
 - **Tags:** `embodied-carbon`; `interprovincial-electricity`; `purchased-electricity`; `china-context`
 - **Filename:** `qu_2017_embodied_co2_electricity_transmission.md`
+- **bib_key:** `quetal-2017-co2emissionsembodied`
 
 **Deng, X., Lv, T., Xu, J., Hou, X., & Liu, F. (2022).** Assessing the integration effect of inter-regional transmission on variable power generation under renewable energy consumption policy in China. *Energy Policy, 170*, 113219. https://doi.org/10.1016/j.enpol.2022.113219
 
@@ -416,6 +462,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §1.1.3 background; §3 transmission / grid context; §3 heterogeneity / interpretation.
 - **Tags:** `transmission`; `renewable-consumption`; `interregional-flows`; `flexibility`; `china-context`
 - **Filename:** `deng_2022_interregional_transmission_variable_power.md`
+- **bib_key:** `dengetal-2022-assessingintegrationeffect`
 
 ### 4.4 Provincial grid and electricity-market context
 
@@ -425,6 +472,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §3 grid / dispatch context; §3 heterogeneity / interpretation.
 - **Tags:** `power-market-reform`; `dispatch`; `provincial-markets`; `institutional-context`; `china-context`
 - **Filename:** `guo_2020_power_market_reform_china.md`
+- **bib_key:** `guoetal-2020-powermarketreform`
 
 **Xiang, C., Zheng, X., Song, F., Lin, J., & Jiang, Z. (2023).** Assessing the roles of efficient market versus regulatory capture in China's power market reform. *Nature Energy, 8*(7), 747–757. https://doi.org/10.1038/s41560-023-01278-9
 
@@ -432,6 +480,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §3 heterogeneity / interpretation; §3 transmission / grid context.
 - **Tags:** `regulatory-capture`; `dispatch-frictions`; `local-protection`; `power-market-reform`; `china-context`
 - **Filename:** `xiang_2023_market_vs_regulatory_capture.md`
+- **bib_key:** `xiangetal-2023-assessingrolesefficient`
 
 ### 4.5 EDWC policy and institutional documents
 
@@ -441,6 +490,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §1.1.2 EDWC policy; §1.1.4 policy context; §3 interpretation.
 - **Tags:** `edwc-policy`; `hub-nodes`; `compute-network`; `policy-context`; `china-context`
 - **Filename:** `ndrc_2023_edwc_integrated_computing_network.md`
+- **bib_key:** `nationaldevelopmentandreformcommission-2023-guanyushenrushishidongshuxisuangongchengjiakuaigoujianquanguoyitihuasuanliwangdeshishiyijian`
 
 **National Development and Reform Commission, Ministry of Industry and Information Technology, National Energy Administration, & National Data Administration. (2024, July 23).** *数据中心绿色低碳发展专项行动计划* [Special action plan for green and low-carbon development of data centers].
 
@@ -448,6 +498,7 @@ Four literature streams, each tied to a specific part of the proposal's logical 
 - **Use in proposal:** §1.1.3 background; §1.1.4 policy context.
 - **Tags:** `green-data-centers`; `renewable-power`; `PUE`; `policy-context`; `china-context`
 - **Filename:** `ndrc_miit_nea_nda_2024_green_datacenter_action_plan.md`
+- **bib_key:** `nationaldevelopmentandreformcommissionetal-2024-shujuzhongxinluseditanfazhanzhuanxiangxingdongjihua`
 
 ---
 
