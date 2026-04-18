@@ -7,11 +7,9 @@ import argparse
 import csv
 import json
 import re
-from contextlib import nullcontext
 from pathlib import Path
 from urllib.parse import urlsplit
 
-from browser_fetch import fetch_source
 from chrome_cdp_fetch import ChromeFetcher
 from discover_bulletins import DEFAULT_SEARCH_URL, TITLE_PATTERN, build_search_url, parse_results
 from fetch_article import parse_article
@@ -19,9 +17,8 @@ from fetch_article import parse_article
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Scrape all available Gansu electricity bulletins.")
-    parser.add_argument("--engine", default="safari", choices=["safari", "chrome"], help="Browser engine.")
-    parser.add_argument("--chrome-headless", action="store_true", help="Run Chrome in headless mode.")
-    parser.add_argument("--delay", type=int, default=8, help="Seconds to wait for browser rendering.")
+    parser.add_argument("--search-delay", type=int, default=15, help="Seconds to wait for Chrome to render search pages.")
+    parser.add_argument("--article-delay", type=int, default=8, help="Seconds to wait for Chrome to render article pages.")
     parser.add_argument("--search-url", default=DEFAULT_SEARCH_URL, help="Base search URL.")
     parser.add_argument("--page-size", type=int, default=10, help="Search-results page size.")
     parser.add_argument("--max-pages", type=int, default=50, help="Maximum pages to probe.")
@@ -127,31 +124,12 @@ def main() -> None:
     discovery_csv = output_dir / "gansu_discovery.csv"
     panel_csv = output_dir / "gansu_monthly_kwh.csv"
 
-    chrome_context = (
-        ChromeFetcher(chrome_headless=args.chrome_headless) if args.engine == "chrome" else nullcontext()
-    )
-    with chrome_context as chrome_fetcher:
+    with ChromeFetcher() as chrome_fetcher:
         def fetch_search_html(url: str) -> str:
-            if args.engine == "chrome":
-                assert chrome_fetcher is not None
-                return chrome_fetcher.fetch(url, delay_seconds=max(args.delay, 15))
-            return fetch_source(
-                url,
-                engine=args.engine,
-                delay_seconds=args.delay,
-                chrome_headless=args.chrome_headless,
-            )
+            return chrome_fetcher.fetch(url, delay_seconds=args.search_delay)
 
         def fetch_article_html(url: str) -> str:
-            if args.engine == "chrome":
-                assert chrome_fetcher is not None
-                return chrome_fetcher.fetch(url, delay_seconds=args.delay)
-            return fetch_source(
-                url,
-                engine=args.engine,
-                delay_seconds=args.delay,
-                chrome_headless=args.chrome_headless,
-            )
+            return chrome_fetcher.fetch(url, delay_seconds=args.article_delay)
 
         discovered = discover_all(
             fetch_html=fetch_search_html,
@@ -197,7 +175,7 @@ def main() -> None:
                     "ytd_kwh_method": "article_text" if parsed.get("ytd_kwh_100m") is not None else "",
                     "raw_html_file": str(raw_html_path),
                     "parsed_json_file": str(parsed_json_path),
-                    "engine": args.engine,
+                    "engine": "chrome",
                 }
             )
 

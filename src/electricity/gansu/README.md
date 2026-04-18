@@ -18,8 +18,6 @@ The first approach that worked was:
 - a real Chrome browser session
 - rendered page HTML pulled through CDP
 
-Safari is still available as a fallback engine, but Chrome is now the preferred path because it can run the full Gansu pipeline end to end.
-
 ## Current Scope
 
 Only Gansu for now.
@@ -35,25 +33,23 @@ Do not treat this as the final all-province architecture yet.
 
 ### `discover_bulletins.py`
 
-Loads the Gansu search-results page in the selected browser engine, parses result cards, and writes a CSV or JSON file of candidate bulletins.
+Loads the Gansu search-results page in Chrome, parses result cards, and writes a CSV or JSON file of candidate bulletins.
 
 Example:
 
 ```bash
 conda run -n edwc-thesis python src/electricity/gansu/discover_bulletins.py \
-  --engine chrome \
   --output 03_data/interim/gansu_bulletins.csv
 ```
 
 ### `fetch_article.py`
 
-Loads one article URL in the selected browser engine, extracts metadata and the article body, and optionally writes parsed JSON plus raw HTML.
+Loads one article URL in Chrome, extracts metadata and the article body, and optionally writes parsed JSON plus raw HTML.
 
 Example:
 
 ```bash
 conda run -n edwc-thesis python src/electricity/gansu/fetch_article.py \
-  --engine chrome \
   --url https://gxt.gansu.gov.cn/gxt/jjyx/202603/174299309.shtml \
   --output 03_data/interim/gansu_article_2026-02.json \
   --save-html 03_data/raw/electricity_bulletins/gansu/2026-02.html
@@ -67,7 +63,6 @@ Example:
 
 ```bash
 conda run -n edwc-thesis python src/electricity/gansu/scrape_all.py \
-  --engine chrome \
   --output-dir 03_data/interim/gansu_scrape \
   --raw-html-dir 03_data/raw/electricity_bulletins/gansu
 ```
@@ -82,23 +77,32 @@ Example:
 conda run -n edwc-thesis python src/electricity/gansu/rebuild_panel.py
 ```
 
-## Current Coverage
+### `build_structured_panel.py`
 
-The live Gansu scrape currently yields:
+Builds the wide structured Gansu panel from the canonical monthly panel and parsed article JSON files.
+
+Example:
+
+```bash
+conda run -n edwc-thesis python src/electricity/gansu/build_structured_panel.py
+```
+
+## Current Saved Snapshot
+
+The repo's saved Gansu scrape snapshot currently contains:
 
 - `72` discovered bulletin pages
 - coverage from `2020-03` through `2026-02`
 - `72` months with parsed monthly total electricity consumption
 - `71` months parsed directly from the original Gansu article text
 - `1` source-level exception at `2022-06`, where the original Gansu page renders an empty article body and the canonical panel uses a mirrored Tianshui government repost instead
-- a reproducible validation summary at `03_data/interim/gansu_scrape/gansu_validation_report.md`
+
+A fresh live run may return newer months beyond this stored snapshot.
 
 ## Notes
 
 - This is a browser-assisted Python scraper, not a pure HTTP scraper.
 - Selenium with Chrome and plain headless Chrome `--dump-dom` both failed on the live site.
 - Chrome only worked in a real browser session through DevTools Protocol.
-- Headless Chrome CDP still returned empty HTML, so the working Chrome path is currently non-headless.
+- The maintained pipeline is Chrome-only and uses the non-headless path because that is the one that worked reliably on the live site.
 - Run these scripts from the `edwc-thesis` conda environment.
-- A Safari fallback engine remains available, but Chrome is now the default recommended engine for Gansu.
-- Some `articles/` files still have long `https-...` names. These are legacy alias artifacts from an older URL-sanitized naming scheme; the canonical panel now points to the shorter slug-based files.

@@ -110,11 +110,6 @@ def parse_args() -> argparse.Namespace:
         default="03_data/interim/gansu_scrape/gansu_panel_rich.csv",
         help="Output CSV path for the wide structured panel.",
     )
-    parser.add_argument(
-        "--coverage-output",
-        default="03_data/interim/gansu_scrape/gansu_panel_rich_coverage.csv",
-        help="Output CSV path for coverage summary.",
-    )
     return parser.parse_args()
 
 
@@ -302,42 +297,6 @@ def write_csv(rows: list[dict[str, object]], path: Path) -> None:
         writer.writerows(rows)
 
 
-def write_coverage(rows: list[dict[str, object]], path: Path) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    if not rows:
-        return
-    metadata_columns = {
-        "province",
-        "year_month",
-        "title",
-        "article_url",
-        "source_url_used",
-        "source_note",
-        "pub_date",
-        "content_source",
-        "raw_html_file",
-        "parsed_json_file",
-        "engine",
-    }
-    with path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=["column_name", "non_null_count", "first_year_month", "last_year_month"])
-        writer.writeheader()
-        for column in rows[0].keys():
-            if column in metadata_columns:
-                continue
-            non_null_rows = [row for row in rows if row.get(column) not in ("", None)]
-            first_ym = non_null_rows[0]["year_month"] if non_null_rows else ""
-            last_ym = non_null_rows[-1]["year_month"] if non_null_rows else ""
-            writer.writerow(
-                {
-                    "column_name": column,
-                    "non_null_count": len(non_null_rows),
-                    "first_year_month": first_ym,
-                    "last_year_month": last_ym,
-                }
-            )
-
-
 def main() -> None:
     args = parse_args()
     base_rows = list(csv.DictReader(Path(args.base_panel).open()))
@@ -348,7 +307,6 @@ def main() -> None:
 
     structured_rows.sort(key=lambda row: str(row["year_month"]))
     write_csv(structured_rows, Path(args.output))
-    write_coverage(structured_rows, Path(args.coverage_output))
     print(f"Built {len(structured_rows)} structured Gansu rows.")
 
 

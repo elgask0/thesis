@@ -4,9 +4,9 @@ Working note for the structure of the Gansu monthly electricity bulletins after 
 
 ## Coverage
 
-- Current public scrape coverage: `2020-03` to `2026-02`
-- Discovered bulletin count: `72`
-- Core monthly total electricity consumption is available for all `72` months in the current validated panel
+- Current saved repo snapshot coverage: `2020-03` to `2026-02`
+- Saved snapshot bulletin count: `72`
+- Core monthly total electricity consumption is available for all `72` months in the current validated panel built from that snapshot
 - `2022-06` uses an alternate government repost from Tianshui because the original Gansu article page renders with an empty body in saved HTML
 
 ## Current Structured Outputs
@@ -15,19 +15,6 @@ Working note for the structure of the Gansu monthly electricity bulletins after 
   `03_data/interim/gansu_scrape/gansu_monthly_kwh.csv`
 - Wide structured panel:
   `03_data/interim/gansu_scrape/gansu_panel_rich.csv`
-- Field coverage summary:
-  `03_data/interim/gansu_scrape/gansu_panel_rich_coverage.csv`
-- Validation report:
-  `03_data/interim/gansu_scrape/gansu_validation_report.md`
-
-## Data Validation Snapshot
-
-- The canonical monthly panel is internally complete from `2020-03` through `2026-02` with no missing months and no duplicate `year_month` rows.
-- Title month labels match the panel month labels for all `72` rows.
-- From `2020-04` onward, monthly total electricity consumption matches the month-to-month YTD difference exactly within the saved panel.
-- Monthly sector sums match the reported monthly total in every month where all four sector values are present.
-- The `2022-06` month is now validated from a mirrored government repost rather than a derived neighbor-YTD fill.
-- Some `articles/` JSON files still appear twice, once with a short slug and once with a long `https-...` slug. These are legacy filename aliases, not distinct sources.
 
 ## Source-Level Omissions In The Rich Panel
 

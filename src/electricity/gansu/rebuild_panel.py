@@ -7,15 +7,10 @@ import argparse
 import csv
 import json
 import re
-import shutil
 from pathlib import Path
 
 from fetch_article import compact_text, extract_metrics_from_text, parse_article
 from scrape_all import save_panel_csv, slugify_article
-
-
-def legacy_slugify_article(url: str) -> str:
-    return re.sub(r"[^a-zA-Z0-9]+", "-", url).strip("-")
 
 
 def parse_args() -> argparse.Namespace:
@@ -45,7 +40,6 @@ def parse_args() -> argparse.Namespace:
         default="src/electricity/gansu/source_overrides.json",
         help="Optional JSON file with source overrides keyed by year_month.",
     )
-    parser.add_argument("--engine-label", default="chrome", help="Engine label to store in the panel.")
     return parser.parse_args()
 
 
@@ -72,21 +66,9 @@ def main() -> None:
         source_url_used = override.get("source_url_used", article_url)
         source_note = override.get("source_note", "")
         slug = slugify_article(source_url_used)
-        if override.get("raw_html_file"):
-            raw_html_path = Path(override["raw_html_file"])
-        else:
-            matching_html_files = sorted(raw_html_dir.glob(f"*__{slug}.html"))
-            if not matching_html_files:
-                legacy_slug = legacy_slugify_article(article_url)
-                matching_html_files = sorted(raw_html_dir.glob(f"*__{legacy_slug}.html"))
-            if not matching_html_files:
-                raise FileNotFoundError(f"No raw HTML file found for {article_url}")
-            raw_html_path = matching_html_files[0]
-        normalized_raw_html_path = raw_html_dir / f"{year_month or 'unknown'}__{slug}.html"
-        if raw_html_path != normalized_raw_html_path:
-            normalized_raw_html_path.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(raw_html_path, normalized_raw_html_path)
-            raw_html_path = normalized_raw_html_path
+        raw_html_path = raw_html_dir / f"{year_month or 'unknown'}__{slug}.html"
+        if not raw_html_path.exists():
+            raise FileNotFoundError(f"No canonical raw HTML file found for {source_url_used}")
         html = raw_html_path.read_text(encoding="utf-8")
         parsed = parse_article(html, source_url_used)
         summary_text = row.get("summary", "")
@@ -131,7 +113,7 @@ def main() -> None:
                 "ytd_kwh_method": ytd_method,
                 "raw_html_file": str(raw_html_path),
                 "parsed_json_file": str(parsed_json_path),
-                "engine": args.engine_label,
+                "engine": "chrome",
             }
         )
 

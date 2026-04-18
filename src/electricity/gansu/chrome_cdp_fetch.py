@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fetch rendered HTML from a real Chrome session via DevTools Protocol."""
+"""Fetch rendered HTML from Chrome via DevTools Protocol."""
 
 from __future__ import annotations
 
@@ -10,7 +10,6 @@ import subprocess
 import tempfile
 import time
 import urllib.request
-from collections.abc import Callable
 from pathlib import Path
 from typing import Any
 
@@ -111,9 +110,8 @@ def _find_chrome_binary(chrome_binary: str | None = None) -> str:
 class ChromeFetcher:
     """Reusable Chrome DevTools fetch session."""
 
-    def __init__(self, chrome_binary: str | None = None, chrome_headless: bool = False) -> None:
+    def __init__(self, chrome_binary: str | None = None) -> None:
         self.chrome_binary = chrome_binary
-        self.chrome_headless = chrome_headless
         self.port: int | None = None
         self.profile_dir: tempfile.TemporaryDirectory[str] | None = None
         self.process: subprocess.Popen[str] | None = None
@@ -140,9 +138,6 @@ class ChromeFetcher:
             "--remote-allow-origins=*",
             "about:blank",
         ]
-        if self.chrome_headless:
-            launch_args.insert(1, "--headless=new")
-            launch_args.insert(2, "--disable-gpu")
 
         self.process = subprocess.Popen(
             launch_args,
@@ -187,7 +182,6 @@ def fetch_source(
     delay_seconds: int = 8,
     retries: int = 1,
     chrome_binary: str | None = None,
-    chrome_headless: bool = False,
 ) -> str:
     """Open a URL in Chrome and return rendered HTML via DevTools Protocol."""
 
@@ -195,10 +189,7 @@ def fetch_source(
     for _ in range(retries + 1):
         chrome_fetcher: ChromeFetcher | None = None
         try:
-            chrome_fetcher = ChromeFetcher(
-                chrome_binary=chrome_binary,
-                chrome_headless=chrome_headless,
-            )
+            chrome_fetcher = ChromeFetcher(chrome_binary=chrome_binary)
             chrome_fetcher.start()
             return chrome_fetcher.fetch(url, delay_seconds=delay_seconds)
         except Exception as exc:  # pragma: no cover - browser timing dependent

@@ -10,7 +10,7 @@ from pathlib import Path
 
 from bs4 import BeautifulSoup
 
-from browser_fetch import fetch_source
+from chrome_cdp_fetch import fetch_source
 
 
 TITLE_MONTH_PATTERN = re.compile(r"(\d{4})年(\d{1,2})月")
@@ -28,9 +28,7 @@ YTD_PATTERNS = [
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Fetch and parse a Gansu electricity bulletin article.")
     parser.add_argument("--url", required=True, help="Article URL.")
-    parser.add_argument("--engine", default="safari", choices=["safari", "chrome"], help="Browser engine.")
-    parser.add_argument("--chrome-headless", action="store_true", help="Run Chrome in headless mode.")
-    parser.add_argument("--delay", type=int, default=8, help="Seconds to wait for Safari to render.")
+    parser.add_argument("--delay", type=int, default=8, help="Seconds to wait for Chrome to render the article page.")
     parser.add_argument("--output", help="Optional output JSON path.")
     parser.add_argument("--save-html", help="Optional path to save raw rendered HTML.")
     return parser.parse_args()
@@ -142,12 +140,7 @@ def parse_article(html: str, url: str) -> dict[str, object]:
 
 def main() -> None:
     args = parse_args()
-    html = fetch_source(
-        args.url,
-        engine=args.engine,
-        delay_seconds=args.delay,
-        chrome_headless=args.chrome_headless,
-    )
+    html = fetch_source(args.url, delay_seconds=args.delay)
 
     if args.save_html:
         save_html_path = Path(args.save_html)

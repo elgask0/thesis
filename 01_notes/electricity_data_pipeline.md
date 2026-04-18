@@ -36,12 +36,13 @@ Working note for the electricity bulletin collection and extraction process used
 - Prefer bulletins that explicitly report province-wide electricity consumption totals (`全社会用电量`) or monthly power operation summaries.
 - Do not claim coverage until specific monthly bulletins have been collected and logged.
 - Do not spend time assigning ex ante confidence scores to province coverage; attempt the EDWC provinces one by one and record what is actually available.
-- For Gansu, the current practical script stack is: Python -> Chrome DevTools Protocol -> rendered page HTML -> Beautiful Soup parser.
-- Selenium and plain headless Chrome both failed on the live site, while a persistent real Chrome session worked for both discovery and article extraction.
-- The current Gansu discovery scrape found `72` bulletin pages covering `2020-03` through `2026-02`.
-- The current rebuilt Gansu panel has `72` months with monthly total electricity consumption populated.
+- For Gansu, the maintained practical script stack is: Python -> Chrome DevTools Protocol -> rendered page HTML -> Beautiful Soup parser.
+- Selenium, Safari, and plain headless Chrome are no longer part of the maintained Gansu workflow.
+- The maintained Chrome path is non-headless because that is the one that worked reliably for both discovery and article extraction.
+- The current saved Gansu snapshot in the repo has `72` discovered bulletin pages covering `2020-03` through `2026-02`.
+- The current rebuilt Gansu panel from that saved snapshot has `72` months with monthly total electricity consumption populated.
 - `71` months come from the original Gansu article text and `1` month (`2022-06`) comes from a mirrored Tianshui government repost because the saved original Gansu HTML has an empty article body block.
-- The current rich-panel and source-validation summary live at `03_data/interim/gansu_scrape/gansu_panel_rich.csv`, `03_data/interim/gansu_scrape/gansu_panel_rich_coverage.csv`, and `03_data/interim/gansu_scrape/gansu_validation_report.md`.
+- The current wide structured output lives at `03_data/interim/gansu_scrape/gansu_panel_rich.csv`.
 
 ## Related Notes
 

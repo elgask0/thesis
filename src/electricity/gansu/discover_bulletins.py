@@ -12,7 +12,7 @@ from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 from bs4 import BeautifulSoup
 
-from browser_fetch import fetch_source
+from chrome_cdp_fetch import fetch_source
 
 
 DEFAULT_SEARCH_URL = (
@@ -30,9 +30,7 @@ TITLE_PATTERN = re.compile(r"^\d{4}年\d{1,2}月全省电力生产运行情况$"
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Discover Gansu electricity bulletin candidates.")
     parser.add_argument("--search-url", default=DEFAULT_SEARCH_URL, help="Gansu search-results URL.")
-    parser.add_argument("--engine", default="safari", choices=["safari", "chrome"], help="Browser engine.")
-    parser.add_argument("--chrome-headless", action="store_true", help="Run Chrome in headless mode.")
-    parser.add_argument("--delay", type=int, default=8, help="Seconds to wait for Safari to render.")
+    parser.add_argument("--delay", type=int, default=15, help="Seconds to wait for Chrome to render the search page.")
     parser.add_argument("--output", required=True, help="Output CSV or JSON path.")
     parser.add_argument("--save-html", help="Optional path to save raw rendered HTML.")
     parser.add_argument("--page-num", type=int, default=0, help="Search-results page number.")
@@ -107,12 +105,7 @@ def write_output(results: list[dict[str, str]], output_path: Path) -> None:
 def main() -> None:
     args = parse_args()
     page_url = build_search_url(args.search_url, page_num=args.page_num, page_size=args.page_size)
-    html = fetch_source(
-        page_url,
-        engine=args.engine,
-        delay_seconds=args.delay,
-        chrome_headless=args.chrome_headless,
-    )
+    html = fetch_source(page_url, delay_seconds=args.delay)
     if args.save_html:
         Path(args.save_html).write_text(html, encoding="utf-8")
 
