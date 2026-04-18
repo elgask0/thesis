@@ -1,8 +1,8 @@
 ---
 filename_stem: "iea_2025_energy_and_ai"
 citation: "International Energy Agency. (2025).** *Energy and AI*. IEA, Paris. https://www.iea.org/reports/energy-and-ai"
-first_author: "International Energy Agency. (2025).** *Energy and AI*. IEA"
-year: 2025
+first_author: "International Energy Agency"
+year: "2025"
 title: "*Energy and AI*"
 venue: "International Energy Agency. (2025)."
 doi: ""
@@ -16,12 +16,12 @@ priority: "must-cite"
 caveat: ""
 zotero_key: ""
 pdf_local: "pdf/iea_2025_energy_and_ai.pdf"
-note_status: "stub-pdf-read"
+note_status: "upgraded-pdf-fallback-partial"
 ---
 
 # *Energy and AI*
 
-**Authors:** International Energy Agency. (2025).** *Energy and AI*. IEA
+**Authors:** International Energy Agency
 **Year:** 2025
 **Venue:** International Energy Agency. (2025).
 **DOI:** —
@@ -38,28 +38,40 @@ Global synthesis projecting DC electricity to ~945 TWh by 2030 (~1.5% → ~3% of
 
 ## Abstract
 
-INTERNATIONAL ENERGY AGENCY IEA Member countries: Australia Austria Belgium Canada Czech Republic Denmark Estonia Finland France Germany Greece Hungary Ireland Italy Japan Korea Latvia Lithuania Luxembourg Mexico Netherlands New Zealand Norway Poland Portugal Slovak Republic Spain Sweden Switzerland Republic of Türkiye United Kingdom United States The European Commission also participates in the work of the IEA IEA Association countries: Argentina Brazil China Egypt India Indonesia Kenya Morocco Senegal Singapore South Africa Thailand Ukraine The IEA examines the full spectrum of energy issues including oil, gas and coal supply and demand, renewable energy technologies, electricity markets, energy efficiency, access to energy, demand side management and much more. Through its work, the IEA advocates policies that will enhance the reliability, affordability and sustainability of energy in its 32 Member countries, 13 Association countries and beyond. Please note that this publication is subject to specific restrictions that limit its use and distribution. The terms and conditions are available online at www.iea.org/terms This publication and any map included herein are without prejudice to the status of or sovereignty over any territory, to the delimitation of international frontiers and boundaries and to the name of any territory, city or area. Source: IEA. International Energy Agency Website: www.iea.org
+IEA special report on the two-way relationship between AI and energy, including global projections for data-centre electricity demand, regional demand composition, and energy-system implications.
 
 ## Core argument / findings
-
-- _to fill during close read_
+- Global synthesis projecting DC electricity to ~945 TWh by 2030 (~1.5% → ~3% of world electricity), with AI as primary driver. China and US account for ~80% of growth. Explicitly notes major data gaps for China. This is the highest-level policy anchor for framing compute infrastructure as a fast-growing electricity load and for arguing that provincial causal study of EDWC is policy-relevant.
+- The report asks how AI will reshape electricity demand and how energy systems can respond.
+- Its headline result is that data-centre electricity consumption is projected to reach about 945 TWh by 2030 in the Base Case, up from roughly 415 TWh in 2024 and just under 3% of global electricity demand.
+- The regional result most useful for the thesis is that China and the United States account for nearly 80% of projected global data-centre electricity growth to 2030.
+- The report also stresses an important China-specific limitation: China already accounts for about one-quarter of global data-centre electricity consumption, but substantial data gaps still make that consumption hard to estimate accurately.
 
 ## Method & data
-
-- _to fill during close read_
+- Paper type: policy report / scenario analysis.
+- Parsed coverage used here: pages 1-60 of 304 total pages, with direct PDF fallback for summary numbers and China discussion.
+- The report combines sectoral modelling, regional scenario analysis, and policy discussion. It is not a causal paper and does not identify treatment effects.
+- For the thesis, the most useful components are the global and regional electricity-demand projections plus the explicit discussion of data limitations in China.
 
 ## Key quotes
-
-- _page / quote_
+- Page numbers were not reliably recoverable from the local extraction and should be checked in the PDF before direct citation.
+- "Data centre electricity consumption is set to more than double to around 945 TWh by 2030."
+- "China and the United States are the most significant regions for data centre electricity consumption growth."
+- "substantial data gaps make it challenging to accurately estimate China's data centre electricity consumption."
 
 ## Relevance to EDWC thesis
-
-- _how this paper supports specific claims / sections_
+- Global synthesis projecting DC electricity to ~945 TWh by 2030 (~1.5% → ~3% of world electricity), with AI as primary driver. China and US account for ~80% of growth. Explicitly notes major data gaps for China. This is the highest-level policy anchor for framing compute infrastructure as a fast-growing electricity load and for arguing that provincial causal study of EDWC is policy-relevant.
+- Proposal placement: §1.1.1 global framing; §1.1.2 policy framing; §2.1 policy-relevance.
+- Most relevant use within the proposal: background, literature review, research gap.
+- It is particularly useful for motivating why a provincial China study matters: China is central to global growth in data-centre demand, yet public measurement remains incomplete.
 
 ## Caveats / limitations
-
-- _none noted in master file_
+- This is an institutional or technical source rather than peer-reviewed causal evidence.
+- The report is scenario-based and highly aggregated, so it cannot answer province-level causal questions by itself.
+- China-side data gaps are part of the report's own argument, which makes it a good motivation source but a limited measurement source.
 
 ## Related papers in corpus
-
-- _link sibling notes_
+- [shehabi_2024_us_dc_energy_report.md](shehabi_2024_us_dc_energy_report.md): strongest bottom-up benchmark beneath the IEA's higher-level global framing.
+- [masanet_2020_recalibrating_dc_energy.md](masanet_2020_recalibrating_dc_energy.md): baseline for understanding why pre-AI energy-growth narratives were flatter.
+- [greenpeace_2021_china_5g_dc_outlook.md](greenpeace_2021_china_5g_dc_outlook.md): China-specific policy context for the demand-growth discussion.
+- [ni_2024_china_dc_emissions_pathways.md](ni_2024_china_dc_emissions_pathways.md): China-focused emissions complement to the IEA's global electricity framing.

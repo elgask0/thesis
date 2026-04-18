@@ -2,7 +2,7 @@
 filename_stem: "guo_2020_power_market_reform_china"
 citation: "Guo, H., Davidson, M. R., Chen, Q., Zhang, D., Jiang, N., Xia, Q., Kang, C., & Zhang, X. (2020).** Power market reform in China: Motivations, progress, and recommendations. *Energy Policy, 145*, 111717. https://doi.org/10.1016/j.enpol.2020.111717"
 first_author: "Guo"
-year: 2020
+year: "2020"
 title: "Power market reform in China: Motivations, progress, and recommendations"
 venue: "Guo, H., Davidson, M. R., Chen, Q., Zhang, D., Jiang, N., Xia, Q., Kang, C., & Zhang, X. (2020)."
 doi: "10.1016/j.enpol.2020.111717"
@@ -16,7 +16,7 @@ priority: "strong-include"
 caveat: ""
 zotero_key: "6RN7W4UT"
 pdf_local: "pdf/guo_2020_power_market_reform_china.pdf"
-note_status: "stub-pdf-read"
+note_status: "upgraded-mineru-full"
 ---
 
 # Power market reform in China: Motivations, progress, and recommendations
@@ -41,25 +41,33 @@ Best compact review of post-2015 power-market reform, dispatch change, and inter
 Energy Policy 145 (2020) 111717 Available online 21 July 2020 0301-4215/© 2020 Elsevier Ltd. All rights reserved. Power market reform in China: Motivations, progress, and recommendations Hongye Guo a, Michael R. Davidson b,c, Qixin Chen a,f,*, Da Zhang d,e,f,**, Nan Jiang a,e, Qing Xia a,e, Chongqing Kang a,e, Xiliang Zhang d,e a Department of Electrical Engineering, Tsinghua University, Beijing, China b Department of Mechanical and Aerospace Engineering, University of California San Diego, La Jolla, CA, USA c School of Global Policy and Strategy, University of California San Diego, La Jolla, CA, USA d Institute of Energy, Environment, and Economy, Tsinghua University, Beijing, China e Institute for National Governance and Global Governance, Tsinghua University, Beijing, China f MIT Joint Program on the Science and Policy of Global Change, Cambridge, MA, USA A R T I C L E I N F O Keywords: Power sector Power market Market reform Electricity Deregulation China A B S T R A C T China’s electricity demand has grown rapidly over only two decades and is currently the largest in the world. This was largely owing to a framework of regulation in which governments regulated prices and quantities, and there was ample incentive for investment. As the growth in electricity demand has slowed and the use of renewable energy has been impeded by integration-related challenges, China has embarked on a new round of power sector reform, with a focus on market construction. Considering four years of market experiments at the provincial level, we review the backgrounds and goals of the reforms, as well as the current progress toward meeting the initial targets. Then, we discuss the key challenges to be overcome to achieve complete imple­ mentation of the reforms, with special emphasis on the
 
 ## Core argument / findings
-
-- _to fill during close read_
+- Best compact review of post-2015 power-market reform, dispatch change, and interprovincial coordination problems. Justifies why dispatch and pricing institutions may cause the same EDWC demand shock to map differently into generation, imports, and carbon across provinces.
+- China’s electricity demand has grown rapidly over only two decades and is currently the largest in the world.
+- As the growth in electricity demand has slowed and the use of renewable energy has been impeded by integration-related challenges, China has embarked on a new round of power sector reform, with a focus on market construction.
+- This was largely owing to a framework of regulation in which governments regulated prices and quantities, and there was ample incentive for investment.
 
 ## Method & data
-
-- _to fill during close read_
+- Paper type: context or institutional paper.
+- Parsed coverage used here: full document (14 pages).
+- China’s electricity demand has grown rapidly over only two decades and is currently the largest in the world.
+- This was largely owing to a framework of regulation in which governments regulated prices and quantities, and there was ample incentive for investment.
+- As the growth in electricity demand has slowed and the use of renewable energy has been impeded by integration-related challenges, China has embarked on a new round of power sector reform, with a focus on market construction.
 
 ## Key quotes
-
-- _page / quote_
+- p. 1: "China overtook the U.S. in 2011 to become the world’s largest power sector."
+- p. 6: "The annual electricity consumption requirements for consumers in Henan is 10 GWh."
+- p. 2: "In Section 6, we provide recommendations for the future development of China’s power market."
 
 ## Relevance to EDWC thesis
-
-- _how this paper supports specific claims / sections_
+- Best compact review of post-2015 power-market reform, dispatch change, and interprovincial coordination problems. Justifies why dispatch and pricing institutions may cause the same EDWC demand shock to map differently into generation, imports, and carbon across provinces.
+- Proposal placement: §3 grid / dispatch context; §3 heterogeneity / interpretation.
+- Most relevant use within the proposal: section use still needs manual assignment.
 
 ## Caveats / limitations
-
-- _none noted in master file_
+- Use it to discipline interpretation and mechanism discussion rather than to identify EDWC effects directly.
 
 ## Related papers in corpus
-
-- _link sibling notes_
+- [xiang_2023_market_vs_regulatory_capture.md](xiang_2023_market_vs_regulatory_capture.md): same subsection; same stream; shared tags: china-context, power-market-reform.
+- [deng_2022_interregional_transmission_variable_power.md](deng_2022_interregional_transmission_variable_power.md): same stream; shared tags: china-context.
+- [liao_2019_power_sector_co2_clustering.md](liao_2019_power_sector_co2_clustering.md): same stream; shared tags: china-context.
+- [liu_2018_curtailment_northwest_china.md](liu_2018_curtailment_northwest_china.md): same stream; shared tags: china-context.

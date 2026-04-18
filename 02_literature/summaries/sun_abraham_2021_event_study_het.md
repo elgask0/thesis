@@ -2,7 +2,7 @@
 filename_stem: "sun_abraham_2021_event_study_het"
 citation: "Sun, L., & Abraham, S. (2021).** Estimating dynamic treatment effects in event studies with heterogeneous treatment effects. *Journal of Econometrics, 225*(2), 175–199. https://doi.org/10.1016/j.jeconom.2020.09.006"
 first_author: "Sun"
-year: 2021
+year: "2021"
 title: "Estimating dynamic treatment effects in event studies with heterogeneous treatment effects"
 venue: "Sun, L., & Abraham, S. (2021)."
 doi: "10.1016/j.jeconom.2020.09.006"
@@ -16,7 +16,7 @@ priority: "must-cite"
 caveat: ""
 zotero_key: "2JMTITRR"
 pdf_local: "pdf/sun_abraham_2021_event_study_het.pdf"
-note_status: "stub-pdf-read"
+note_status: "upgraded-mineru-full"
 ---
 
 # Estimating dynamic treatment effects in event studies with heterogeneous treatment effects
@@ -41,25 +41,33 @@ Shows that TWFE event-study coefficients with leads/lags can be contaminated und
 Journal of Econometrics 225 (2021) 175–199 Contents lists available at ScienceDirect Journal of Econometrics journal homepage: www.elsevier.com/locate/jeconom Estimating dynamic treatment effects in event studies with heterogeneous treatment effects Liyang Sun a,∗, Sarah Abraham b,1 a Department of Economics, MIT, 77 Massachusetts Avenue, Cambridge, MA 02139, United States of America b Cornerstone Research, 699 Boylston St, Boston, MA 02116, United States of America a r t i c l e i n f o Article history: Received 7 August 2020 Received in revised form 22 September 2020 Accepted 24 September 2020 Available online 16 December 2020 Keywords: Difference-in-differences Two-way fixed effects Pretrend test a b s t r a c t To estimate the dynamic effects of an absorbing treatment, researchers often use two- way fixed effects regressions that include leads and lags of the treatment. We show that in settings with variation in treatment timing across units, the coefficient on a given lead or lag can be contaminated by effects from other periods, and apparent pretrends can arise solely from treatment effects heterogeneity. We propose an alternative estimator that is free of contamination, and illustrate the relative shortcomings of two-way fixed effects regressions with leads and lags through an empirical application. © 2020 Elsevier B.V. All rights reserved. 1. Introduction Rich panel data has fueled a growing literature estimating treatment effects with two-way fixed effects regressions. This body of applied work has prompted a corresponding econometrics literature investigating the assumptions required for these regressions to yield causally interpretable estimates. For example, Athey and Imbens (2018), Borusyak and Jaravel (2017), Callaway and Sant’Anna (2020a), de Chaisemartin
 
 ## Core argument / findings
-
-- _to fill during close read_
+- Shows that TWFE event-study coefficients with leads/lags can be contaminated under staggered adoption with heterogeneous treatment effects, producing misleading dynamics and spurious "pre-trends." Directly justifies implementing a Sun–Abraham style cohort-interacted event study as the main estimator for EDWC. The proposal's main estimator is named after this paper.
+- We propose an alternative estimator that is free of contamination, and illustrate the relative shortcomings of two-way fixed effects regressions with leads and lags through an empirical application. © 2020 Elsevier B.V.
+- We show that in settings with variation in treatment timing across units, the coefficient on a given lead or lag can be contaminated by effects from other periods, and apparent pretrends can arise solely from treatment effects heterogeneity.
+- To estimate the dynamic effects of an absorbing treatment, researchers often use twoway fixed effects regressions that include leads and lags of the treatment.
 
 ## Method & data
-
-- _to fill during close read_
+- Paper type: methods paper.
+- Parsed coverage used here: full document (25 pages).
+- The contribution is formal identification and estimation logic rather than a new sector-specific dataset.
+- We propose an alternative estimator that is free of contamination, and illustrate the relative shortcomings of two-way fixed effects regressions with leads and lags through an empirical application. © 2020 Elsevier B.V.
+- To estimate the dynamic effects of an absorbing treatment, researchers often use twoway fixed effects regressions that include leads and lags of the treatment.
 
 ## Key quotes
-
-- _page / quote_
+- p. 3: "It also nests a difference-in-differences design, where units are either first treated at time t0 or never treated."
+- p. 3: "In the next section, we use the notation developed above to define the treatment effect of an event study design."
+- p. 4: "With the above definitions, we formalize three potential identifying assumptions for outcomes of interest in our event study design."
 
 ## Relevance to EDWC thesis
-
-- _how this paper supports specific claims / sections_
+- Shows that TWFE event-study coefficients with leads/lags can be contaminated under staggered adoption with heterogeneous treatment effects, producing misleading dynamics and spurious "pre-trends." Directly justifies implementing a Sun–Abraham style cohort-interacted event study as the main estimator for EDWC. The proposal's main estimator is named after this paper.
+- Proposal placement: §3.4 main estimator justification; §3.4.2 event-study specification; §2.4 design-side gap.
+- Most relevant use within the proposal: literature review, research gap, empirical strategy.
 
 ## Caveats / limitations
-
-- _none noted in master file_
+- Use it to justify identification strategy or estimator choice, not as direct evidence on EDWC or China data centers.
 
 ## Related papers in corpus
-
-- _link sibling notes_
+- [borusyak_2024_event_study_imputation.md](borusyak_2024_event_study_imputation.md): same subsection; same stream; shared tags: design, event-study, staggered-DiD.
+- [dechaisemartin_dhaultfoeuille_2020_twfe.md](dechaisemartin_dhaultfoeuille_2020_twfe.md): same subsection; same stream; shared tags: TWFE-bias, design, staggered-DiD.
+- [callaway_santanna_2021_did_multiple_periods.md](callaway_santanna_2021_did_multiple_periods.md): same subsection; same stream; shared tags: design, staggered-DiD.
+- [goodman_bacon_2021_did_timing.md](goodman_bacon_2021_did_timing.md): same subsection; same stream; shared tags: design, staggered-DiD.
