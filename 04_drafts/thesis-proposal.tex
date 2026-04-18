@@ -75,7 +75,48 @@ Date:        & [TO BE FILLED] \\
 % DO NOT OVERCLAIM: do not cite global projections as directly
 % applicable to China without qualification.
 
-[TO BE DRAFTED]
+Electricity consumed by data centers is the upstream channel through
+which AI adoption shows up in the power system. Bottom-up accounting
+placed global data-center electricity at roughly 205 TWh in 2018,
+about 1\% of world electricity, and documented a striking decoupling
+over the prior decade: compute instances expanded by about 550\% while
+facility electricity grew only about 6\%, held down by server, storage,
+and cooling efficiency gains
+\citep{masanetetal-2020-recalibratingglobaldata}. That decoupling set
+the baseline against which the current AI cycle is now being measured.
+
+The more recent evidence points to a break in that trajectory. In the
+United States, data-center electricity reached 176 TWh in 2023, about
+4.4\% of national electricity, with accelerated server energy tied
+explicitly to the diffusion of AI-class accelerators
+\citep{shehabietal-2024-2024unitedstates}. At the global level, the
+International Energy Agency projects data-center electricity to reach
+on the order of 945 TWh by 2030, roughly 3\% of world electricity,
+with the United States and China together accounting for about 80\%
+of the growth; the same assessment flags China as a setting where the
+underlying measurement base is thin \citep{internationalenergyagency-2025-energyai}.
+Projections at this scale are useful for framing rather than inference
+about any single Chinese province, and they reinforce rather than
+substitute for province-level measurement.
+
+The composition of that demand matters for where it lands. Training
+attracted early attention, but production systems shift the long-run
+energy burden toward inference, and the siting of workloads interacts
+with local grid and facility characteristics to determine how much
+electricity is drawn and how much carbon is emitted per unit of
+compute \citep{pattersonetal-2022-carbonfootprintmachine}. In other
+words, compute-infrastructure electricity is not a uniform global
+quantity; it is produced and consumed at specific locations whose
+energy environments differ. That is the property EDWC acts on by
+concentrating new compute capacity in western Chinese provinces, and
+it is the property this proposal studies.
+
+Most of the AI-economy literature studies downstream outcomes, such as
+productivity, labor markets, and firm performance. The upstream
+electricity channel has attracted much less causal evaluation,
+particularly at the sub-national level in China. The following
+subsections describe the policy that creates the shock this thesis
+exploits.
 
 
 % ............................................................
@@ -94,7 +135,55 @@ Date:        & [TO BE FILLED] \\
 % NDRC source URLs
 % FULLY DRAFTABLE.
 
-[TO BE DRAFTED]
+China's Eastern Data, Western Compute (EDWC) program organizes new
+data-center capacity around eight national computing hubs and ten
+data-center clusters, with the stated aim of relocating compute
+workloads from the demand-heavy eastern coast to western provinces
+that have surplus land, favourable climatic conditions for cooling,
+and larger shares of renewable generation
+\citep{xieetal-2024-greeningchinasdigital,zhangetal-2025-easterndatawestern}.
+The design rests on a reduced-form economic logic: land and power are
+cheaper in the west, ambient temperatures lower cooling energy, and
+grid-mix differences make electricity used there embody less carbon on
+average than electricity drawn in eastern load centres
+\citep{zhangetal-2025-decarbonizingdatacenters}.
+
+The 2023 implementation opinions on deepening EDWC moved the program
+beyond initial siting guidance toward a nationally integrated computing
+network, coordinating compute-power allocation, cross-regional scheduling,
+transmission arrangements, and green-electricity supply. The document
+rules out, in principle, construction of new large or ultra-large data
+centers outside the designated hub nodes, and sets 2025 targets of more
+than 60\% of newly added national compute capacity concentrated in hub
+node areas and more than 80\% green electricity in new hub-node data
+centers \citep{nationaldevelopmentandreformcommission-2023-guanyushenrushishidongshuxisuangongchengjiakuaigoujianquanguoyitihuasuanliwangdeshishiyijian}.
+These are policy targets rather than realized outcomes, but they
+discipline the interpretation of EDWC: the program bundles siting,
+transmission, and power-mix coordination, and any province-level effect
+on electricity or emissions should be read as a reduced-form response
+to that bundle rather than to data-center construction alone.
+
+This proposal studies the four western provinces that host the program's
+westernmost hubs and clusters: Ningxia, Guizhou, Gansu, and Inner
+Mongolia. Each has identifiable cluster-level go-live milestones within
+the 2023--2024 window, drawn from official provincial and national
+sources, which provide the staggered activation timing used in the
+empirical design. These milestones are treated as working anchors in
+this proposal; final locking awaits a complete source-backed provenance
+pass once province-level electricity panels are in place.
+
+Existing assessments of EDWC are either scenario-based or simulation-based.
+\citet{zhangetal-2025-easterndatawestern} project emission reductions of
+roughly 16--20\% by 2030 under net-zero pathway assumptions;
+\citet{zhangetal-2025-decarbonizingdatacenters} simulate annual savings
+of 332--942 GWh across three migration routes, with carbon outcomes
+that flip sign depending on the source--sink emission-factor gap; and
+\citet{xieetal-2024-greeningchinasdigital} provide scenario CO\textsubscript{2}
+estimates out to 2050 using fuzzy-set qualitative comparative analysis
+across hub configurations. None of these studies reports ex post,
+province-level causal estimates of how EDWC go-lives have moved
+electricity consumption. That is the setting the next subsections
+describe.
 
 
 % ............................................................
@@ -111,7 +200,59 @@ Date:        & [TO BE FILLED] \\
 % STILL NEEDED: 3--4 references on China curtailment / grid mix
 % DO NOT OVERCLAIM: do not claim EDWC reduces curtailment.
 
-[TO BE DRAFTED]
+The economic case for siting compute capacity in western China rests
+on three provincial features: concentrated renewable generation,
+climatic conditions that lower cooling energy, and electricity prices
+below those on the eastern coast. None of these features translates
+automatically into clean compute power. Each depends on how the local
+grid absorbs, transmits, and dispatches renewable supply, and on how
+facility-level efficiency is governed by policy.
+
+Renewable abundance in the west has coincided with persistent
+absorption problems. Wind and solar curtailment peaked in northwestern
+China in 2016, with administrative and market barriers identified as
+the main drivers rather than physical resource limits
+\citep{liuetal-2018-curtailmentrenewableenergy}. Curtailment then
+declined substantially over 2015--2018, with local demand absorption,
+ultra-high-voltage transmission, and conventional interprovincial
+transmission each contributing different shares across provinces
+\citep{zhangetal-2021-whatdrivingremarkable}. The implication for the
+EDWC setting is that the western provinces are not uniformly renewable-rich
+in usable terms: Ningxia, Guizhou, Gansu, and Inner Mongolia differ in
+transmission structure and local-absorption capacity, and those
+differences shape what extra electricity demand is likely to be met
+from renewable rather than thermal generation.
+
+Interregional transmission is the vehicle through which western
+renewable supply reaches distant load. Optimization work on China's
+multi-region power system indicates that wind and solar are projected
+to account for the majority of interregional transmission volumes, and
+that the northwest's outbound lines carry especially high renewable
+shares; renewable accommodation in these regions depends on
+transmission compatibility, flexibility resources, and the interaction
+between local consumption policy and grid physics
+\citep{dengetal-2022-assessingintegrationeffect}. New compute load
+placed in a western hub may therefore be served partly by local
+renewable generation, partly by thermal backstop, and partly by
+redirecting flows that would otherwise have been exported; the mix is
+a province-level question, not a national one.
+
+Climatic conditions in several western hubs, particularly at higher
+elevations and in continental interiors, support lower power usage
+effectiveness through natural cooling, and this advantage is now
+formalised in national policy. The 2024 action plan for green and
+low-carbon data-center development sets a PUE ceiling of 1.25 for new
+large and ultra-large facilities, 1.2 at national hub-node clusters,
+and requires more than 80\% green electricity in new hub-node data
+centers by the end of 2025
+\citep{nationaldevelopmentandreformcommissionetal-2024-shujuzhongxinluseditanfazhanzhuanxiangxingdongjihua}.
+
+These features motivate the direction of EDWC policy but do not
+identify its effects. They describe why western siting was chosen and
+why the electricity and emissions consequences are expected to be
+heterogeneous across provinces. They are not, and should not be read
+as, evidence that EDWC itself reduces curtailment or lowers provincial
+carbon intensity; those are questions the empirical design takes up.
 
 
 % ............................................................
@@ -129,7 +270,49 @@ Date:        & [TO BE FILLED] \\
 % REPO SUPPORT: global_plan S4.4 with full PUE policy source list
 % FULLY DRAFTABLE.
 
-[TO BE DRAFTED]
+Chinese policy now treats compute-capacity expansion and facility-level
+efficiency as joint objects of regulation, held inside the macro
+constraint that CO\textsubscript{2} emissions should peak before 2030
+and reach net zero by 2060. The tension is direct: more compute implies
+more electricity demand and, absent a cleaner grid and more efficient
+facilities, more emissions. The policy response has been to push
+simultaneously on the spatial allocation of compute capacity, on
+facility efficiency, and on the share of green electricity used by
+data centers.
+
+Institutional reporting supplies a baseline. By the end of 2023,
+Chinese data centers held roughly 8.1 million standard racks in
+service, consumed on the order of 150 TWh --- about 1.6\% of
+national electricity --- and accounted for roughly 84 Mt of
+CO\textsubscript{2} emissions. The national average power usage
+effectiveness fell to 1.48 in 2023 from 1.54 in 2022, and the share
+of central- and western-region facilities in the rolling national
+green-data-center selections rose from 26.6\% in the first batch to
+46\% by the fifth, consistent with the EDWC-driven shift in where new
+capacity is placed \citep{chinaacademyofinformationandcommunicationstechnologyhoringernewarea-2024-zhongguolusesuanlifazhanyanjiubaogao2024nian}.
+These numbers frame the baseline against which EDWC is being evaluated
+and against which this proposal's RQ2 translation is built.
+
+The 2024 action plan tightens the efficiency and green-power targets.
+By the end of 2025, the national average PUE is to fall below 1.5;
+new large and ultra-large facilities are to meet a PUE of 1.25 or
+lower; facilities inside hub-node clusters are held to 1.2; more than
+60\% of newly added compute capacity is to be located in hub-node
+areas; and green electricity is to exceed 80\% at new hub-node data
+centers \citep{nationaldevelopmentandreformcommissionetal-2024-shujuzhongxinluseditanfazhanzhuanxiangxingdongjihua}.
+These are policy targets; actual compliance and the province-level
+distribution of compliance are empirical questions.
+
+The policy architecture therefore binds three moving parts together:
+compute-capacity growth driven by AI adoption, facility efficiency
+converging toward hub-node PUE requirements, and a grid whose
+provincial carbon intensities differ sharply. EDWC is the spatial
+instrument that connects them, by concentrating new compute in western
+hubs where cheaper land, cooler climates, and higher renewable shares
+are meant to ease the trade-off. Whether that instrument has in fact
+moved provincial electricity demand and carbon emissions, and how the
+resulting energy flows translate into units of compute, are the
+questions this proposal takes up.
 
 
 % ------------------------------------------------------------
@@ -145,7 +328,25 @@ Date:        & [TO BE FILLED] \\
 % not provide causal province-level identification. The gap is
 % causal DiD + compute translation.
 
-[TO BE DRAFTED]
+The research problem follows from the preceding background. EDWC has
+been assessed, but mainly in prospective terms: scenario-based
+reductions tied to net-zero pathways and route-by-route simulations
+whose sign depends on assumed source--sink emission-factor gaps
+\citep{zhangetal-2025-easterndatawestern,zhangetal-2025-decarbonizingdatacenters}.
+What remains missing is an ex post, province-level causal estimate of
+how the program's go-lives have actually moved electricity consumption,
+with CO\textsubscript{2} as a complementary environmental outcome, and
+a translation of those energy effects into units of compute that
+connect to the policy questions EDWC is meant to answer. Closing the
+gap requires two steps the existing literature does not combine: a
+staggered event-study that recovers province-specific dynamic responses
+without the bias that pooled two-way fixed-effects estimators impose
+under heterogeneous treatment
+\citep{sunabraham-2021-estimatingdynamictreatmenta}, and a transparent
+carbon-per-compute accounting layer that embeds provincial grid carbon
+intensity and facility efficiency in a rate-based metric
+\citep{guptaetal-2022-chasingcarbonelusive}. This proposal takes both
+steps.
 
 
 % ------------------------------------------------------------
@@ -166,7 +367,48 @@ Date:        & [TO BE FILLED] \\
 %
 % REPO SUPPORT: global_plan S12
 
-[TO BE DRAFTED]
+The theoretical significance of the proposed work lies in where it
+sits in the AI-economy research programme. Most of that work studies
+downstream outcomes --- labour markets, firm productivity, adoption ---
+and the upstream side, where AI adoption turns into kilowatt-hours and
+tonnes of CO\textsubscript{2} at specific locations, has received less
+causal attention, particularly at the sub-national level in China. A
+staggered event-study of EDWC go-lives contributes an applied case in
+which the estimator
+\citep{sunabraham-2021-estimatingdynamictreatmenta} is matched to a
+compute-infrastructure shock rather than to the place-based policies
+it has most often been used to evaluate. The carbon-per-compute
+translation developed here extends the rate-based accounting logic
+proposed for compute at the facility and workload levels
+\citep{guptaetal-2022-chasingcarbonelusive} to a province-year
+setting: grid carbon intensity, facility efficiency, and AI-relevant
+hardware efficiency are combined into a single, reproducible series
+rather than treated as separate descriptive inputs. The contribution
+is measurement-side and methodological; it is not a claim about the
+magnitude of any EDWC effect.
+
+The practical significance is narrower and tied to choices that
+Chinese policy is now making. Hub-node capacity allocation, green
+electricity targets, and provincial compute quotas are being set
+under active implementation programmes
+\citep{chinaacademyofinformationandcommunicationstechnologyhoringernewarea-2024-zhongguolusesuanlifazhanyanjiubaogao2024nian},
+and those programmes currently rely on scenario modelling rather than
+ex post province-level evidence. Credible province-year estimates of
+how EDWC go-lives have moved electricity consumption, with
+CO\textsubscript{2} as a complementary outcome, provide a
+direct input into decisions about which hubs should absorb which share
+of future capacity. A transparent CPC series, built from public
+components, supports green-compute procurement and carbon reporting by
+buyers and operators who need a comparable rate-based number across
+provinces, rather than province-specific narratives of renewable
+advantage. Finally, because provincial carbon intensities and facility
+efficiencies enter the dual-carbon tracking system through different
+instruments, tying them together in a single province-year series
+offers a small but concrete contribution to how AI-related electricity
+demand is accounted for inside that system. These contributions are
+the ones the design can plausibly deliver; the proposal does not
+extend to broader claims about the social returns to AI or the
+welfare effects of compute relocation.
 
 
 % ============================================================
@@ -294,7 +536,70 @@ Carbon Metrics}
 % DO NOT OVERCLAIM: Zhang et al. (2025) exists. The gap is causal
 % identification + CPC, not "no prior EDWC research."
 
-[TO BE DRAFTED AFTER 2.1--2.3 ARE COMPLETE]
+The three streams reviewed above leave a specific opening that this
+proposal is designed to fill. Read together, they show that the
+outcome of interest is recognized, the empirical tools are mature, and
+the measurement frameworks are in place, yet none of the existing work
+joins these elements at the province-year level for the EDWC rollout.
+
+The outcome stream has settled the basic premise. Compute infrastructure
+is a material and growing source of electricity demand, and its
+environmental footprint depends on where workloads run, not only on how
+much is computed \citep{zhengetal-2020-mitigatingcurtailmentcarbon}.
+For China, provincial decomposition work has documented sizeable
+heterogeneity in data-center emissions across regions
+\citep{nietal-2024-co2emissionmitigationpathways}. EDWC itself has
+already attracted attention, but the existing assessments are
+prospective: \citet{zhangetal-2025-easterndatawestern} estimate
+emission reductions from scenario analysis tied to net-zero pathways,
+and \citet{zhangetal-2025-decarbonizingdatacenters} simulate route-by-route
+energy and carbon savings under bits-migration assumptions, with the
+sign of the carbon effect depending on the source--sink emission-factor
+gap. What this body of work does not provide is an ex post, province-level
+causal estimate of how EDWC go-lives have moved electricity consumption,
+with CO\textsubscript{2} as a complementary outcome.
+
+The design stream supplies the tools needed to close that gap, but has
+not been applied to a compute-infrastructure shock of this kind.
+Modern staggered-adoption methods now allow event-time effects to be
+estimated without the contamination that two-way fixed-effects
+specifications impose under heterogeneous treatment effects
+\citep{sunabraham-2021-estimatingdynamictreatmenta,
+goodman-bacon-2021-differenceindifferencesvariationtreatmenta}.
+These estimators have been used in China to evaluate place-based
+infrastructure of comparable scale, and in energy and environment
+settings to recover dynamic responses from monthly panels. EDWC,
+which activates in four western provinces over roughly two years,
+fits the same template, yet no published study treats its province-level
+go-lives as a staggered shock and reports event-time estimates on
+electricity or emissions.
+
+The measurement stream points to a parallel gap on the translation
+side. Carbon accounting for compute is now organized around rate-based
+metrics that combine grid carbon intensity, facility efficiency, and
+hardware efficiency into a single denominator
+\citep{guptaetal-2022-chasingcarbonelusive}. Chinese institutional work
+treats green compute as a multi-component planning problem with explicit
+provincial concentration, but stops short of an integrated provincial
+metric that ties grid carbon intensity, PUE, and AI-relevant efficiency
+together
+\citep{chinaacademyofinformationandcommunicationstechnologyhoringernewarea-2024-zhongguolusesuanlifazhanyanjiubaogao2024nian}.
+The components exist; their assembly into a province-year carbon-per-compute
+series for China does not.
+
+These three openings define the proposal's two research questions. RQ1
+addresses the outcome and design gaps jointly: it asks how EDWC
+go-lives have changed provincial electricity consumption, with CO\textsubscript{2}
+as a complementary environmental outcome, using a staggered event-study
+estimator rather than a pooled two-way fixed-effects specification.
+RQ2 addresses the measurement gap and is downstream from RQ1: it
+constructs a provincial Carbon-per-Compute series as a transparent
+proxy that links the estimated energy effects to compute units, and
+asks how it moves before and after EDWC. Neither question has been
+posed in this form for EDWC; together they connect a credible causal
+estimate of energy effects to a reproducible compute-side translation,
+which is what the existing literature, taken together, has not yet
+delivered.
 
 
 % ============================================================
@@ -322,7 +627,56 @@ Carbon Metrics}
 %
 % Target: 0.5 page. FULLY DRAFTABLE.
 
-[TO BE DRAFTED]
+The proposal addresses two research questions. Both concern the same
+baseline treated set: the four western provinces whose EDWC hubs or
+clusters went live over 2023 and 2024, namely Ningxia, Guizhou, Gansu,
+and Inner Mongolia. Sichuan is held out because the 2022 hydro-thermal
+shock confounds its pre-treatment trajectory. Both questions treat
+EDWC as a bundled infrastructure package (cluster construction, grid
+reinforcement, and associated renewable and transmission arrangements),
+and any estimated effects are interpreted in reduced form.
+
+\begin{itemize}
+  \item \textbf{First research question: causal effects on provincial
+        energy and emissions.} Did the arrival of an EDWC cluster
+        cause a province's electricity use and CO\textsubscript{2}
+        emissions to rise, and by how much? Monthly provincial
+        electricity consumption is the primary outcome, because
+        electricity is the most direct channel through which new
+        compute load shows up in the power system. Monthly
+        CO\textsubscript{2}, built from the Carbon Monitor China
+        panel, is a complementary environmental outcome and feeds the
+        carbon-intensity input into the second question. Each treated
+        province is compared to its own pre-treatment trajectory and
+        to provinces that are not yet treated or never treated within
+        the study window. The design recovers the reduced-form
+        response of the outcomes to the full EDWC package; it does
+        not isolate a clean data-center-only effect, and it does not
+        identify a causal effect on carbon intensity. The
+        decomposition of the emissions response into volume and mix
+        components is treated as an accounting exercise, not a
+        separate causal claim.
+
+  \item \textbf{Second research question: translation into
+        carbon-per-compute.} Given each province's energy environment,
+        how does the carbon cost of producing one unit of AI compute
+        move around the cluster go-live, and how much additional
+        compute is consistent with the electricity response recovered
+        under the first question? Carbon-per-compute (CPC) is defined
+        as provincial carbon intensity times facility power usage
+        effectiveness, divided by an AI-equivalent hardware efficiency
+        series, with units of tCO\textsubscript{2} per exaflop-hour;
+        it is an intensive metric, not a measure of total AI compute.
+        The question asks for levels and changes in CPC before and
+        after each go-live, and for comparisons across provinces,
+        including CAICT compute-tier peers. Results are reported as
+        scenarios and uncertainty bands rather than single point
+        estimates: the compute translation is run under several shares
+        of the estimated electricity effect attributable to
+        data-center load, and under a Monte Carlo draw over the
+        parameters that enter PUE, carbon intensity, and the
+        efficiency series.
+\end{itemize}
 
 
 % ------------------------------------------------------------
@@ -405,7 +759,84 @@ Carbon-per-Compute
 % [Insert brief prose defining each variable group and
 %  explaining construction choices]
 
-[TO BE DRAFTED]
+Table~\ref{tab:variables} lists every variable used in the empirical
+design and the carbon-per-compute framework. The variables fall into
+four groups: outcomes, treatment, controls, and the constructed
+series that feed the second research question. The panel is
+province-month, with $p$ indexing province and $t$ indexing calendar
+month; event time $\ell = t - E_p$ is measured relative to province
+$p$'s go-live month $E_p$.
+
+\begin{itemize}
+  \item \textbf{Outcome variables.} The outcomes are the two monthly
+        province-level series that the causal design targets directly.
+        Monthly electricity consumption $\text{kWh}_{p,t}$ is the
+        primary outcome, reported in MWh and built from official
+        provincial statistical bulletins; it is the most direct
+        upstream signal of new compute load in the power system.
+        Monthly CO\textsubscript{2} emissions $\text{CO}_{2,p,t}$ are
+        the complementary environmental outcome, taken from the
+        Carbon Monitor China daily panel (31 provinces, 2019--2025)
+        aggregated to monthly totals in tonnes. Electricity is
+        specified in logs to stabilise variance and ease percentage
+        interpretation; CO\textsubscript{2} enters the accounting
+        decomposition in levels, together with $\text{kWh}_{p,t}$, to
+        construct provincial carbon intensity.
+
+  \item \textbf{Treatment variable.} The treatment variable records
+        whether a province has had an EDWC cluster go live, and if
+        so, how long ago. $\mathbb{1}\{p \in \mathcal{G}\}$ is a
+        province-level indicator equal to one for the baseline treated
+        set $\mathcal{G} = \{\text{Ningxia}, \text{Guizhou},
+        \text{Gansu}, \text{Inner Mongolia}\}$ and zero otherwise.
+        Go-live months $E_p$ are coded from official operational
+        milestones rather than policy announcements, with working
+        defaults Ningxia 2023-02, Guizhou 2023-09, Gansu 2024-06, and
+        Inner Mongolia 2024-09; these dates are not final and are
+        stress-tested in the robustness analysis. Sichuan is held out
+        of the treated set because the 2022 hydro-thermal shock
+        confounds its pre-treatment trajectory. Provinces that are not
+        yet treated and provinces that remain untreated throughout the
+        study window form the comparison pool.
+
+  \item \textbf{Control variables.} The controls absorb province-month
+        variation in electricity demand that is unrelated to EDWC.
+        Cooling and heating degree days ($\text{CDD}_{p,t}$,
+        $\text{HDD}_{p,t}$) capture climate-driven load; monthly
+        precipitation $\text{Precip}_{p,t}$ picks up hydropower
+        availability, which matters in provinces with a large hydro
+        share. Degree days are constructed from daily station
+        temperatures using a standard base; precipitation enters as a
+        monthly total in millimetres. Province fixed effects and
+        calendar-month fixed effects enter the specification directly
+        and absorb time-invariant province heterogeneity and common
+        seasonality, so the climate controls are intended to absorb
+        residual weather variation rather than levels.
+
+  \item \textbf{Constructed variables for the compute translation.}
+        These variables do not enter the causal regressions; they
+        convert the causal estimates of the first question into the
+        carbon-per-compute metric used in the second. Provincial
+        carbon intensity $\text{CI}_{p,t} = \text{CO}_{2,p,t} /
+        \text{kWh}_{p,t}$, in tCO\textsubscript{2} per MWh, is
+        computed directly from the two outcome series so that the
+        intensity used in the translation is internally consistent
+        with the estimated electricity and emissions responses.
+        Facility power usage effectiveness $\text{PUE}_{p,t}$ is the
+        ratio of site energy to IT energy, anchored to CAICT national
+        averages and MIIT/NDRC/NEA targets and adjusted by province
+        climate; targets are treated as targets, not as realised
+        outcomes. The AI-equivalent hardware efficiency series
+        $\text{GF/W}(t)$, in GFLOPS per watt, is a national monthly
+        series constructed from the Green500 HPL frontier, the
+        HPL-MxP mixed-precision speedup, a utilisation realism factor,
+        and a China-specific interconnect haircut reflecting the
+        A800/H800 hardware regime. Carbon-per-compute is then defined
+        as $\text{CPC}_{p,t} = \text{CI}_{p,t} \times \text{PUE}_{p,t}
+        \times 1000 / \text{GF/W}(t)$, in tCO\textsubscript{2} per
+        exaflop-hour; it is an intensive metric, not a measure of
+        total AI compute.
+\end{itemize}
 
 
 % ------------------------------------------------------------
@@ -427,7 +858,44 @@ Carbon-per-Compute
 % REPO SUPPORT: electricity_data_pipeline.md; src/electricity/gansu/
 % DO NOT OVERCLAIM: state that coverage beyond Gansu is in progress.
 
-[TO BE DRAFTED]
+The primary outcome variable, monthly province-level electricity
+consumption, is built from official provincial statistical bulletins
+rather than from any single consolidated national dataset, because no
+public monthly province-level panel with adequate coverage of the
+treated provinces is available off the shelf. Each bulletin reports
+the province-wide total social electricity consumption
+(\textit{quanshehui yongdianliang}) for a given month, released by
+the provincial Department of Industry and Information Technology or an
+equivalent provincial authority. The raw bulletins, their publication
+dates, titles, and resolved article URLs are stored in the repository
+so that every province-month observation has source-level provenance.
+
+Bulletins are collected province by province. The pipeline is a
+Python workflow that drives a real Chrome session through the
+DevTools Protocol, renders each bulletin page, and parses the article
+body with BeautifulSoup; a non-headless browser path is used because
+direct HTTP scraping and headless Chrome are blocked by the provincial
+portals' anti-bot layer. Availability is established empirically, one
+province at a time, rather than assigned in advance. Gansu is fully
+verified: the saved snapshot contains 72 discovered bulletin pages
+covering 2020-03 through 2026-02, and the rebuilt monthly panel has
+total social electricity consumption populated for all 72 months
+(71 from the original Gansu bulletin text and one, 2022-06, from a
+mirrored Tianshui government repost, because the saved original HTML
+has an empty article body). The wide structured output is stored at
+\texttt{03\_data/interim/gansu\_scrape/gansu\_panel\_rich.csv}.
+Collection for Ningxia, Guizhou, and Inner Mongolia, and for the
+untreated control provinces, is in progress and follows the same
+workflow.
+
+Every raw series is standardised to megawatt-hours, year-on-year
+percentage changes reported in the bulletins are reconciled against
+the levels, and duplicate or revised bulletins are resolved in favour
+of the most recent official version. A province enters the main panel
+only if at least 80\% of the study-window months are populated from
+primary bulletins; provinces below that threshold are either carried
+only in robustness checks or dropped, and mirrored reposts are flagged
+separately from primary sources.
 
 % ............................................................
 \subsubsection{CO\textsubscript{2} Emissions}
@@ -438,7 +906,42 @@ Carbon-per-Compute
 % REPO SUPPORT: src/carbon_monitor/build_monthly_panel.py
 % FULLY DRAFTABLE.
 
-[TO BE DRAFTED]
+The complementary environmental outcome, monthly province-level
+CO\textsubscript{2} emissions, is drawn from the Carbon Monitor China
+dataset \citep{liuetal-2020-carbonmonitornearrealtimea}. Carbon
+Monitor is a near-real-time, activity-based daily CO\textsubscript{2}
+dataset built from sector-resolved inputs (hourly to daily electricity
+generation, industrial production indices, daily mobility data, flight
+tracks, and temperature-corrected commercial and residential fuel use),
+extended to a sub-national Chinese panel covering all 31 provinces
+from 2019 onward. Using Carbon Monitor rather than national inventory
+totals keeps the emissions outcome at the monthly, province-level
+frequency the event-study design requires, and on the same timing
+grid as the electricity outcome. The consolidated Carbon Monitor China
+file provides daily province-sector records in million tonnes of
+CO\textsubscript{2} per day, separately by sector (power, industry,
+ground transport, aviation, residential), through 2025, covering the
+full pre-treatment and post-treatment window for the four treated
+provinces.
+
+Daily records are aggregated to province-month totals in tonnes by the
+repository script \texttt{src/carbon\_monitor/build\_monthly\_panel.py}.
+The script parses the raw CSV, converts reported values from millions
+of tonnes to tonnes, sums across all sectors within each
+province-month (with an optional sector filter retained for sectoral
+robustness runs), and writes a wide province-month panel keyed on the
+province code and the year-month string. Rows with missing province,
+date, or value fields and rows that fail date parsing are skipped and
+counted, so the acceptance log is reproducible. The total-emissions
+series enters the causal regressions as the complementary outcome and
+also enters provincial carbon intensity $\text{CI}_{p,t} =
+\text{CO}_{2,p,t} / \text{kWh}_{p,t}$, so that the intensity used in
+the compute translation is internally consistent with the estimated
+electricity and emissions responses. The sectoral disaggregation is
+not used in the main specification: it is reserved for robustness,
+where the power-sector series alone is used to check whether the
+estimated response is concentrated in the channel most directly tied
+to data-center load.
 
 % ............................................................
 \subsubsection{EDWC Treatment Timing}
@@ -450,7 +953,51 @@ Carbon-per-Compute
 %
 % REPO SUPPORT: edwc_treatment_dates.md
 
-[TO BE DRAFTED]
+Treatment timing is the hinge of the event-study design, so each
+province's go-live date is coded from a documented, official
+operational milestone rather than from the initial policy
+announcement or groundbreaking. EDWC was announced as a national
+program in February 2022, but the clusters covered here became
+operational at different dates, generating the staggered adoption
+structure the empirical design exploits. The coding rule takes the
+go-live month $E_p$ for province $p$ as the first month in which an
+official provincial or central source reports the relevant cluster as
+operating, using milestone verbs such as \textit{shangxian yunying},
+\textit{touyun}, or \textit{put into use}, rather than verbs reporting
+construction completion, acceptance, or planned trial operation. In
+monthly panels the treatment month is coded as the first day of the
+event month; in daily robustness specifications the exact day is
+retained when the source is precise, and otherwise month-level timing
+is used with adjacent windows as sensitivity checks.
+
+Baseline $T_0$ months are Ningxia 2023-02, Guizhou 2023-09, Gansu
+2024-06, and Inner Mongolia 2024-09. Ningxia is coded to February
+2023 on the basis of the official launch of the integrated EDWC
+computing-power service platform reported by provincial media and
+CCTV on 2023-02-24. Guizhou is coded to September 2023 on the basis
+of the SPIC Gui'an Data Center being reported in use that month by
+Xinhua-syndicated coverage, together with the NetEase Gui'an Data
+Center trial-operation target for the same month. Gansu is coded to
+June 2024, when the provincial government reported the Qingyang
+cluster as built and operating at roughly 15{,}000 standard racks and
+compute scale in excess of 10{,}000~P. Inner Mongolia is coded to
+September 2024, when the Jiuzhou Intelligent Computing Center in
+Horinger was reported completed and put into operation. Sichuan is
+held out of the treated set for reasons given in §3.1.
+
+These anchors are working dates, not locked final treatment dates;
+full province-by-province fact-checking is planned once the baseline
+electricity and CO\textsubscript{2} panels are ready for event-study
+work. Each province has at least one documented later milestone that
+serves as an alternative $T_0$ for robustness: for Ningxia, the
+2023-07 completion and imminent operation of China Telecom Ningxia
+Data Center Phase I; for Guizhou, the 2024-06 completion of the full
+Beijing-to-Gui'an data-center migration; for Gansu, the 2024-12 and
+2025-01 scale-up reports on the Qingyang cluster; for Inner Mongolia,
+the 2025-05 launch of the Horinger multi-cloud computing-power
+monitoring and dispatch platform. The main results are re-estimated
+on each of these alternative anchors so that any sensitivity to the
+exact coded go-live month is transparent.
 
 % ............................................................
 \subsubsection{Weather Controls and Other Inputs}
@@ -460,7 +1007,46 @@ Carbon-per-Compute
 %
 % REPO SUPPORT: caict_series_map.md
 
-[TO BE DRAFTED]
+Beyond the outcome and treatment series, the empirical design uses
+two further groups of province-month inputs: climate and calendar
+controls that absorb weather-driven and calendar-driven variation in
+electricity demand, and CAICT compute indices used for province
+benchmarking, heterogeneity splits, and donor-pool selection for the
+supplementary synthetic control on Gansu.
+
+Cooling and heating degree days ($\text{CDD}_{p,t}$,
+$\text{HDD}_{p,t}$) and monthly precipitation $\text{Precip}_{p,t}$
+enter the event-study specification as controls. Degree days are
+constructed from daily station-level mean temperatures relative to a
+fixed base and summed within each province-month; precipitation is a
+monthly total in millimetres. The working source is the China
+Meteorological Administration station network aggregated to
+province-month totals with population or load weights, with ERA5
+reanalysis retained as a fallback for provinces whose station coverage
+is sparse. These series are not yet collected; the construction will
+be locked before the baseline estimates are produced, so that the
+main specification and its robustness variants use a single climate
+panel. A province-month holiday indicator, built from the annual
+State Council holiday notice, captures Spring Festival and other
+national holidays that shift industrial load and whose timing moves
+across calendar months; used together with province and calendar-month
+fixed effects, its role is to absorb within-year holiday displacement
+rather than to identify holiday effects in isolation.
+
+The CAICT comprehensive compute evaluation, in its 2022 and 2023
+editions (\textit{zonghe suanli}), provides province-level indices on
+four dimensions: compute capacity in exaflops on an FP32 reference,
+storage in exabytes, network quality, and environmental indicators
+such as PUE and green energy share. These indices are not used as
+regressors in the causal design. They are used for three auxiliary
+purposes: assigning treated and control provinces to compute tiers for
+heterogeneity reporting, selecting a donor pool of provinces with
+similar compute environments for the supplementary synthetic control
+on Gansu, and providing cross-sectional context for
+carbon-per-compute comparisons in the second research question.
+Cross-edition comparisons stay within the comprehensive-compute
+framework rather than mixing it with the broader compute development
+index, because the two frameworks differ methodologically.
 
 
 % ------------------------------------------------------------
@@ -485,7 +1071,67 @@ Carbon-per-Compute
 % REPO SUPPORT: EDWC_Gansu_EventStudy S5.1; global_plan S5.1
 % FULLY DRAFTABLE.
 
-[TO BE DRAFTED]
+The first research question is identified from the staggered go-live
+of EDWC clusters across the four treated provinces. Ningxia, Guizhou,
+Gansu, and Inner Mongolia enter treatment in four different months
+between early 2023 and late 2024, while the remaining provinces are
+untreated over the study window. This variation in adoption timing,
+rather than a single pre-post contrast, is what the design exploits.
+
+The main estimator is the cohort-interacted event study of
+\citet{sunabraham-2021-estimatingdynamictreatmenta}. For each cohort
+$E_p$ and each event time $\ell$ it estimates the cohort-average
+treatment effect $\text{CATT}_{E_p, \ell}$ by comparing the cohort to
+units that are not yet treated or never treated, and then aggregates
+these cohort-specific effects into the event-time path reported in
+the results. The choice of a staggered-robust estimator is not
+discretionary. A standard two-way fixed effects regression with leads
+and lags is unsafe in this kind of heterogeneous, staggered setting:
+\citet{goodman-bacon-2021-differenceindifferencesvariationtreatmenta}
+shows that the pooled TWFE estimator is a weighted average of all
+possible two-group, two-period comparisons, including comparisons
+that use already-treated cohorts as controls for later-treated
+cohorts; \citet{dechaisemartindhaultfoeuille-2020-twowayfixedeffects}
+shows that under heterogeneous effects these weights can be negative,
+so the pooled coefficient can be misleading even in sign; and
+\citet{sunabraham-2021-estimatingdynamictreatmenta} shows that
+dynamic TWFE specifications produce coefficients on a given event
+time that are contaminated by effects from other event times, so
+apparent pre-trends can arise purely from treatment-effect
+heterogeneity.
+
+Two assumptions support a causal reading of the estimated event-time
+path. The first is conditional parallel trends: absent EDWC, treated
+provinces and their not-yet-treated or never-treated comparisons
+would have followed the same outcome trajectory, possibly after
+conditioning on the observed controls. The second is no anticipation:
+the outcome in treated provinces is not affected by the EDWC go-live
+in months before it occurs. Both are probed empirically. Parallel
+trends is assessed with event-time pre-coefficients ($\ell < 0$),
+where a flat, jointly insignificant pre-trajectory is consistent with
+the assumption; no anticipation is assessed by inspecting the
+coefficients in the months immediately before $\ell = 0$ and by
+re-estimating the model with placebo go-live months shifted into the
+pre-period. The comparison pool for each cohort is formed from
+provinces that are not yet treated at that event time and provinces
+that remain untreated throughout the window, with Sichuan held out
+of the treated set for the reasons given in §3.1. Province fixed
+effects absorb time-invariant heterogeneity in levels; calendar-month
+fixed effects absorb common seasonality and aggregate shocks shared
+across provinces; the climate and holiday controls defined in §3.3.4
+absorb weather-driven and calendar-driven variation in electricity
+demand that is not tied to EDWC.
+
+The multi-period
+\citet{callawaysantanna-2021-differenceindifferencesmultipletimea}
+estimator, which identifies group-time average treatment effects
+under conditional parallel trends and aggregates them into event-time
+paths, is reported alongside the main specification. Consistent signs,
+magnitudes, and pre-trend diagnostics across the two families are
+treated as supportive evidence; systematic divergence is flagged and
+discussed. Additional robustness checks on the sample, the event
+window, the coded go-live month, and the treatment of never-treated
+versus not-yet-treated comparisons are detailed in §3.4.4.
 
 % ............................................................
 \subsubsection{Event-Study Model Specification}
@@ -521,10 +1167,86 @@ Y_{p,t} = \alpha_p + \delta_t
 % [Insert discussion of event window, binning, clustering]
 % [Insert note on Sun--Abraham aggregation procedure]
 
-[TO BE DRAFTED]
+Equation~\eqref{eq:event_study} is the operational form of the
+cohort-interacted event study. It is estimated separately on each of
+the two outcomes, following the template for event-study presentation
+used in applied electricity work
+\citep{deryuginaetal-2020-longrundynamicselectricity}.
+
+\begin{itemize}
+  \item \textbf{Variables in the equation.} $Y_{p,t}$ is the monthly
+        outcome for province $p$ in calendar month $t$. Electricity
+        enters in logs and CO\textsubscript{2} in levels, and the
+        two are estimated in separate runs so that coefficients are
+        reported in their native scale without forcing a common
+        functional form. $E_p$ is the go-live month for treated
+        province $p$ (see §3.3.3); event time is
+        $\ell = t - E_p$, and the interaction
+        $\mathbb{1}\{t - E_p = \ell\} \cdot
+        \mathbb{1}\{p \in \mathcal{G}\}$ turns on in treated month
+        $t$ for treated province $p$. The event time $\ell = -1$ is
+        omitted as the reference period, so every reported
+        $\beta_\ell$ is relative to the month immediately before
+        go-live. $\alpha_p$ is a province fixed effect and $\delta_t$
+        is a calendar-month fixed effect;
+        $\mathbf{X}_{p,t}$ collects the climate and holiday controls
+        defined in §3.3.4.
+
+  \item \textbf{Event window and binning.} The baseline event window
+        is $\ell \in [-12, +18]$ months, which gives at least a
+        calendar year of pre-treatment observations for every cohort
+        and extends post-treatment out to the full post-window
+        currently available for the earliest-treated cohort. Event
+        times outside this window are bin-pooled into $\ell \leq -13$
+        and $\ell \geq +19$ endpoint indicators rather than dropped,
+        so that observations outside the reported window still
+        contribute to the fixed effects without distorting the event
+        time path. The reported coefficients are those inside the
+        window; the bin indicators are included as nuisance terms.
+
+  \item \textbf{Sun--Abraham aggregation.} Under
+        \citet{sunabraham-2021-estimatingdynamictreatmenta} the
+        cohort-average treatment effects at each event time $\ell$,
+        $\text{CATT}_{E_p,\ell}$, are estimated from
+        cohort-interacted regressions that replace the single
+        $\beta_\ell$ with cohort-specific event-time indicators.
+        These $\text{CATT}_{E_p,\ell}$ are then aggregated into the
+        reported $\beta_\ell$ using cohort-share weights, with
+        comparisons restricted to not-yet-treated and never-treated
+        units. This aggregation procedure is what delivers a
+        contamination-free event-time path in the staggered setting
+        described in §3.4.1.
+
+  \item \textbf{Inference.} Standard errors $\varepsilon_{p,t}$ are
+        clustered by province, which is the level at which treatment
+        is assigned. Province clustering accommodates arbitrary
+        serial correlation within a province and is the most
+        conservative choice given the small number of treated units.
+        Because the number of clusters is modest, wild-cluster
+        bootstrap p-values are reported alongside the asymptotic
+        standard errors for the event-time coefficients.
+
+  \item \textbf{Diagnostics and alternative estimator.} The
+        event-time path is reported as a figure with point estimates
+        and confidence intervals at each $\ell$, together with a
+        pre-trend test on the joint significance of the
+        pre-coefficients ($\ell \in [-12, -2]$) and a placebo
+        exercise that shifts $E_p$ into the pre-period. The
+        imputation estimator of
+        \citet{borusyaketal-2024-revisitingeventstudydesigns}, which
+        recovers each event-time coefficient by imputing untreated
+        potential outcomes from the fitted fixed-effects model on
+        untreated observations only, is reported as an additional
+        specification. Agreement across the Sun--Abraham main
+        estimator, the \citet{callawaysantanna-2021-differenceindifferencesmultipletimea}
+        estimator of §3.4.1, and the
+        \citet{borusyaketal-2024-revisitingeventstudydesigns}
+        imputation estimator is treated as evidence that the result
+        is not an artefact of a particular estimator.
+\end{itemize}
 
 % ............................................................
-\subsubsection{Compute Translation Framework (RQ2)}
+\subsubsection{Carbon-per-Compute Translation Framework}
 % PURPOSE: Present the CPC framework as the translation layer
 % that operationalizes RQ2, downstream from RQ1.
 %
@@ -564,7 +1286,118 @@ Y_{p,t} = \alpha_p + \delta_t
 % DO NOT OVERCLAIM: CPC is a method, not a result. Call it a
 % "transparent proxy" or "reproducible approximation."
 
-[TO BE DRAFTED]
+The second research question is operationalised through
+carbon-per-compute (CPC), defined in Equation~\eqref{eq:cpc}. CPC is
+an accounting construct built from three observable or benchmark
+inputs: provincial carbon intensity $\text{CI}_{p,t}$ in
+tCO\textsubscript{2} per MWh, facility power usage effectiveness
+$\text{PUE}_{p,t}$, and an AI-equivalent hardware efficiency series
+$\text{GF/W}_{\text{AI,China}}(t)$ in GFLOPS per watt. The framework is
+presented as a transparent, reproducible approximation rather than as
+an estimator of a single true carbon cost of compute in China. Its
+purpose is to translate the reduced-form electricity and emissions
+responses recovered by the event study into compute-relevant units
+that can be compared across provinces and over time.
+
+\begin{itemize}
+  \item \textbf{CPC definition and interpretation.} CPC multiplies
+        the carbon content of a unit of grid electricity
+        ($\text{CI}_{p,t}$) by the site overhead that separates IT
+        energy from total facility energy ($\text{PUE}_{p,t}$), and
+        divides by the AI-equivalent energy productivity of current
+        hardware. The result is tCO\textsubscript{2} per exaflop-hour,
+        an intensive metric that tracks the carbon cost of running
+        compute, not the volume of compute
+        \citep{guptaetal-2022-chasingcarbonelusive,
+        radovanovicetal-2023-carbonawarecomputingdatacenters}. CPC
+        can fall because the grid decarbonises, because facilities
+        become more efficient, or because hardware improves; the
+        three channels are kept separate by construction so that each
+        contribution is visible.
+
+  \item \textbf{Carbon intensity input.} Provincial carbon intensity
+        is built from the two outcome series used in the event study,
+        as $\text{CI}_{p,t} = \text{CO}_{2,p,t} / \text{kWh}_{p,t}$,
+        so that the intensity feeding the translation is internally
+        consistent with the estimated responses
+        \citep{shanetal-2016-newprovincialco2}. A second CI
+        construction from the provincial power mix and standard
+        emission factors is retained for scenario work, in particular
+        for counterfactual paths in which the pre-EDWC mix is held
+        fixed.
+
+  \item \textbf{PUE input.} Facility power usage effectiveness
+        follows the Green Grid definition of site energy over IT
+        energy \citep{thegreengrid-2012-puecomprehensiveexamination}.
+        $\text{PUE}_{p,t}$ is specified as a province-month
+        trajectory anchored to CAICT national averages, with EDWC
+        provinces converging toward the hub target of roughly 1.3 by
+        2025 and uncertainty bands of $\pm 0.1$ to $\pm 0.2$
+        \citep{chinaacademyofinformationandcommunicationstechnologyhoringernewarea-2024-zhongguolusesuanlifazhanyanjiubaogao2024nian}.
+        Targets are treated as targets, not as realised outcomes;
+        sensitivity to the PUE path is reported alongside the central
+        values.
+
+  \item \textbf{AI-equivalent efficiency series.} The hardware
+        efficiency series $\text{GF/W}_{\text{AI,China}}(t)$ is
+        constructed in the two layers written in
+        Equation~\eqref{eq:gfw}. The global layer starts from the
+        Green500 HPL FP64 frontier, measured under the standard
+        methodology of the Energy Efficient High Performance Computing
+        Working Group
+        \citep{energyefficienthighperformancecomputingworkinggroup-2015-energyefficienthigh},
+        multiplies it by the HPL-MxP mixed-precision speedup
+        \citep{dongarraluszczek-2026-hplmxpbenchmarkmixedprecision}
+        to move from FP64 to AI-like mixed-precision workloads, and
+        applies a utilisation realism factor
+        $\kappa_{\text{global}} = 0.5$ consistent with reported
+        large-scale model FLOPs utilisation in the 40\% to 60\% range
+        \citep{fernandezetal-2025-efficienthardwarescaling}. The
+        China-specific layer applies an interconnect haircut
+        $\chi_{\text{CN}}(t) = (1 - \lambda) + \lambda \, \beta(t)$,
+        where $\beta(t)$ is the ratio of export-control-compliant to
+        reference-SKU GPU bandwidth (about 0.667 for A800 in
+        2022-11 to 2023-10 and about 0.444 for H800 from 2023-11
+        onward) and $\lambda \approx 0.4$ is the communication-bound
+        share of workload execution.
+
+  \item \textbf{Translation from causal estimates to compute.} The
+        translation takes the event-study estimates
+        $\overline{\Delta\text{MWh}}_{p}$ and
+        $\overline{\Delta\text{CO}_{2}}_{p}$ and maps them into
+        additional compute in three views. The energy-based view
+        introduces $\theta \in [0,1]$, the data-center share of the
+        additional MWh, and reports
+        $\Delta\text{EF}\cdot\text{h} = \theta \,
+        \overline{\Delta\text{MWh}}_{p} / e^{\text{Site}}_{p,\text{post}}$;
+        it is robust to changes in CI. The emissions-compatible view
+        reports the compute consistent with the estimated emissions
+        response at the post-treatment CPC, in a net variant that uses
+        the observed CI and a gross variant that holds CI at its
+        pre-treatment value. The emissions-offset index
+        $\text{Offset}_{p} = 1 -
+        \overline{\Delta\text{CO}_2}_{p} / \Delta\text{CO}_2^{\text{volume}}_{p}$
+        summarises, for each province, the share of the load-induced
+        potential emissions that is absorbed by a cleaner generation
+        mix. All three views are presented as accounting relationships
+        between the causal estimates and compute, not as separate
+        causal identifications.
+
+  \item \textbf{Uncertainty.} The translation is run as a Monte Carlo
+        over the parameters that enter CPC and the compute scenarios:
+        $s_{\text{mxp}}(t)$, $\kappa_{\text{global}}$, $\lambda$,
+        $\text{PUE}_{p,t}$, and $\text{CI}_{p,t}$. Simple uniform or
+        triangular distributions are specified for each parameter,
+        realisations of $\text{GF/W}_{\text{AI,China}}(t)$,
+        $e^{\text{Site}}_{p,t}$, and $\text{CPC}_{p,t}$ are drawn and
+        propagated through the three translation views, and results
+        are reported as P10 to P90 bands with the median rather than
+        as single point estimates. The event-study coefficients
+        themselves enter the Monte Carlo through their estimated
+        sampling distribution, so the reported bands combine parameter
+        uncertainty in the compute bridge with sampling uncertainty
+        in the causal estimates.
+\end{itemize}
 
 % ............................................................
 \subsubsection{Robustness and Heterogeneity}
@@ -701,8 +1534,8 @@ Y_{p,t} = \alpha_p + \delta_t
 
 \section*{References}
 
-% \bibliographystyle{apalike}
-% \bibliography{references}
+\bibliographystyle{apalike}
+\bibliography{references}
 
 
 \end{document}
