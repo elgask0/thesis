@@ -26,13 +26,19 @@ IMPORT_MONTHLY_PATTERNS = [
 IMPORT_YTD_PATTERNS = [
     re.compile(rf"1-(?P<month>\d{{1,2}})月[，,:：]?(?:预计)?全省累计(?:外购电量|购入电量){NAMED_NUMBER}亿千瓦时"),
 ]
+GENERATION_TOTAL_MONTHLY_PATTERNS = [
+    re.compile(rf"(?:(?P<month>\d{{1,2}})月(?:当月)?)[，,:：]?全省完成发电量{NAMED_NUMBER}亿千瓦时"),
+]
+GENERATION_TOTAL_YTD_PATTERNS = [
+    re.compile(rf"1-(?P<month>\d{{1,2}})月[，,:：]?全省完成发电量{NAMED_NUMBER}亿千瓦时"),
+]
 
 
 SECTOR_LABELS = {
     "primary": ["第一产业用电量"],
     "secondary": ["第二产业用电量"],
     "tertiary": ["第三产业用电量"],
-    "residential": ["城乡居民生活用电量", "居民生活用电量"],
+    "residential": ["城乡居民生活用电量", "城乡居民用电量", "居民生活用电量"],
 }
 
 INDUSTRY_YTD_LABELS = {
@@ -56,7 +62,7 @@ INDUSTRIAL_SUBSECTOR_LABELS = {
     "aluminum": ["铝冶炼用电"],
     "ferrous": ["黑色金属冶炼和压延加工业用电"],
     "ferroalloy": ["铁合金冶炼用电"],
-    "steel": ["钢铁用电"],
+    "steel": ["钢铁用电", "钢铁冶炼用电"],
     "chemical": ["化学原料和化学制品制造业用电"],
     "calcium_carbide": ["电石"],
     "nonmetal_mineral": ["非金属矿物制品业用电"],
@@ -66,10 +72,10 @@ INDUSTRIAL_SUBSECTOR_LABELS = {
 
 CAPACITY_LABELS = {
     "total": ["发电装机容量", "装机容量"],
-    "hydro": ["水电"],
-    "thermal": ["火电"],
-    "wind": ["风电"],
-    "solar": ["太阳能", "光伏发电"],
+    "hydro": ["水电装机", "水电"],
+    "thermal": ["火电装机", "火电"],
+    "wind": ["风电装机", "风电"],
+    "solar": ["光伏发电装机", "光伏装机", "太阳能发电装机", "太阳能", "光伏发电"],
     "storage": ["储能"],
     "biomass": ["生物质"],
 }
@@ -147,13 +153,23 @@ def extract_metric(patterns: list[re.Pattern[str]], text: str) -> float | None:
 
 
 def extract_repeated_values(section: str, labels: list[str], unit: str) -> list[float]:
-    values: list[float] = []
+    matches: list[tuple[int, int, float]] = []
     for label in labels:
         pattern = re.compile(re.escape(label) + NUMBER + re.escape(unit))
-        matches = [float(match.group(1)) for match in pattern.finditer(section)]
-        if matches:
-            values = matches
-            break
+        for match in pattern.finditer(section):
+            matches.append((match.start(), match.end(), float(match.group(1))))
+
+    if not matches:
+        return []
+
+    matches.sort(key=lambda item: (item[0], -(item[1] - item[0])))
+    values: list[float] = []
+    accepted_ranges: list[tuple[int, int]] = []
+    for start, end, value in matches:
+        if any(start < accepted_end and end > accepted_start for accepted_start, accepted_end in accepted_ranges):
+            continue
+        accepted_ranges.append((start, end))
+        values.append(value)
     return values
 
 
@@ -221,7 +237,7 @@ def derive_sections(text: str) -> dict[str, str]:
     sector = extract_section(text, ["分产业用电"], ["分行业用电"])
     industry = extract_section(text, ["分行业用电"], ["3.工业用电", "3、工业用电", "二、全省发电情况"])
     industrial = extract_section(text, ["3.工业用电", "3、工业用电"], ["二、全省发电情况"])
-    generation_block = extract_section(text, ["二、全省发电情况"], [])
+    generation_block = extract_section(text, ["二、全省发电情况", "二、全省发电设备情况"], [])
     capacity = extract_section(generation_block, ["1.发电装机规模", "1、发电装机规模", "1.装机规模", "1、装机规模"], ["2.发电量", "2、发电量"])
     generation = extract_section(generation_block, ["2.发电量", "2、发电量"], ["3.平均发电利用小时", "3、平均发电利用小时"])
     utilization = extract_section(generation_block, ["3.平均发电利用小时", "3、平均发电利用小时"], [])
@@ -260,7 +276,18 @@ def build_row(base_row: dict[str, str], parsed: dict[str, object]) -> dict[str, 
     row.update(extract_industry_ytd_values(sections["industry"]))
     row.update(extract_industrial_subsector_values(sections["industrial"]))
     row.update(extract_capacity_values(sections["capacity"]))
-    row.update(extract_generation_values(sections["generation"]))
+    generation_values = extract_generation_values(sections["generation"])
+    if generation_values["generation_total_monthly_100m_kwh"] is None:
+        generation_values["generation_total_monthly_100m_kwh"] = extract_metric(
+            GENERATION_TOTAL_MONTHLY_PATTERNS,
+            sections["intro"],
+        )
+    if generation_values["generation_total_ytd_100m_kwh"] is None:
+        generation_values["generation_total_ytd_100m_kwh"] = extract_metric(
+            GENERATION_TOTAL_YTD_PATTERNS,
+            sections["intro"],
+        )
+    row.update(generation_values)
     row.update(extract_utilization_values(sections["utilization"]))
 
     return row

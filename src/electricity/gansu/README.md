@@ -88,8 +88,10 @@ The live Gansu scrape currently yields:
 
 - `72` discovered bulletin pages
 - coverage from `2020-03` through `2026-02`
-- `71` months with parsed monthly total electricity consumption
-- `1` remaining gap at `2022-06`, where the article body is empty in the saved page HTML and the search result summary is also empty
+- `72` months with parsed monthly total electricity consumption
+- `71` months parsed directly from the original Gansu article text
+- `1` source-level exception at `2022-06`, where the original Gansu page renders an empty article body and the canonical panel uses a mirrored Tianshui government repost instead
+- a reproducible validation summary at `03_data/interim/gansu_scrape/gansu_validation_report.md`
 
 ## Notes
 
@@ -99,3 +101,4 @@ The live Gansu scrape currently yields:
 - Headless Chrome CDP still returned empty HTML, so the working Chrome path is currently non-headless.
 - Run these scripts from the `edwc-thesis` conda environment.
 - A Safari fallback engine remains available, but Chrome is now the default recommended engine for Gansu.
+- Some `articles/` files still have long `https-...` names. These are legacy alias artifacts from an older URL-sanitized naming scheme; the canonical panel now points to the shorter slug-based files.

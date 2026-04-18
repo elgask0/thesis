@@ -39,7 +39,9 @@ Working note for the electricity bulletin collection and extraction process used
 - For Gansu, the current practical script stack is: Python -> Chrome DevTools Protocol -> rendered page HTML -> Beautiful Soup parser.
 - Selenium and plain headless Chrome both failed on the live site, while a persistent real Chrome session worked for both discovery and article extraction.
 - The current Gansu discovery scrape found `72` bulletin pages covering `2020-03` through `2026-02`.
-- The current rebuilt Gansu panel has `71` months with parsed monthly total electricity consumption and one remaining gap at `2022-06`, where both the article body and the search summary are empty in the saved source.
+- The current rebuilt Gansu panel has `72` months with monthly total electricity consumption populated.
+- `71` months come from the original Gansu article text and `1` month (`2022-06`) comes from a mirrored Tianshui government repost because the saved original Gansu HTML has an empty article body block.
+- The current rich-panel and source-validation summary live at `03_data/interim/gansu_scrape/gansu_panel_rich.csv`, `03_data/interim/gansu_scrape/gansu_panel_rich_coverage.csv`, and `03_data/interim/gansu_scrape/gansu_validation_report.md`.
 
 ## Related Notes
 

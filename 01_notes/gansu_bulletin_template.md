@@ -17,6 +17,28 @@ Working note for the structure of the Gansu monthly electricity bulletins after 
   `03_data/interim/gansu_scrape/gansu_panel_rich.csv`
 - Field coverage summary:
   `03_data/interim/gansu_scrape/gansu_panel_rich_coverage.csv`
+- Validation report:
+  `03_data/interim/gansu_scrape/gansu_validation_report.md`
+
+## Data Validation Snapshot
+
+- The canonical monthly panel is internally complete from `2020-03` through `2026-02` with no missing months and no duplicate `year_month` rows.
+- Title month labels match the panel month labels for all `72` rows.
+- From `2020-04` onward, monthly total electricity consumption matches the month-to-month YTD difference exactly within the saved panel.
+- Monthly sector sums match the reported monthly total in every month where all four sector values are present.
+- The `2022-06` month is now validated from a mirrored government repost rather than a derived neighbor-YTD fill.
+- Some `articles/` JSON files still appear twice, once with a short slug and once with a long `https-...` slug. These are legacy filename aliases, not distinct sources.
+
+## Source-Level Omissions In The Rich Panel
+
+- `2023-01` omits the residential monthly detail in the saved source text, so `residential_monthly_kwh_100m` is blank for that month.
+- `2023-03` reports total generation in the intro and installed capacity in the power-system section, but omits the usual source-by-source generation breakdown and therefore leaves the source-specific generation components blank.
+- January bulletins generally do not restate cumulative sector and generation subcomponents explicitly, so January YTD coverage is thinner for those auxiliary fields than for the headline total series.
+
+## Generation Residual Note
+
+- From `2024-06` onward, `19` bulletins report total generation values that are slightly larger than the sum of the explicitly listed source subtotals.
+- Treat these as source-level publication residuals for now rather than parser failures; they likely reflect unreported residual categories or source rounding conventions.
 
 ## Template Regimes
 
@@ -123,8 +145,10 @@ It usually includes:
 - Canonical Gansu article URL:
   `https://gxt.gansu.gov.cn/gxt/c107572/202207/2081569.shtml`
 - Saved Gansu page issue:
-  the article body block is empty in the saved HTML
+  the article body block is empty in the saved HTML (`<div class="nr-003"> ... <!--Content Start--> <!--Content End--> ... </div>`)
 - Alternate government repost used for validation and extraction:
   `https://www.tianshui.gov.cn/gxj/info/1682/33692.htm`
+- Canonical panel method label:
+  `mirror_article_text`
 
 This month should be treated as a source-level exception, not as evidence that the extraction logic is broadly unstable.
